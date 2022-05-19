@@ -14,5 +14,5 @@
 //#define USE_HAL_DRIVER
           #define USE_FULL_LL_DRIVER
 
-#undef USE_HAL_DRIVER
+
 #endif /* PRE_INCLUDE_GLOBAL_H */
