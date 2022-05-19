@@ -388,6 +388,21 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
+            <File>
+              <FileName>clock_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\clock_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\gpio_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\gpio_config.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
