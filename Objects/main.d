@@ -12,5 +12,6 @@
 .\objects\main.o: gpio_config.h
 .\objects\main.o: sysTick_timer_config.h
 .\objects\main.o: clock_config.h
+.\objects\main.o: esp8266_driver.h
 .\objects\main.o: uart_config.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

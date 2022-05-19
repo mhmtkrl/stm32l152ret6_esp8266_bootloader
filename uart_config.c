@@ -62,6 +62,8 @@ void UARTBluetoothSend(char packet[]) {
 }
 
 
+
+
 /*
 This function for USART2 that is used for debugging
 The USART2 interface available on PA2 and PA3 of the STM32 microcontroller can be connected to ST-LINK MCU.
