@@ -28,9 +28,13 @@ Project File Date:  05/19/2022
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling main.c...
+compiling uart_config.c...
+uart_config.c(151): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  			UARTDebugSend(receivedDebugPacketToDebug);
+uart_config.c: 1 warning, 0 errors
 linking...
-Program Size: Code=636 RO-data=324 RW-data=20 ZI-data=1636  
-".\Objects\FOTA_WIFI_NUCLEO.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=1456 RO-data=324 RW-data=264 ZI-data=2720  
+".\Objects\FOTA_WIFI_NUCLEO.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
