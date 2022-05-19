@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Wifi_Bootloader' 
+ * Project: 'FOTA_ESP8266' 
  * Target:  'Target 1' 
  */
 

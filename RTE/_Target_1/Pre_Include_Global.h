@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Wifi_Bootloader' 
+ * Project: 'FOTA_ESP8266' 
  * Target:  'Target 1' 
  */
 
@@ -11,8 +11,8 @@
 #define PRE_INCLUDE_GLOBAL_H
 
 /* Keil.Standalone::Device:Startup:1.10.3 */
-#define USE_HAL_DRIVER
-          #define USE_FULL_LL_DRIVER
+//#define USE_HAL_DRIVER
+         // #define USE_FULL_LL_DRIVER
 
 
 #endif /* PRE_INCLUDE_GLOBAL_H */
