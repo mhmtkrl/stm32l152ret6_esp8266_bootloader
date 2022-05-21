@@ -9,7 +9,7 @@ with open ("raw_text", 'rb') as f:
     byte = f.read()
 
 print('Length: ', len(byte))
-blockLength = int(len(byte) / 8)+1
+blockLength = int(len(byte) / 4)+1
 print('Block Length: ', blockLength)
 i = 0
 

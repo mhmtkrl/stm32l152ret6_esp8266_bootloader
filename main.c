@@ -59,6 +59,8 @@ int main() {
 	
 	
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x100);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x200);
 
 /*
 	UARTESP8266Send("AT+CIPCLOSE\r\n");
@@ -75,7 +77,7 @@ int main() {
 		if(getData) {
 		//	UARTDebugSend(pkt);
 			
-			delayMS(100);
+			delayMS(50);
 			ptr = strchr(pkt, ':');
 			
 			sprintf(msg, "\r#%i. Received Packet: %s", packetCounter, ptr_pos);
@@ -83,11 +85,8 @@ int main() {
 
 			for(j = 0 ; j < 4 ; j++) {
 				ptr_pos[j] = *(ptr + j + 1);
-				myData = (uint32_t)ptr_pos[j];
-				
 				sprintf(msg, "\r-->@0x%X = 0x%X", (0x08008000 + j), (uint32_t)ptr_pos[j]);
 		    UARTDebugSend(msg);
-				
 			}
 			program_Memory_Fast_Word_Write((APPLICATION_FIRMWARE_BASE_ADDRESS + adr), ((ptr_pos[3] << 24) | (ptr_pos[2] << 16) | (ptr_pos[1] << 8) | (ptr_pos[0] << 0)));
 			adr += 4;
@@ -99,7 +98,6 @@ int main() {
 			}
 			pktAdr = 0;
 			sprintf(udp, "%c", transferContiune);
-			delayMS(100);
 			pktAdr = sendUDPpacket(udp);
 			packetCounter++;
 		}
