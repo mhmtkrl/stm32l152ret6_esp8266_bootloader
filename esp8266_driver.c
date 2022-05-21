@@ -35,6 +35,17 @@ int estaplishUDPsoket(char IPd[], int dIP, int lIP, char *response, char *check)
 	return 0;
 }
 
+int sendUDPChar(char pkt) {
+	char tcpPkt[128];
+	
+	sprintf(tcpPkt, "AT+CIPSEND=1\r\n");
+	UARTESP8266Send(tcpPkt);
+	delayMS(100);
+	while(!(USART3->SR & (1ul << 6)));
+	USART3->DR = pkt;
+	return 0;
+}
+
 int sendUDPpacket(char *pkt) {
 	char msg[128];
 	char tcpPkt[128];

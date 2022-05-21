@@ -51,6 +51,7 @@ void USART3_IRQHandler() {
 
 int main() {
 	//BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
+	
 	InitSysTickTimerInMiliseconds(1, (uint32_t)CLOCK_FREQ);
 	InitUARTforDebug();
 	InitUARTforESP8266();
@@ -58,7 +59,7 @@ int main() {
 	clearEntireScreen();
 	UARTDebugSend(txt);
 	
-	/*
+	
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE);
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x100);
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x200);
@@ -68,13 +69,11 @@ int main() {
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x600);
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x700);
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x800);
-	*/
 	
-
-	sprintf(udp, "%c", transferStart);
-  sendUDPpacket(udp);
 	
-			
+	sendUDPChar(transferStart);
+	delayMS(10);
+	//BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
 	
 	while(1) {
 		if(getData) {
@@ -87,7 +86,7 @@ int main() {
 
 			for(j = 0 ; j < 4 ; j++) {
 				ptr_pos[j] = *(ptr + j + 1);
-				sprintf(msg, "\r-->@0x%X = 0x%X", (0x08008000 + j), (uint32_t)ptr_pos[j]);
+				sprintf(msg, "\r-->@0x%X = 0x%X", (0x08008000 + adr + j), (uint32_t)ptr_pos[j]);
 		    UARTDebugSend(msg);
 			}
 			program_Memory_Fast_Word_Write((APPLICATION_FIRMWARE_BASE_ADDRESS + adr), ((ptr_pos[3] << 24) | (ptr_pos[2] << 16) | (ptr_pos[1] << 8) | (ptr_pos[0] << 0)));
@@ -98,10 +97,11 @@ int main() {
 				pkt[j] = '\0';
 			}
 			pktAdr = 0;
-			sprintf(udp, "%c", transferContiune);
-			pktAdr = sendUDPpacket(udp);
+	
+			sendUDPChar(transferContiune);
 			
-			if(packetCounter >= 337) {
+			if(packetCounter >= 335) {
+				delayMS(100);
 				locking_Program_Memory();
 				BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
 			}

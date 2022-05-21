@@ -52,7 +52,7 @@ while True:
                 print('Fail!', "\n")
                 break
             
-            time.sleep(0.01)
+            time.sleep(0.005)
     else:
         print('Transfer can not start!', "\n")
     end = time.time()
