@@ -8,10 +8,11 @@ int sendCommandToEsp8266(char *cmd, char *response, char *check) {
 	char *ptr;
 	GPIOD->ODR &= ~(1ul << 12);
 	ptr=NULL;
+	GPIOD->ODR |= 1ul << 15;
+			UARTBluetoothSend(cmd);
 		while(ptr == NULL) {
 			ptr = NULL;
-			GPIOD->ODR |= 1ul << 15;
-			UARTBluetoothSend(cmd);
+			
 //			delayMs(800);
 			ptr = strstr(response, check);
 //			if(strstr(response, "\r\n+IPD")) {

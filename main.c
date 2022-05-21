@@ -31,14 +31,15 @@ int main() {
 	InitUARTforDebug();
 	InitUARTforBluetooth();
 	InitUserLED();
-	
+	clearEntireScreen();
 	UARTDebugSend(txt);
 
 	
 	
 	
 	while(1) {
-		UARTBluetoothSend("AT\r\n");
+		//UARTBluetoothSend("AT\r\n");
+		sendCommandToEsp8266("AT\r\n", pkt, "\r\nOK\r\n");
 		
 		OnUserLED();
 		delayMS(1000);

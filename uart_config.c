@@ -158,3 +158,7 @@ void USART2_IRQHandler(void) {
 	}
 }
 
+void clearEntireScreen(void) {
+	uint8_t clearCmd[4] = {0x1B, 0x5B, 0x32, 0x4A};
+	UARTDebugSend(clearCmd);
+}

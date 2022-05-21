@@ -25,3 +25,4 @@ void InitUARTforBluetooth(void);
 void UARTBluetoothSend(char packet[]);
 void InitUARTforDebug(void);
 void UARTDebugSend(uint8_t packet[64]);
+void clearEntireScreen(void);
