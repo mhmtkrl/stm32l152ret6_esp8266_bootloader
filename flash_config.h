@@ -15,3 +15,4 @@ uint8_t unlocking_Option_Byte_Block(void);
 void locking_Program_Memory(void);
 uint8_t unlocking_Program_Memory(void);
 uint8_t unlocking_Flash_PECR_Register(void);
+void eraseApplicationCodeArea(void);

@@ -14,3 +14,4 @@
 .\objects\flash_config.o: clock_config.h
 .\objects\flash_config.o: uart_config.h
 .\objects\flash_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\flash_config.o: program_memory.h

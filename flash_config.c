@@ -1,6 +1,7 @@
 #include "flash_config.h"
 #include "sysTick_timer_config.h"
 #include "uart_config.h"
+#include "program_memory.h"
 #include <stdio.h>
 
 /*
@@ -119,4 +120,21 @@ uint8_t unlocking_Flash_PECR_Register(void) {
 		FLASH->PEKEYR = 0x02030405;
 	}
 	return ((FLASH->PECR) & 0x01);
+}
+
+void eraseApplicationCodeArea(void) {
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x100);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x200);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x300);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x400);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x500);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x600);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x700);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x800);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x900);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0xA00);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0xB00);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0xC00);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0xD00);
 }

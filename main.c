@@ -50,8 +50,6 @@ void USART3_IRQHandler() {
 }
 
 int main() {
-	//BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
-	
 	InitSysTickTimerInMiliseconds(1, (uint32_t)CLOCK_FREQ);
 	InitUARTforDebug();
 	InitUARTforESP8266();
@@ -59,22 +57,17 @@ int main() {
 	clearEntireScreen();
 	UARTDebugSend(txt);
 	
+	eraseApplicationCodeArea();
+	delayMS(5000);
 	
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x100);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x200);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x300);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x400);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x500);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x600);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x700);
-	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x800);
-	
+	UARTESP8266Send("AT+CIPCLOSE\r\n");
+	delayMS(500);
+	sprintf(msg, "AT+CIPSTART=\"UDP\",\"%s\",%d,%d\r\n", destinationIP, destinationPORT, localPORT);
+	UARTESP8266Send(msg);
+	delayMS(500);
 	
 	sendUDPChar(transferStart);
-	delayMS(10);
-	//BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
-	
+
 	while(1) {
 		if(getData) {
 			
@@ -100,7 +93,7 @@ int main() {
 	
 			sendUDPChar(transferContiune);
 			
-			if(packetCounter >= 335) {
+			if(packetCounter >= 550) {
 				delayMS(100);
 				locking_Program_Memory();
 				BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
