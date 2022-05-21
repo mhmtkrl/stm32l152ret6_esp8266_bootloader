@@ -5,7 +5,7 @@ import time
 codeSize = 4
 
 #Read Binary File
-with open ("raw_text", 'rb') as f:
+with open ("APP_MODE_0.bin", 'rb') as f:
     byte = f.read()
 
 print('Length: ', len(byte))
@@ -33,7 +33,7 @@ while True:
         print('Transfer is being processing!', "\n")
         i = 0
     
-        while i != (blockLength):
+        while i != ((blockLength)-2):
             print(i+1, '. block by', blockLength);
             newPacket = byte[(codeSize*i):(codeSize*(i+1))];
             if len(newPacket) < codeSize:
@@ -52,7 +52,7 @@ while True:
                 print('Fail!', "\n")
                 break
             
-            time.sleep(0.1)
+            time.sleep(0.01)
     else:
         print('Transfer can not start!', "\n")
     end = time.time()

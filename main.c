@@ -50,6 +50,7 @@ void USART3_IRQHandler() {
 }
 
 int main() {
+	//BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
 	InitSysTickTimerInMiliseconds(1, (uint32_t)CLOCK_FREQ);
 	InitUARTforDebug();
 	InitUARTforESP8266();
@@ -57,27 +58,28 @@ int main() {
 	clearEntireScreen();
 	UARTDebugSend(txt);
 	
-	
+	/*
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE);
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x100);
 	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x200);
-
-/*
-	UARTESP8266Send("AT+CIPCLOSE\r\n");
-	delayMS(500);
-	sprintf(udp, "AT+CIPSTART=\"UDP\",\"%s\",%d,%d\r\n", destinationIP, destinationPORT, localPORT);
-	UARTESP8266Send(udp);
-	delayMS(500);
-	sendUDPpacket("Hello World!");
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x300);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x400);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x500);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x600);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x700);
+	program_Memory_Page_Erase(APPLICATION_FIRMWARE_BASE_ADDRESS + VECTOR_BASE + 0x800);
 	*/
+	
+
 	sprintf(udp, "%c", transferStart);
   sendUDPpacket(udp);
 	
+			
+	
 	while(1) {
 		if(getData) {
-		//	UARTDebugSend(pkt);
 			
-			delayMS(50);
+			delayMS(1);
 			ptr = strchr(pkt, ':');
 			
 			sprintf(msg, "\r#%i. Received Packet: %s", packetCounter, ptr_pos);
@@ -91,7 +93,6 @@ int main() {
 			program_Memory_Fast_Word_Write((APPLICATION_FIRMWARE_BASE_ADDRESS + adr), ((ptr_pos[3] << 24) | (ptr_pos[2] << 16) | (ptr_pos[1] << 8) | (ptr_pos[0] << 0)));
 			adr += 4;
 			
-			
 			getData = 0;
 			for(j = 0 ; j < pktAdr ; j++) {
 				pkt[j] = '\0';
@@ -99,6 +100,12 @@ int main() {
 			pktAdr = 0;
 			sprintf(udp, "%c", transferContiune);
 			pktAdr = sendUDPpacket(udp);
+			
+			if(packetCounter >= 337) {
+				locking_Program_Memory();
+				BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
+			}
+			
 			packetCounter++;
 		}
 	}
