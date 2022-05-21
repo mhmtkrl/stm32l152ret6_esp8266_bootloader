@@ -38,9 +38,7 @@ int main() {
 	
 	
 	while(1) {
-		//UARTBluetoothSend("AT\r\n");
-		sendCommandToEsp8266("AT\r\n", pkt, "\r\nOK\r\n");
-		
+		UARTBluetoothSend("AT+CIFSR\r\n");
 		OnUserLED();
 		delayMS(1000);
 		OffUserLED();
