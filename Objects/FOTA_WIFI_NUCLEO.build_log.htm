@@ -22,22 +22,28 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 C:\Users\mehme\Embedded Systems\STM32L152REt6-ESP8266-Bootloader\FOTA_WIFI_NUCLEO.uvprojx
-Project File Date:  05/19/2022
+Project File Date:  05/21/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling main.c...
-main.c(49): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
-  	sprintf(udp, "AT+CIPSTART=\"UDP\",\"%s\",%d,%d\r\n", destinationIP, destinationPORT, localPORT);
-main.c(50): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
-  	UARTESP8266Send(udp);
-main.c(60): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
-  			UARTDebugSend(pkt);
-main.c: 3 warnings, 0 errors
+main.c(71): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  	sprintf(udp, "%c", transferStart);
+main.c(72): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+    sendUDPpacket(udp);
+main.c(89): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  			UARTDebugSend(msg);
+main.c(96): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+  		    UARTDebugSend(msg);
+main.c(108): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(udp, "%c", transferContiune);
+main.c(110): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *"
+  			pktAdr = sendUDPpacket(udp);
+main.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=2372 RO-data=324 RW-data=284 ZI-data=5116  
-".\Objects\FOTA_WIFI_NUCLEO.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=2936 RO-data=364 RW-data=312 ZI-data=5176  
+".\Objects\FOTA_WIFI_NUCLEO.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 

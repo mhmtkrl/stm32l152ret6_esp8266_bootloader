@@ -1,6 +1,6 @@
 Dependencies for Project 'FOTA_WIFI_NUCLEO', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
-F (.\main.c)(0x6288AF0A)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_  --preinclude="Pre_Include_Global.h"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x6288DE3D)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_  --preinclude="Pre_Include_Global.h"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (.\RTE\_Target_1\Pre_Include_Global.h)(0x62865EB6)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x610CDAE2)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h)(0x610CDAE2)
@@ -17,6 +17,10 @@ I (clock_config.h)(0x62865900)
 I (esp8266_driver.h)(0x6288AE5A)
 I (uart_config.h)(0x6288AE23)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
+I (flash_config.h)(0x6288C315)
+I (program_memory.h)(0x6288C338)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x602569C4)
 F (.\clock_config.h)(0x62865900)()
 F (.\gpio_config.c)(0x62865922)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_  --preinclude="Pre_Include_Global.h"-o .\objects\gpio_config.o --omf_browse .\objects\gpio_config.crf --depend .\objects\gpio_config.d)
 I (.\RTE\_Target_1\Pre_Include_Global.h)(0x62865EB6)
@@ -80,6 +84,24 @@ I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x602569CE)
 I (sysTick_timer_config.h)(0x62865CA9)
 I (clock_config.h)(0x62865900)
 F (.\esp8266_driver.h)(0x6288AE5A)()
+F (.\flash_config.c)(0x6288D90C)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_  --preinclude="Pre_Include_Global.h"-o .\objects\flash_config.o --omf_browse .\objects\flash_config.crf --depend .\objects\flash_config.d)
+I (.\RTE\_Target_1\Pre_Include_Global.h)(0x62865EB6)
+I (flash_config.h)(0x6288C315)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x602569CE)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x610CDAE2)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h)(0x610CDAE2)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h)(0x60D42F32)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h)(0x60D42F32)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h)(0x60D42F32)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h)(0x60D42F32)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\mpu_armv7.h)(0x60D42F32)
+I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x610CDAE2)
+I (sysTick_timer_config.h)(0x62865CA9)
+I (clock_config.h)(0x62865900)
+I (uart_config.h)(0x6288AE23)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x602569C4)
+F (.\flash_config.h)(0x6288C315)()
+F (.\program_memory.h)(0x6288C338)()
 F (RTE\Device\STM32L152RETx\startup_stm32l152xe.s)(0x610CDAE2)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32L152xE SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_stm32l152xe.lst --xref -o .\objects\startup_stm32l152xe.o --depend .\objects\startup_stm32l152xe.d)
 F (RTE\Device\STM32L152RETx\system_stm32l1xx.c)(0x610CDAE2)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\_Target_1-IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_  --preinclude="Pre_Include_Global.h"-o .\objects\system_stm32l1xx.o --omf_browse .\objects\system_stm32l1xx.crf --depend .\objects\system_stm32l1xx.d)
 I (.\RTE\_Target_1\Pre_Include_Global.h)(0x62865EB6)

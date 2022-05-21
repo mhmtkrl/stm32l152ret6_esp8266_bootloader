@@ -433,6 +433,21 @@
               <FileType>5</FileType>
               <FilePath>.\esp8266_driver.h</FilePath>
             </File>
+            <File>
+              <FileName>flash_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\flash_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>flash_config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\flash_config.h</FilePath>
+            </File>
+            <File>
+              <FileName>program_memory.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\program_memory.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
