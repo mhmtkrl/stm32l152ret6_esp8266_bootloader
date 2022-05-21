@@ -9,7 +9,7 @@ Table 9: Alternate Function Input/Output Page 47 DocID025433
 PB10 -> USART3_TX	  -> AFIO7
 PB11 -> USART3_RX		-> AFIO7
 */
-void InitUARTforBluetooth(void) {
+void InitUARTforESP8266(void) {
 	//AHB is enabled for GPIOB
 	RCC->AHBENR |= 1ul << 1;
 	//AFIO7 for PB10
@@ -51,7 +51,7 @@ void InitUARTforBluetooth(void) {
 	USART3->CR1 |= (1ul << 3);
 }
 
-void UARTBluetoothSend(char packet[]) {
+void UARTESP8266Send(char packet[]) {
 	int16_t i = 0;
 	while(packet[i] != '\0') {
 		//If a frame is transmitted (after the stop bit) and the TXE bit is set, the TC bit goes high.

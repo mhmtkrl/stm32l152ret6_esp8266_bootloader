@@ -9,7 +9,7 @@ int sendCommandToEsp8266(char *cmd, char *response, char *check) {
 	GPIOD->ODR &= ~(1ul << 12);
 	ptr=NULL;
 	GPIOD->ODR |= 1ul << 15;
-			UARTBluetoothSend(cmd);
+			UARTESP8266Send(cmd);
 		while(ptr == NULL) {
 			ptr = NULL;
 			
@@ -35,7 +35,7 @@ int estaplishUDPsoket(char IPd[], int dIP, int lIP, char *response, char *check)
 	return 0;
 }
 
-int sendUDPpacket(char *pkt, char *response, char *check) {
+int sendUDPpacket(char *pkt) {
 	char msg[128];
 	char tcpPkt[128];
 	
@@ -43,22 +43,8 @@ int sendUDPpacket(char *pkt, char *response, char *check) {
 	
 	len = sprintf(msg, "%s", pkt);
 	sprintf(tcpPkt, "AT+CIPSEND=%d\r\n", len);
-	sendCommandToEsp8266(tcpPkt, response, check);
-	sendCommandToEsp8266(msg, response, check);
-	return 0;
-}
-
-int sendUDP(char *pkt) {
-	char msg[128];
-	char tcpPkt[128];
-	
-	uint16_t len = 0;
-	
-	len = sprintf(msg, "%s", pkt);
-	sprintf(tcpPkt, "AT+CIPSEND=%d\r\n", len);
-	UARTBluetoothSend(tcpPkt);
-//	delayMs(500);
-	UARTBluetoothSend(msg);
-//	delayMs(500);
+	UARTESP8266Send(tcpPkt);
+	delayMS(100);
+	UARTESP8266Send(msg);
 	return 0;
 }
