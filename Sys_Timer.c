@@ -6,11 +6,62 @@
  */
  
  #include "Sys_Timer.h"
+ #include "Sys_Timer_Api.h"
  
 /* Internal pointers to acces system registers */
 static uint32_t *sysTickCSR = (uint32_t *)SysTickControlStatusRegister;
 static uint32_t *sysTickRVR = (uint32_t *)SysTickReloadValueRegister;
- 
+
+/* Internal variables */
+uint32_t Internal_Counter = 0;
+
+ /**
+ * \brief Get current timer value in miliseconds
+ *
+ * \details This function returns the current timer value systick
+ * 
+ * \param none 
+ * \param none
+ * \return uint32_t counter
+ */
+uint32_t Elapsed_Time_In_Miliseconds(void) {
+	uint32_t Current_Value = 0;
+	/* Get counter */
+	Current_Value = Internal_Counter;
+	/* Disable systick timer */
+	Disable_Timeout_Counter();
+	/* Clear internal counter */
+	Internal_Counter = 0;
+	
+	return (Current_Value);
+}
+
+ /**
+ * \brief set systick timer
+ *
+ * \details This function enables the systick timer
+ * 
+ * \param none 
+ * \return none
+ */
+void Enable_Timeout_Counter(void) {
+	/* SysTick Enable */
+	*sysTickCSR |= 1ul << 0;
+}
+
+ /**
+ * \brief Disable systick 
+ *
+ * \details This function disables the systick timer
+ * 
+ * \param none 
+ * \return none
+ */
+void Disable_Timeout_Counter(void) {
+	/* SysTick Enable */
+	*sysTickCSR &= ~(1ul << 0);
+}
+	
  /**
  * \brief Init system timer in miliseconds
  *
@@ -27,8 +78,6 @@ static uint32_t *sysTickRVR = (uint32_t *)SysTickReloadValueRegister;
 	*sysTickCSR |= 1ul << 1;
 	/* Calculate RELOAD Value */
 	*sysTickRVR = (Clock_Frequency / 1000) - 1;
-	/* SysTick Enable */
-	*sysTickCSR |= 1ul << 0;
 }
 
  /**
@@ -42,5 +91,6 @@ static uint32_t *sysTickRVR = (uint32_t *)SysTickReloadValueRegister;
  */
 void SysTick_Handler(void) {
 	/* @todo do something */
+	Internal_Counter++;
 }
 

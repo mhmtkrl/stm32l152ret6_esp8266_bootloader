@@ -15,15 +15,14 @@
 #define SysTickReloadValueRegister			0xE000E014
 
  /**
- * \brief Init system timer in miliseconds
+ * \brief Disable systick 
  *
- * \details This function set the system timer to 1ms
+ * \details This function disables the systick timer
  * 
  * \param none 
- * \param none
  * \return none
  */
-void Init_System_Timer(uint32_t Clock_Frequency);
+void Disable_Timeout_Counter(void);
 
  /**
  * \brief 1ms timer

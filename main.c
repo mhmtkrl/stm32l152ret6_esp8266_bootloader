@@ -1,5 +1,5 @@
 #include "Gpio.h"
-#include "Sys_Timer.h"
+#include "Sys_Timer_Api.h"
 #include "Uart_Api.h"
 
 int main() {
@@ -9,8 +9,8 @@ int main() {
 	Init_Uart_For_Communication();
 	/* Init GPIO for user LED */
 	Init_User_Led();
-
-	while(1) {
 	
+	while(1) {
+		
 	}
 }
