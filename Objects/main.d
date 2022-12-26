@@ -10,8 +10,8 @@
 .\objects\main.o: C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h
 .\objects\main.o: C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h
 .\objects\main.o: Gpio.h
-.\objects\main.o: sysTick_timer_config.h
-.\objects\main.o: clock_config.h
+.\objects\main.o: Sys_Timer.h
+.\objects\main.o: Gpio.h
 .\objects\main.o: esp8266_driver.h
 .\objects\main.o: uart_config.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -1,6 +1,6 @@
 #include "stm32l1xx.h"                  // Device header
 #include "Gpio.h"
-#include "sysTick_timer_config.h"
+#include "Sys_Timer.h"
 #include "esp8266_driver.h"
 #include "flash_config.h"
 #include "program_memory.h"
@@ -42,8 +42,8 @@ void USART3_IRQHandler() {
 }
 
 int main() {
-	//Init SysTick Timer for generating Delay 
-	InitSysTickTimerInMiliseconds(1, (uint32_t)CLOCK_FREQ);
+	/* Init SysTick Timer for generating Delay */
+	Init_System_Timer(2097000);
 	//Init UART for debugging pupose via USB cable
 	InitUARTforDebug();
 	//Init UART for communication with ESP8266
@@ -59,15 +59,15 @@ int main() {
 	eraseApplicationCodeArea();
 	
 	//Delay for auto-connection to the hotspot for ESP8266
-	delayMS(5000);
+	//delayMS(5000);
 	
 	//If is there already a connection close it first
 	UARTESP8266Send("AT+CIPCLOSE\r\n");
-	delayMS(500);
+	//delayMS(500);
 	//Establishing a connection
 	sprintf(msg, "AT+CIPSTART=\"UDP\",\"%s\",%d,%d\r\n", destinationIP, destinationPORT, localPORT);
 	UARTESP8266Send(msg);
-	delayMS(500);
+	//delayMS(500);
 	
 	//Ready to receive file packets
 	sendUDPChar(transferStart);
@@ -76,7 +76,7 @@ int main() {
 		//If there is received packet
 		if(getData) {
 			
-			delayMS(1);
+			//delayMS(1);
 			//Get the address of specific character in the received packet
 			ptr = strchr(pkt, ':');
 			
@@ -105,7 +105,7 @@ int main() {
 			
 			//If packet count is reached to the file size then jump to the Application code
 			if(packetCounter >= 550) {
-				delayMS(100);
+				//delayMS(100);
 				locking_Program_Memory();
 				BootJump( ( uint32_t * )APPLICATION_FIRMWARE_BASE_ADDRESS ) ;
 			}

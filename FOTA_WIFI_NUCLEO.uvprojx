@@ -394,16 +394,6 @@
               <FilePath>.\clock_config.h</FilePath>
             </File>
             <File>
-              <FileName>sysTick_timer_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\sysTick_timer_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>sysTick_timer_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\sysTick_timer_config.h</FilePath>
-            </File>
-            <File>
               <FileName>uart_config.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\uart_config.c</FilePath>
@@ -452,6 +442,21 @@
               <FileName>Gpio.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Gpio.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SYSTEM_TIMER</GroupName>
+          <Files>
+            <File>
+              <FileName>Sys_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Sys_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sys_Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Sys_Timer.h</FilePath>
             </File>
           </Files>
         </Group>

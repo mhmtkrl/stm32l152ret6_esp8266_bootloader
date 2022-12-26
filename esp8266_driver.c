@@ -40,7 +40,7 @@ int sendUDPChar(char pkt) {
 	
 	sprintf(tcpPkt, "AT+CIPSEND=1\r\n");
 	UARTESP8266Send(tcpPkt);
-	delayMS(100);
+	//delayMS(100);
 	while(!(USART3->SR & (1ul << 6)));
 	USART3->DR = pkt;
 	return 0;
@@ -55,7 +55,7 @@ int sendUDPpacket(char *pkt) {
 	len = sprintf(msg, "%s", pkt);
 	sprintf(tcpPkt, "AT+CIPSEND=%d\r\n", len);
 	UARTESP8266Send(tcpPkt);
-	delayMS(100);
+	//delayMS(100);
 	UARTESP8266Send(msg);
 	return 0;
 }
