@@ -2,6 +2,9 @@
 #include "Sys_Timer_Api.h"
 #include "Uart_Api.h"
 
+uint8_t msg[14] = "Hello World!\r\n";
+uint8_t AT[4] = "AT\r\n";
+
 int main() {
 	/* Init SysTick Timer for generating Delay */
 	Init_System_Timer(2097000);
@@ -10,7 +13,10 @@ int main() {
 	/* Init GPIO for user LED */
 	Init_User_Led();
 	
+	Uart_Send_Debug_Message(14, msg);
+	Uart_Send_Command(4, AT);
+	
 	while(1) {
-		
+	
 	}
 }

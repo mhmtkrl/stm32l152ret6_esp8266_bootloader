@@ -11,8 +11,10 @@
 USART_TypeDef *Debug = (USART_TypeDef*)USART2_BASE;
 USART_TypeDef *Esp8266 = (USART_TypeDef*)USART3_BASE;
 
+uint8_t data[16];
+uint8_t counter = 0;
  /**
- * \brief Received packet handler for external channel
+ * \brief Received packet handler for esp8266
  *
  * \details none
  * 
@@ -20,7 +22,10 @@ USART_TypeDef *Esp8266 = (USART_TypeDef*)USART3_BASE;
  * \return none
  */
 void USART3_IRQHandler(void) {
-	
+	if(Esp8266->SR & (1ul << 5)) {
+		data[counter++] = Esp8266->DR;
+		Esp8266->SR &= ~(1ul << 5);
+	}
 }
 
  /**
