@@ -388,46 +388,6 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>clock_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\clock_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>uart_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\uart_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>uart_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\uart_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>esp8266_driver.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\esp8266_driver.c</FilePath>
-            </File>
-            <File>
-              <FileName>esp8266_driver.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\esp8266_driver.h</FilePath>
-            </File>
-            <File>
-              <FileName>flash_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\flash_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>flash_config.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\flash_config.h</FilePath>
-            </File>
-            <File>
-              <FileName>program_memory.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\program_memory.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -457,6 +417,36 @@
               <FileName>Sys_Timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Sys_Timer.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>UART</GroupName>
+          <Files>
+            <File>
+              <FileName>Uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>Uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Uart.h</FilePath>
+            </File>
+            <File>
+              <FileName>Uart_Comm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Uart_Comm.c</FilePath>
+            </File>
+            <File>
+              <FileName>Uart_Comm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Uart_Comm.h</FilePath>
+            </File>
+            <File>
+              <FileName>Uart_Api.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Uart_Api.h</FilePath>
             </File>
           </Files>
         </Group>

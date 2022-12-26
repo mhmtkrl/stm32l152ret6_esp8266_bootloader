@@ -7,12 +7,9 @@
  
  #include "Sys_Timer.h"
  
- uint32_t count = 0;
- 
+/* Internal pointers to acces system registers */
 static uint32_t *sysTickCSR = (uint32_t *)SysTickControlStatusRegister;
 static uint32_t *sysTickRVR = (uint32_t *)SysTickReloadValueRegister;
-static uint32_t *sysTickCVR = (uint32_t *)SysTickCurrentValueRegister;
-static uint32_t *sysTickCalibrationVR = (uint32_t *)SysTickCalibrationValueRegister;
  
  /**
  * \brief Init system timer in miliseconds
@@ -45,13 +42,5 @@ static uint32_t *sysTickCalibrationVR = (uint32_t *)SysTickCalibrationValueRegis
  */
 void SysTick_Handler(void) {
 	/* @todo do something */
-	count++;
-	if(count >= 1000) {
-		Set_User_Led();
-	}
-	if(count >= 2000) {
-		Reset_User_Led();
-		count = 0;
-	}
 }
- 
+
