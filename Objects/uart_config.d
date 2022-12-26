@@ -1,5 +1,5 @@
 .\objects\uart_config.o: uart_config.c
-.\objects\uart_config.o: .\RTE\_Target_1\Pre_Include_Global.h
+.\objects\uart_config.o: .\RTE\_Layers\Pre_Include_Global.h
 .\objects\uart_config.o: uart_config.h
 .\objects\uart_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\uart_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

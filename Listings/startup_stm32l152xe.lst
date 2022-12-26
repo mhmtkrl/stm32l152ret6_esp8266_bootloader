@@ -539,12 +539,12 @@ ARM Macro Assembler    Page 9
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32l152xe.d -o.\objects\startup_stm32l152xe.o 
--I.\RTE\_Target_1 -IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSI
-S\Core\Include -IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.
-1\Drivers\CMSIS\Device\ST\STM32L1xx\Include --predefine="__EVAL SETA 1" --prede
-fine="__UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="STM32
-L152xE SETA 1" --predefine="_RTE_ SETA 1" --list=.\listings\startup_stm32l152xe
-.lst RTE\Device\STM32L152RETx\startup_stm32l152xe.s
+-I.\RTE\_Layers -IC:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\
+Core\Include -IC:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\
+Drivers\CMSIS\Device\ST\STM32L1xx\Include --predefine="__EVAL SETA 1" --predefi
+ne="__UVISION_VERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="STM32L1
+52xE SETA 1" --predefine="_RTE_ SETA 1" --list=.\listings\startup_stm32l152xe.l
+st RTE\Device\STM32L152RETx\startup_stm32l152xe.s
 
 
 

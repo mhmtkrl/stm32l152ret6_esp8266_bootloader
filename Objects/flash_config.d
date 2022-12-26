@@ -1,5 +1,5 @@
 .\objects\flash_config.o: flash_config.c
-.\objects\flash_config.o: .\RTE\_Target_1\Pre_Include_Global.h
+.\objects\flash_config.o: .\RTE\_Layers\Pre_Include_Global.h
 .\objects\flash_config.o: flash_config.h
 .\objects\flash_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\flash_config.o: C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h

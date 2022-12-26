@@ -1,5 +1,5 @@
 .\objects\esp8266_driver.o: esp8266_driver.c
-.\objects\esp8266_driver.o: .\RTE\_Target_1\Pre_Include_Global.h
+.\objects\esp8266_driver.o: .\RTE\_Layers\Pre_Include_Global.h
 .\objects\esp8266_driver.o: esp8266_driver.h
 .\objects\esp8266_driver.o: uart_config.h
 .\objects\esp8266_driver.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

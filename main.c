@@ -1,5 +1,5 @@
 #include "stm32l1xx.h"                  // Device header
-#include "gpio_config.h"
+#include "Gpio.h"
 #include "sysTick_timer_config.h"
 #include "esp8266_driver.h"
 #include "flash_config.h"
@@ -48,8 +48,8 @@ int main() {
 	InitUARTforDebug();
 	//Init UART for communication with ESP8266
 	InitUARTforESP8266();
-	//Init GPIO for user LED
-	InitUserLED();
+	/* Init GPIO for user LED */
+	Init_User_Led();
 	//Clear debug screen
 	clearEntireScreen();
 	//Welcome message

@@ -1,5 +1,5 @@
 .\objects\systick_timer_config.o: sysTick_timer_config.c
-.\objects\systick_timer_config.o: .\RTE\_Target_1\Pre_Include_Global.h
+.\objects\systick_timer_config.o: .\RTE\_Layers\Pre_Include_Global.h
 .\objects\systick_timer_config.o: sysTick_timer_config.h
 .\objects\systick_timer_config.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\systick_timer_config.o: clock_config.h
