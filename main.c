@@ -15,8 +15,8 @@ uint8_t txt[] = "FOTA over WiFi!\r\n";
 //Network related variables
 char pkt[128];
 char destinationIP[] = "X.X.X.X";
-const int destinationPORT = PORT_NUMBER_OF_SERVER;
-const int localPORT = PORT_NUMBER_OF_ESP8266;
+const int destinationPORT = 457;
+const int localPORT = 456;
 
 //Protocol related variables
 uint8_t transferStart = 0x01;
