@@ -1,13 +1,12 @@
-.\objects\uart_comm.o: Uart_Comm.c
-.\objects\uart_comm.o: .\RTE\_Layers\Pre_Include_Global.h
-.\objects\uart_comm.o: Uart_Comm.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h
-.\objects\uart_comm.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h
-.\objects\uart_comm.o: C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h
-.\objects\uart_comm.o: Uart_Api.h
+./objects/uart_comm.o: Uart_Comm.c RTE\_Layers\Pre_Include_Global.h \
+  Uart_Comm.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h \
+  C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h \
+  Uart_Api.h

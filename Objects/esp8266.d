@@ -1,4 +1,4 @@
-./objects/gpio.o: Gpio.c RTE\_Layers\Pre_Include_Global.h Gpio.h \
+./objects/esp8266.o: Esp8266.c RTE\_Layers\Pre_Include_Global.h Esp8266.h \
   C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h \
   C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h \
   C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h \

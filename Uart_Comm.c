@@ -22,6 +22,10 @@ uint8_t counter = 0;
  * \return none
  */
 void USART3_IRQHandler(void) {
+	/* \todo: create an api for processing received packet
+	 * command or data comming via UDP/TCP-IP
+	 * If it's a cmd call related funtion and perform desired task
+	*/
 	if(Esp8266->SR & (1ul << 5)) {
 		data[counter++] = Esp8266->DR;
 		Esp8266->SR &= ~(1ul << 5);
