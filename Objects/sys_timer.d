@@ -9,4 +9,4 @@
   C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h \
   C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h \
   C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h \
-  Sys_Timer_Api.h
+  Esp8266_Api.h Esp8266_Config.h ESP8266_Enums.h Sys_Timer_Api.h

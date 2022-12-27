@@ -9,6 +9,7 @@
 #include "stdint.h"
 
 /* API include */
+#include "Esp8266_Api.h"
 
 /* SysTick Registers Table 4-1 System Control Registers Cortex M3 Technical Reference Manual */
 #define SysTickControlStatusRegister		0xE000E010

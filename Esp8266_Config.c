@@ -17,7 +17,13 @@
  */
  ESP8266_Config_t ESP8266_Config = {
 	 500U,
-	 ECHO_OFF
+	 ECHO_OFF,
+	 {
+		 6U,
+		 "\r\nOK\r\n",
+		 9U,
+		 "\r\nERROR\r\n"
+	 }
  };
 
   /**

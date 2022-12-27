@@ -8,6 +8,9 @@
 #include "stm32l1xx.h"                  // Device header
 #include "stdint.h"
 
+#include "Sys_Timer_Api.h"
+#include "Esp8266_Api.h"
+
  /**
  * \brief Received packet handler for external channel
  *

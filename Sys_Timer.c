@@ -78,6 +78,8 @@ void Disable_Timeout_Counter(void) {
 	*sysTickCSR |= 1ul << 1;
 	/* Calculate RELOAD Value */
 	*sysTickRVR = (Clock_Frequency / 1000) - 1;
+	 /* Enable Timer */
+	 Enable_Timeout_Counter();
 }
 
  /**
@@ -92,5 +94,7 @@ void Disable_Timeout_Counter(void) {
 void SysTick_Handler(void) {
 	/* @todo do something */
 	Internal_Counter++;
+	/* ESP8266 Main function */
+	ESP8266_Main();
 }
 
