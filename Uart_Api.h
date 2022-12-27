@@ -16,7 +16,7 @@
  * \param uint8_t *cmd
  * \return none
  */
- void Uart_Send_Debug_Message(uint8_t length, uint8_t *cmd);
+ void Uart_Send_Debug_Message(uint8_t length, char *cmd);
 	 
  /**
  * \brief Send command via UART channel
@@ -27,7 +27,7 @@
  * \param uint8_t *cmd
  * \return none
  */
- void Uart_Send_Command(uint8_t length, uint8_t *cmd);
+ void Uart_Send_Command(uint8_t length, char *cmd);
 	 
 /**
  * \brief Init Uart peripherals for debugging and esp8266

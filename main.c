@@ -1,6 +1,7 @@
 #include "Gpio.h"
 #include "Sys_Timer_Api.h"
 #include "Uart_Api.h"
+#include "Esp8266_Api.h"
 
 uint8_t msg[14] = "Hello World!\r\n";
 uint8_t AT[4] = "AT\r\n";
@@ -14,7 +15,7 @@ int main() {
 	Init_User_Led();
 	
 	Uart_Send_Debug_Message(14, msg);
-	Uart_Send_Command(4, AT);
+	ESP8266_Version();
 	
 	while(1) {
 	

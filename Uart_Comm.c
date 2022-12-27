@@ -11,7 +11,7 @@
 USART_TypeDef *Debug = (USART_TypeDef*)USART2_BASE;
 USART_TypeDef *Esp8266 = (USART_TypeDef*)USART3_BASE;
 
-uint8_t data[16];
+uint8_t data[128];
 uint8_t counter = 0;
  /**
  * \brief Received packet handler for esp8266
@@ -53,7 +53,7 @@ void USART2_IRQHandler(void) {
  * \param uint8_t *cmd
  * \return none
  */
- void Uart_Send_Debug_Message(uint8_t length, uint8_t *cmd) {
+ void Uart_Send_Debug_Message(uint8_t length, char *cmd) {
 	 uint8_t cmdIndex = 0;
 	 for(cmdIndex = 0 ; cmdIndex < length ; cmdIndex++) {
 		 Uart_Send_Char(Debug, cmd[cmdIndex]);
@@ -69,7 +69,7 @@ void USART2_IRQHandler(void) {
  * \param uint8_t *cmd
  * \return none
  */
- void Uart_Send_Command(uint8_t length, uint8_t *cmd) {
+ void Uart_Send_Command(uint8_t length, char *cmd) {
 	 uint8_t cmdIndex = 0;
 	 for(cmdIndex = 0 ; cmdIndex < length ; cmdIndex++) {
 		 Uart_Send_Char(Esp8266, cmd[cmdIndex]);
@@ -85,7 +85,7 @@ void USART2_IRQHandler(void) {
  * \param uint8_t ch
  * \return none
  */
- void Uart_Send_Char(USART_TypeDef *Channel, uint8_t ch) {
+ void Uart_Send_Char(USART_TypeDef *Channel, char ch) {
 	 /* Transmit data register empty */
 	 
 	 while(!(Channel->SR & (1ul << 7)));

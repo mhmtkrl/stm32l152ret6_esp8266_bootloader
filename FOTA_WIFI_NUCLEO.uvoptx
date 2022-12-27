@@ -163,7 +163,7 @@
         <Ww>
           <count>2</count>
           <WinNumber>1</WinNumber>
-          <ItemText>counter</ItemText>
+          <ItemText>counter,0x0A</ItemText>
         </Ww>
       </WatchWindow1>
       <MemoryWindow1>

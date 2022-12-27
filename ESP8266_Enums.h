@@ -31,6 +31,7 @@
  typedef enum {
 	 Test_Module,
 	 Restart_The_Module,
+	 Check_Version_Information,
 	 AT_COMMANDS_MAX
  }ESP8266_AT_COMMANDS_t;
  

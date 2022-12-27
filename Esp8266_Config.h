@@ -35,3 +35,5 @@ typedef struct {
 	uint8_t Length;
 	const char *Response;
 }ESP8266_Command_t;
+
+extern  ESP8266_Command_t ESP8266_Command[AT_COMMANDS_MAX];

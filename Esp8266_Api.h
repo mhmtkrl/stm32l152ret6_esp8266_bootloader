@@ -5,4 +5,26 @@
  * @brief API for esp8266
  */
  
+  /**
+ * \brief Test ESP8266 
+ *
+ * \details sent AT command
+ * 
+ * \param none
+ * \param none
+ * \return none
+ */
+ void ESP8266_Test(void);
+
+/**
+ * \brief Checks Version Information
+ *
+ * \details AT+GMR
+ * 
+ * \param none
+ * \param none
+ * \return none
+ */
+ void ESP8266_Version(void);
+ 
  

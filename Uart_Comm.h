@@ -36,5 +36,5 @@ void USART2_IRQHandler(void);
  * \param uint8_t ch
  * \return none
  */
- void Uart_Send_Char(USART_TypeDef *Channel, uint8_t ch);
+ void Uart_Send_Char(USART_TypeDef *Channel, char ch);
 
