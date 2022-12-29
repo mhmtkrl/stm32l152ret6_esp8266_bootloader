@@ -36,8 +36,8 @@
  */
  ESP8266_Command_t ESP8266_Command[AT_COMMANDS_MAX] = {
 	 {
-		 "AT\r\n",
-		 4U,
+		 "ATr\r\n",
+		 5U,
 		 "OK"
 	 },
 	 {

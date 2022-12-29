@@ -13,8 +13,14 @@ int main() {
 	Init_Uart_For_Communication();
 	/* Init GPIO for user LED */
 	Init_User_Led();
-	
-	Uart_Send_Debug_Message(14, msg);
+
+	Set_User_Led();
+	ESP8266_Test();
+	volatile int i = 0;
+	for(i = 0 ; i < 509700 ; i++) {
+		
+	}
+	Reset_User_Led();
 	ESP8266_Version();
 	
 	while(1) {

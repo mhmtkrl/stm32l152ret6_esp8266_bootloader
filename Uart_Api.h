@@ -7,6 +7,7 @@
 
 #include "stdint.h"
 
+extern uint8_t ESP8266_Response_Length;
  /**
  * \brief Send debug packet via UART channel
  *

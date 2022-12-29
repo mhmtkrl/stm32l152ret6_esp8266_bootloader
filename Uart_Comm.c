@@ -15,7 +15,7 @@ static USART_TypeDef *Esp8266 = (USART_TypeDef*)USART3_BASE;
 char ESP8266_Response_Buffer[128];
 uint8_t ESP8266_Response_Length = 0;
 
-ESP8266_Response_End_t *Response = &ESP8266_Config.Response;
+
 
  /**
  * \brief Received packet handler for esp8266
@@ -32,21 +32,17 @@ void USART3_IRQHandler(void) {
 	*/
 	if(Esp8266->SR & (1ul << 5)) {
 		ESP8266_Response_Buffer[ESP8266_Response_Length++] = Esp8266->DR;
-		/* Check if postive response is received completely */
-		if(ESP8266_Response_Length >= 6) {
-			uint8_t index = 0;
-			uint8_t Positive_Counter = 0;
-			for(index = 0 ; index < 6 ; index++) {
-				if(ESP8266_Response_Buffer[(ESP8266_Response_Length - 6) + index] == Response->Positive[index]) {
-					Positive_Counter++;
-					if(Positive_Counter >= 6) {
-						ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-						ESP8266_Response_Length = 0;
-					}
-				}
-			}
 
-		}
+
+			if(ESP8266_Response_Buffer[(ESP8266_Response_Length-1)] == '\n') {
+
+					ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+					//ESP8266_Response_Length = 0;
+			}
+			
+				
+
+		
 		Esp8266->SR &= ~(1ul << 5);
 	}
 }

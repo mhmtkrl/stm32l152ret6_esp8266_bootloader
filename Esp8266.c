@@ -7,6 +7,12 @@
  
  #include "Esp8266.h"
  
+ char *buffer;
+ uint8_t len = 0;
+ uint8_t otp = 0;
+ uint8_t count = 0;
+ ESP8266_Response_End_t *Response = &ESP8266_Config.Response;
+ 
  /**
  * \brief Test ESP8266 
  *
@@ -49,7 +55,11 @@
  * \return none
  */
  void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff) {
-	 Uart_Send_Debug_Message(Length, &Response[0]);
+	 //Uart_Send_Debug_Message(Length, &Response[0]);
+	 buffer =&Response[0];
+	 len = Length;
+	 otp = 1;
+	 count++;
  }
  
 /**
@@ -62,6 +72,36 @@
  * \return none
  */
  void ESP8266_Main(void) {
+	 uint8_t Positive_Counter1=0;
+	 uint8_t Negative_Counter1=0;
+
+	 
+	 if(otp == 1 && len >= 9) {
+		 for(uint8_t index = 0 ; index < 6 ; index++) {
+					if(buffer[(len - 6) + index] == Response->Positive[index]) {
+						Positive_Counter1++;
+						if(Positive_Counter1 >= 6) {
+							Uart_Send_Debug_Message(len, &buffer[0]);
+							ESP8266_Response_Length = 0;
+							len = 0;
+						}
+					}
+				}
+		 Positive_Counter1 = 0;
+		 for(uint8_t index = 0 ; index < 9 ; index++) {
+					if(buffer[(len - 9) + index] == Response->Negative[index]) {
+						Negative_Counter1++;
+						if(Negative_Counter1 >= 9) {
+							Uart_Send_Debug_Message(len, &buffer[0]);
+							ESP8266_Response_Length = 0;
+							len = 0;
+						}
+					}
+				}
+		 Negative_Counter1 = 0;
+		
+		otp = 0;
+	 }
 
  }
  
