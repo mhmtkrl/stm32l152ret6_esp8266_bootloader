@@ -12,10 +12,13 @@
 static USART_TypeDef *Debug = (USART_TypeDef*)USART2_BASE;
 static USART_TypeDef *Esp8266 = (USART_TypeDef*)USART3_BASE;
 
+/* internal buffer for esp8266 */
 char ESP8266_Response_Buffer[256];
 uint8_t ESP8266_Response_Length = 0;
 
-
+/* internal buffer for debug */
+char Debug_Response_Buffer[256];
+uint8_t Debug_Response_Length = 0;
 
  /**
  * \brief Received packet handler for esp8266
@@ -33,31 +36,32 @@ void USART3_IRQHandler(void) {
 	if(Esp8266->SR & (1ul << 5)) {
 		ESP8266_Response_Buffer[ESP8266_Response_Length] = Esp8266->DR;
 
-ESP8266_Response_Length++;
-			if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
-				&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
-			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'K'
-			&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
-			) {
-
-				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-				ESP8266_Response_Length = 0;
-			}
-			else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
-				&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
-			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'R'
-			&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
-			) {
-
-				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-				ESP8266_Response_Length = 0;
-			}
-			else {
-				
-			}
-
-
+		ESP8266_Response_Length++;
 		
+		/* Check if OK received */
+		if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+		&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+		&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'K'
+		&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
+		) {
+			ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+			ESP8266_Response_Length = 0;
+		}
+		
+		/* Check if ERROR received */
+		else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+				 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+				 && ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'R'
+				 && ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
+		) {
+			ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+			ESP8266_Response_Length = 0;
+		}
+		else {
+			
+		}
+		
+		/* Reset ISR Flag */
 		Esp8266->SR &= ~(1ul << 5);
 	}
 }
@@ -71,7 +75,21 @@ ESP8266_Response_Length++;
  * \return none
  */
 void USART2_IRQHandler(void) {
-	
+	if(Debug->SR & (1ul << 5)) {
+		Debug_Response_Buffer[Debug_Response_Length] = Debug->DR;
+		Debug_Response_Length++;
+		
+		if(Debug->DR == '\r') {
+
+			Debug_Response_Buffer[Debug_Response_Length] = '\n';
+			Debug_Response_Length++;
+			Uart_Send_Command(Debug_Response_Length, &Debug_Response_Buffer[0]);
+			Debug_Response_Length = 0;
+		}
+
+		/* Reset ISR Flag */
+		Debug->SR &= ~(1ul << 5);
+	}
 }
 
  /**

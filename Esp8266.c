@@ -77,13 +77,11 @@
  * \return none
  */
  void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff) {
-
 	 Circular_Buffer.length = Length;
 	 for(int i = 0 ; i < Length ; i++) {
 		Circular_Buffer.data[Circular_Buffer.head][i] = Response[i];
 	 }
-	 
-	 
+
 	 Circular_Buffer.head++;
 	 
 	 if(Circular_Buffer.head >= Circular_Buffer.bufferSize) {

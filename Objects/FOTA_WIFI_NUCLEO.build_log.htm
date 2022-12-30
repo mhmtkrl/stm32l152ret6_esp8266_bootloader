@@ -27,29 +27,10 @@ Project File Date:  12/27/2022
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Layers'
-Esp8266.c(35): warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-         Uart_Send_Command(Cmd->Length, Cmd->Command);
-                                        ^~~~~~~~~~~~
-./Uart_Api.h(31): note: passing argument to parameter 'cmd' here
- void Uart_Send_Command(uint8_t length, char *cmd);
-                                              ^
-Esp8266.c(51): warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-         Uart_Send_Command(Cmd->Length, Cmd->Command);
-                                        ^~~~~~~~~~~~
-./Uart_Api.h(31): note: passing argument to parameter 'cmd' here
- void Uart_Send_Command(uint8_t length, char *cmd);
-                                              ^
-Esp8266.c(67): warning: passing 'const char *' to parameter of type 'char *' discards qualifiers [-Wincompatible-pointer-types-discards-qualifiers]
-         Uart_Send_Command(Cmd->Length, Cmd->Command);
-                                        ^~~~~~~~~~~~
-./Uart_Api.h(31): note: passing argument to parameter 'cmd' here
- void Uart_Send_Command(uint8_t length, char *cmd);
-                                              ^
-3 warnings generated.
-compiling Esp8266.c...
+compiling Uart_Comm.c...
 linking...
-Program Size: Code=1434 RO-data=358 RW-data=1332 ZI-data=1896  
-".\Objects\FOTA_WIFI_NUCLEO.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=1510 RO-data=358 RW-data=1332 ZI-data=2152  
+".\Objects\FOTA_WIFI_NUCLEO.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -82,7 +63,7 @@ Package Vendor: Keil
       Source file:   MDK\Device\Source\ARM\STM32L1xx_MD_OPT.s
       Source file:   Drivers\CMSIS\Device\ST\STM32L1xx\Source\Templates\arm\startup_stm32l152xe.s
       Source file:   Drivers\CMSIS\Device\ST\STM32L1xx\Source\Templates\system_stm32l1xx.c
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

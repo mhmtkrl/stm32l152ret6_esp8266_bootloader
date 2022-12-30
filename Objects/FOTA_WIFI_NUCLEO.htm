@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\FOTA_WIFI_NUCLEO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\FOTA_WIFI_NUCLEO.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Dec 31 01:16:37 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Dec 31 01:30:46 2022
 <BR><P>
 <H3>Maximum Stack Usage =         32 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -585,7 +585,11 @@ Global Symbols
 <P><STRONG><a name="[41]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_stm32l1xx.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l152xe.o(.text)
 </UL>
-<P><STRONG><a name="[30]"></a>USART2_IRQHandler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, uart_comm.o(.text.USART2_IRQHandler))
+<P><STRONG><a name="[30]"></a>USART2_IRQHandler</STRONG> (Thumb, 80 bytes, Stack size 16 bytes, uart_comm.o(.text.USART2_IRQHandler))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = USART2_IRQHandler &rArr; Uart_Send_Command
+</UL>
+<BR>[Calls]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send_Command
+</UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l152xe.o(RESET)
 </UL>
 <P><STRONG><a name="[31]"></a>USART3_IRQHandler</STRONG> (Thumb, 136 bytes, Stack size 16 bytes, uart_comm.o(.text.USART3_IRQHandler))
@@ -608,7 +612,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send_Char
 </UL>
-<BR>[Called By]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Version
+<BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART2_IRQHandler
+<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Version
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Test
 <LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Echo_Off
 </UL>
