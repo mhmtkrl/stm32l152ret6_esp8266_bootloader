@@ -6,14 +6,18 @@
  */
  
  #include "Esp8266.h"
- 
- char *buffer;
- uint8_t len = 0;
- uint8_t otp = 0;
- int8_t count = 0;
+
  ESP8266_Response_End_t *Response = &ESP8266_Config.Response;
  
- char data[10][128];
+ typedef struct {
+	 uint8_t bufferSize;
+	 uint8_t head;
+	 uint8_t tail;
+	 uint8_t length;
+	 char data[10][128];
+ }Circular_Buffer_t;
+ 
+ Circular_Buffer_t Circular_Buffer = {10, 0, 0, 0, 0U};
  
  /**
  * \brief Test ESP8266 
@@ -73,15 +77,18 @@
  * \return none
  */
  void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff) {
-	 //Uart_Send_Debug_Message(Length, &Response[0]);
-	// buffer =&Response[0];
-	 len = Length;
-	 otp = 1;
+
+	 Circular_Buffer.length = Length;
 	 for(int i = 0 ; i < Length ; i++) {
-		data[count][i] = Response[i];
+		Circular_Buffer.data[Circular_Buffer.head][i] = Response[i];
 	 }
 	 
-	 count++;
+	 
+	 Circular_Buffer.head++;
+	 
+	 if(Circular_Buffer.head >= Circular_Buffer.bufferSize) {
+		 Circular_Buffer.head = 0;
+	 }
  }
  
 /**
@@ -94,11 +101,15 @@
  * \return none
  */
  void ESP8266_Main(void) {
-	 while(count!=0) {
-		Uart_Send_Debug_Message(len, &data[count-1][0]);
-		count--;
+	 while(Circular_Buffer.head != Circular_Buffer.tail) {
+		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
+		Circular_Buffer.tail++;
+		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
+			 Circular_Buffer.tail = 0;
+		 }
 	 }
 
+	 
 
  }
  
