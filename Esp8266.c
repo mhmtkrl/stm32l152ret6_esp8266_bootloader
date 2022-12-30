@@ -14,10 +14,10 @@
 	 uint8_t head;
 	 uint8_t tail;
 	 uint8_t length;
-	 char data[10][128];
+	 char data[5][128];
  }Circular_Buffer_t;
  
- Circular_Buffer_t Circular_Buffer = {10, 0, 0, 0, 0U};
+ Circular_Buffer_t Circular_Buffer = {5, 0, 0, 0, 0U};
  
  /**
  * \brief Test ESP8266 
@@ -84,9 +84,7 @@
 
 	 Circular_Buffer.head++;
 	 
-	 if(Circular_Buffer.head >= Circular_Buffer.bufferSize) {
-		 Circular_Buffer.head = 0;
-	 }
+	 
  }
  
 /**
@@ -104,6 +102,9 @@
 		Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
 			 Circular_Buffer.tail = 0;
+		 }
+		 if(Circular_Buffer.head >= Circular_Buffer.bufferSize) {
+			 Circular_Buffer.head = 0;
 		 }
 	 }
 

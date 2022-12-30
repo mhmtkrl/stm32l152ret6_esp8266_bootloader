@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\FOTA_WIFI_NUCLEO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\FOTA_WIFI_NUCLEO.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Dec 31 01:30:46 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Dec 31 01:58:46 2022
 <BR><P>
-<H3>Maximum Stack Usage =         32 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         40 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 SysTick_Handler &rArr; ESP8266_Main &rArr; Uart_Send_Debug_Message
 <P>
@@ -514,15 +514,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[56]"></a>ESP8266_Main</STRONG> (Thumb, 60 bytes, Stack size 8 bytes, esp8266.o(.text.ESP8266_Main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = ESP8266_Main &rArr; Uart_Send_Debug_Message
+<P><STRONG><a name="[56]"></a>ESP8266_Main</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, esp8266.o(.text.ESP8266_Main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = ESP8266_Main &rArr; Uart_Send_Debug_Message
 </UL>
 <BR>[Calls]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart_Send_Debug_Message
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[60]"></a>ESP8266_Process_Response</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, esp8266.o(.text.ESP8266_Process_Response))
+<P><STRONG><a name="[60]"></a>ESP8266_Process_Response</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, esp8266.o(.text.ESP8266_Process_Response))
 <BR><BR>[Called By]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART3_IRQHandler
 </UL>
 
@@ -576,7 +576,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, sys_timer.o(.text.SysTick_Handler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SysTick_Handler &rArr; ESP8266_Main &rArr; Uart_Send_Debug_Message
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = SysTick_Handler &rArr; ESP8266_Main &rArr; Uart_Send_Debug_Message
 </UL>
 <BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Main
 </UL>
