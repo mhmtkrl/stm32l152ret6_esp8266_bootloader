@@ -15,9 +15,17 @@ int main() {
 	Init_User_Led();
 
 	Set_User_Led();
-	ESP8266_Test();
 	volatile int i = 0;
-	for(i = 0 ; i < 509700 ; i++) {
+	
+	ESP8266_Echo_Off();
+	for(i = 0 ; i < 209700 ; i++) {
+		
+	}
+	ESP8266_Test();
+	
+	
+	
+	for(i = 0 ; i < 209700 ; i++) {
 		
 	}
 	Reset_User_Led();

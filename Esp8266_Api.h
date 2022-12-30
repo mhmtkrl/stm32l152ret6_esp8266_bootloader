@@ -39,6 +39,18 @@
  * \param none
  * \return none
  */
+ 
+   /**
+ * \brief Checks Version Information
+ *
+ * \details AT+GMR
+ * 
+ * \param none
+ * \param none
+ * \return none
+ */
+ void ESP8266_Echo_Off(void);
+	 
  void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff);
 	 
  /**

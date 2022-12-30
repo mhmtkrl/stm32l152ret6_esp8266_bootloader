@@ -12,7 +12,7 @@
 static USART_TypeDef *Debug = (USART_TypeDef*)USART2_BASE;
 static USART_TypeDef *Esp8266 = (USART_TypeDef*)USART3_BASE;
 
-char ESP8266_Response_Buffer[128];
+char ESP8266_Response_Buffer[256];
 uint8_t ESP8266_Response_Length = 0;
 
 
@@ -31,16 +31,31 @@ void USART3_IRQHandler(void) {
 	 * If it's a cmd call related funtion and perform desired task
 	*/
 	if(Esp8266->SR & (1ul << 5)) {
-		ESP8266_Response_Buffer[ESP8266_Response_Length++] = Esp8266->DR;
+		ESP8266_Response_Buffer[ESP8266_Response_Length] = Esp8266->DR;
 
+ESP8266_Response_Length++;
+			if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+				&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'K'
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
+			) {
 
-			if(ESP8266_Response_Buffer[(ESP8266_Response_Length-1)] == '\n') {
-
-					ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-					//ESP8266_Response_Length = 0;
+				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Response_Length = 0;
 			}
-			
+			else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+				&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'R'
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
+			) {
+
+				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Response_Length = 0;
+			}
+			else {
 				
+			}
+
 
 		
 		Esp8266->SR &= ~(1ul << 5);
