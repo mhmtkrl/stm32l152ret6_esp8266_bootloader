@@ -3,9 +3,9 @@
 <title>Static Call Graph - [.\Objects\FOTA_WIFI_NUCLEO.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\FOTA_WIFI_NUCLEO.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Dec 31 13:02:27 2022
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Sat Dec 31 17:55:02 2022
 <BR><P>
-<H3>Maximum Stack Usage =        216 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        272 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
 __rt_entry_main &rArr; main &rArr; UDP &rArr; ESP8266_Sends_Data_UDP_Transmission &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 <P>
@@ -236,7 +236,7 @@ Global Symbols
 <P><STRONG><a name="[95]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[51]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 272 + Unknown Stack Size
 <LI>Call Chain = __rt_entry_main &rArr; main &rArr; UDP &rArr; ESP8266_Sends_Data_UDP_Transmission &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -662,7 +662,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32l152xe.o(.text)
 </UL>
 <P><STRONG><a name="[6d]"></a>UDP</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, esp8266.o(.text.UDP))
-<BR><BR>[Stack]<UL><LI>Max Depth = 208 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
 <LI>Call Chain = UDP &rArr; ESP8266_Sends_Data_UDP_Transmission &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ESP8266_Sends_Data_UDP_Transmission
@@ -711,7 +711,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[52]"></a>main</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 216 + Unknown Stack Size
+<BR><BR>[Stack]<UL><LI>Max Depth = 272 + Unknown Stack Size
 <LI>Call Chain = main &rArr; UDP &rArr; ESP8266_Sends_Data_UDP_Transmission &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UDP
@@ -748,8 +748,8 @@ Local Symbols
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Init_Uart_For_Debug
 </UL>
 
-<P><STRONG><a name="[66]"></a>ESP8266_Sends_Data_UDP_Transmission</STRONG> (Thumb, 112 bytes, Stack size 80 bytes, esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission))
-<BR><BR>[Stack]<UL><LI>Max Depth = 200 + Unknown Stack Size
+<P><STRONG><a name="[66]"></a>ESP8266_Sends_Data_UDP_Transmission</STRONG> (Thumb, 144 bytes, Stack size 136 bytes, esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission))
+<BR><BR>[Stack]<UL><LI>Max Depth = 256 + Unknown Stack Size
 <LI>Call Chain = ESP8266_Sends_Data_UDP_Transmission &rArr; __2sprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf

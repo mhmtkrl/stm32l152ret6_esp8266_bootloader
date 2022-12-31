@@ -99,7 +99,7 @@
 	 ESP8266_Command_t *Cmd = &ESP8266_Command[Establishes_UDP_Transmission];
 	 ESP8266_Command_t Temp;
 
-	 Temp.Length = sprintf(Temp.Command , "%s,\"IP\",%d,%d\r\n", Cmd->Command, dPort, lPort);
+	 Temp.Length = sprintf(Temp.Command , "%s,\"IP\",%d,%d\r\n", Cmd->Command, 456, 457);
 	 
 	 /* send command */
 	 Uart_Send_Command(Temp.Length, Temp.Command);
@@ -116,21 +116,22 @@
  static void ESP8266_Sends_Data_UDP_Transmission(void) {
 	/* internal command variable */
 	 ESP8266_Command_t *Cmd = &ESP8266_Command[Sends_Data_UDP_Transmission];
-	 ESP8266_Command_t Temp;
+	 ESP8266_Command_t Command, Message;
 	 uint8_t len = 8;
 
-	 Temp.Length = sprintf(Temp.Command , "%s=%d\r\n", Cmd->Command, len);
+	 Message.Length = sprintf(Message.Command , "Merhabalar STM32 Wireless Communication\r\n");
+	 Command.Length = sprintf(Command.Command , "%s=%d\r\n", Cmd->Command, Message.Length);
 	 
 	 /* send command */
-	 Uart_Send_Command(Temp.Length, Temp.Command);
+	 Uart_Send_Command(Command.Length, Command.Command);
 	 
 	 
 	 for(volatile int i = 0; i < 20970 ; i++) ;
 	 
-	 Temp.Length = sprintf(Temp.Command , "datada\r\n");
+	 
 	 
 	 /* send command */
-	 Uart_Send_Command(Temp.Length, Temp.Command);
+	 Uart_Send_Command(Message.Length, Message.Command);
  }	
  
 void UDP(void) {
