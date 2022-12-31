@@ -54,6 +54,21 @@
 		 "ATE1\r\n",
 		 6U,
 		 "OK"
+	 },
+	 {
+		 "AT+CIPCLOSE\r\n",
+		 13U,
+		 "OK"
+	 },
+	 {
+		 "AT+CIPSTART=\"UDP\"",
+		 17U,
+		 "OK"
+	 },
+	 {
+		 "AT+CIPSEND",
+		 10U,
+		 "OK"
 	 }
  };
  

@@ -21,15 +21,7 @@ int main() {
 	for(i = 0 ; i < 209700 ; i++) {
 		
 	}
-	ESP8266_Test();
-	
-	
-	
-	for(i = 0 ; i < 209700 ; i++) {
-		
-	}
-	Reset_User_Led();
-	ESP8266_Version();
+	UDP();	
 	
 	while(1) {
 	

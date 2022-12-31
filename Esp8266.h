@@ -7,6 +7,8 @@
  
 #include "stm32l1xx.h"                  // Device header
 #include "stdint.h"
+ #include "stdio.h"
+ 
 #include "Esp8266_Config.h"
 
 /* Include APIs */

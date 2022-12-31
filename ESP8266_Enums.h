@@ -33,6 +33,9 @@
 	 Restart_The_Module,
 	 Check_Version_Information,
 	 AT_Commands_Echoing,
+	 Closes_UDP_Connection,
+	 Establishes_UDP_Transmission,
+	 Sends_Data_UDP_Transmission,
 	 AT_COMMANDS_MAX
  }ESP8266_AT_COMMANDS_t;
  

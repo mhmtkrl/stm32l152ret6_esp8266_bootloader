@@ -7,6 +7,10 @@
  
  #include "Esp8266.h"
 
+ static void ESP8266_DeleteUDP_transmission(void);
+ static void ESP8266_CreateUDP_transmission(void);
+ static void ESP8266_Sends_Data_UDP_Transmission(void);
+ 
  ESP8266_Response_End_t *Response = &ESP8266_Config.Response;
  
  typedef struct {
@@ -68,6 +72,74 @@
  }
  
  /**
+ * \brief Close current UDP socket
+ *
+ * \details none
+ * 
+ * \param none
+ * \return none
+ */
+ static void ESP8266_DeleteUDP_transmission(void) {
+	/* internal command variable */
+	 ESP8266_Command_t *Cmd = &ESP8266_Command[Closes_UDP_Connection];
+	 /* send command */
+	 Uart_Send_Command(Cmd->Length, Cmd->Command);
+ }	 
+ 
+/**
+ * \brief Estaplish UDP connection
+ *
+ * \details none
+ * 
+ * \param none
+ * \return none
+ */
+ static void ESP8266_CreateUDP_transmission(void) {
+	/* internal command variable */
+	 ESP8266_Command_t *Cmd = &ESP8266_Command[Establishes_UDP_Transmission];
+	 ESP8266_Command_t Temp;
+
+	 Temp.Length = sprintf(Temp.Command , "%s,\"IP\",%d,%d\r\n", Cmd->Command, dPort, lPort);
+	 
+	 /* send command */
+	 Uart_Send_Command(Temp.Length, Temp.Command);
+}	
+ 
+ /**
+ * \brief Send UDP Packet
+ *
+ * \details none
+ * 
+ * \param none
+ * \return none
+ */
+ static void ESP8266_Sends_Data_UDP_Transmission(void) {
+	/* internal command variable */
+	 ESP8266_Command_t *Cmd = &ESP8266_Command[Sends_Data_UDP_Transmission];
+	 ESP8266_Command_t Temp;
+	 uint8_t len = 8;
+
+	 Temp.Length = sprintf(Temp.Command , "%s=%d\r\n", Cmd->Command, len);
+	 
+	 /* send command */
+	 Uart_Send_Command(Temp.Length, Temp.Command);
+	 
+	 
+	 for(volatile int i = 0; i < 20970 ; i++) ;
+	 
+	 Temp.Length = sprintf(Temp.Command , "datada\r\n");
+	 
+	 /* send command */
+	 Uart_Send_Command(Temp.Length, Temp.Command);
+ }	
+ 
+void UDP(void) {
+	//ESP8266_DeleteUDP_transmission();
+	//ESP8266_CreateUDP_transmission();
+	ESP8266_Sends_Data_UDP_Transmission();
+} 
+ 
+ /**
  * \brief Process response data
  *
  * \details none
@@ -81,10 +153,7 @@
 	 for(int i = 0 ; i < Length ; i++) {
 		Circular_Buffer.data[Circular_Buffer.head][i] = Response[i];
 	 }
-
 	 Circular_Buffer.head++;
-	 
-	 
  }
  
 /**
@@ -97,6 +166,7 @@
  * \return none
  */
  void ESP8266_Main(void) {
+	 /* Printf received responses */
 	 while(Circular_Buffer.head != Circular_Buffer.tail) {
 		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
 		Circular_Buffer.tail++;

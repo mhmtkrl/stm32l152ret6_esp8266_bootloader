@@ -49,7 +49,7 @@ extern ESP8266_Config_t ESP8266_Config;
  * \return none
  */
 typedef struct {
-	const char *Command;
+	char Command[48];
 	uint8_t Length;
 	const char *Response;
 }ESP8266_Command_t;

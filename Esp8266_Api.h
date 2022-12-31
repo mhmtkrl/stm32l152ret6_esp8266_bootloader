@@ -7,6 +7,8 @@
  
  #include "stdint.h"
  #include "Esp8266_Config.h"
+
+ void UDP(void);
  
   /**
  * \brief Test ESP8266 
