@@ -1,6 +1,6 @@
 Dependencies for Project 'FOTA_WIFI_NUCLEO', Target 'Layers': (DO NOT MODIFY !)
 CompilerVersion: 6160000::V6.16::ARMCLANG
-F (.\main.c)(0x63B05A66)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_ -DPRE_INCLUDE_GLOBAL_H  -include "Pre_Include_Global.h"-o ./objects/main.o -MD)
+F (.\main.c)(0x63B05D12)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_ -DPRE_INCLUDE_GLOBAL_H  -include "Pre_Include_Global.h"-o ./objects/main.o -MD)
 I (RTE\_Layers\Pre_Include_Global.h)(0x63A9F1C4)
 I (Gpio.h)(0x63A9F647)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x610CDAE2)
@@ -62,7 +62,7 @@ I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x610CDAE2)
 I (Uart_Api.h)(0x63AF70AE)
 F (.\Uart.h)(0x63AA0381)()
-F (.\Uart_Comm.c)(0x63B05A20)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_ -DPRE_INCLUDE_GLOBAL_H  -include "Pre_Include_Global.h"-o ./objects/uart_comm.o -MD)
+F (.\Uart_Comm.c)(0x63B05B89)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_ -DPRE_INCLUDE_GLOBAL_H  -include "Pre_Include_Global.h"-o ./objects/uart_comm.o -MD)
 I (RTE\_Layers\Pre_Include_Global.h)(0x63A9F1C4)
 I (Uart_Comm.h)(0x63AB5D73)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x610CDAE2)
@@ -95,9 +95,9 @@ I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\system_stm32l1xx.h)(0x610CDAE2)
 I (ESP8266_Enums.h)(0x63AFFC64)
 F (.\Esp8266_Config.h)(0x63B0064C)()
-F (.\Esp8266.c)(0x63B05A88)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_ -DPRE_INCLUDE_GLOBAL_H  -include "Pre_Include_Global.h"-o ./objects/esp8266.o -MD)
+F (.\Esp8266.c)(0x63B05D4A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32L152xE -D_RTE_ -DPRE_INCLUDE_GLOBAL_H  -include "Pre_Include_Global.h"-o ./objects/esp8266.o -MD)
 I (RTE\_Layers\Pre_Include_Global.h)(0x63A9F1C4)
-I (Esp8266.h)(0x63B00436)
+I (Esp8266.h)(0x63B05CF6)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l1xx.h)(0x610CDAE2)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\Keil\STM32L1xx_DFP\1.4.1\Drivers\CMSIS\Device\ST\STM32L1xx\Include\stm32l152xe.h)(0x610CDAE2)
 I (C:\Users\mehme\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626F912E)
@@ -111,7 +111,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x60354E24)
 I (Esp8266_Config.h)(0x63B0064C)
 I (ESP8266_Enums.h)(0x63AFFC64)
 I (Uart_Api.h)(0x63AF70AE)
-F (.\Esp8266.h)(0x63B00436)()
+I (Gpio.h)(0x63A9F647)
+F (.\Esp8266.h)(0x63B05CF6)()
 F (.\Esp8266_Api.h)(0x63AFFC52)()
 F (.\ESP8266_Enums.h)(0x63AFFC64)()
 F (RTE\Device\STM32L152RETx\startup_stm32l152xe.s)(0x63AE9538)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto -c-gdwarf-4 -Wa,armasm,--pd,"__EVAL SETA 1"-I./RTE/_Layers-IC:/Users/mehme/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include-IC:/Users/mehme/AppData/Local/Arm/Packs/Keil/STM32L1xx_DFP/1.4.1/Drivers/CMSIS/Device/ST/STM32L1xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 536" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32L152xE SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32l152xe.o)

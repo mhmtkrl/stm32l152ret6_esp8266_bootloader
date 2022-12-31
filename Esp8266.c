@@ -119,7 +119,7 @@
 	 ESP8266_Command_t Command, Message;
 	 uint8_t len = 8;
 
-	 Message.Length = sprintf(Message.Command , "Merhabalar STM32 Wireless Communication\r\n");
+	 Message.Length = sprintf(Message.Command , "Hello STM32 Wireless Communication\r\n");
 	 Command.Length = sprintf(Command.Command , "%s=%d\r\n", Cmd->Command, Message.Length);
 	 
 	 /* send command */
@@ -170,6 +170,20 @@ void UDP(void) {
 	 /* Printf received responses */
 	 while(Circular_Buffer.head != Circular_Buffer.tail) {
 		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
+		if(Circular_Buffer.data[Circular_Buffer.head-1][2] == '+' && Circular_Buffer.data[Circular_Buffer.head-1][3] == 'I') {
+			if(Circular_Buffer.data[Circular_Buffer.head-1][9] == '1') {
+				Uart_Send_Debug_Message(7, "LED ON!");
+				Set_User_Led();
+			}
+			else if(Circular_Buffer.data[Circular_Buffer.head-1][9] == '0') {
+				Uart_Send_Debug_Message(8, "LED OFF!");
+				Reset_User_Led();
+			}
+			else {
+				Uart_Send_Debug_Message(17, "UNDEFINED PACKET!");
+			}
+			
+		}
 		Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
 			 Circular_Buffer.tail = 0;

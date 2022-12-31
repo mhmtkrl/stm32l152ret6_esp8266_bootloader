@@ -14,7 +14,6 @@ int main() {
 	/* Init GPIO for user LED */
 	Init_User_Led();
 
-	Set_User_Led();
 	volatile int i = 0;
 	
 	ESP8266_Echo_Off();

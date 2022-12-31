@@ -66,9 +66,11 @@ void USART3_IRQHandler(void) {
 			&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == 'P'
 			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'I' 
 		) {
+			/* Server has sent packet */
 			received = 1;
 		}
 		
+		/* Message completly received from server than transfer it to the main app for processing */
 		else if(received == 1
 		 && ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
 		 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
