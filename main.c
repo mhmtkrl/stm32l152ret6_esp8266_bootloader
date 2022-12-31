@@ -21,6 +21,14 @@ int main() {
 	for(i = 0 ; i < 209700 ; i++) {
 		
 	}
+	ESP8266_Test();
+	for(i = 0 ; i < 209700 ; i++) {
+		
+	}
+	ESP8266_Version();
+	for(i = 0 ; i < 209700 ; i++) {
+		
+	}
 	UDP();	
 	
 	while(1) {
