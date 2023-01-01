@@ -1,0 +1,11 @@
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\bin\Debug\UDP Server.exe.config
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\bin\Debug\UDP Server.exe
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\bin\Debug\UDP Server.pdb
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP Server.csproj.AssemblyReference.cache
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP_Server.Form1.resources
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP_Server.Properties.Resources.resources
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP Server.csproj.GenerateResource.cache
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP Server.csproj.CoreCompileInputs.cache
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP Server.exe
+C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\c# form - server\UDP Server\UDP Server\obj\Debug\UDP Server.pdb
