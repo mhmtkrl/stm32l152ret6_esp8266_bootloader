@@ -9,9 +9,8 @@
 
  static void ESP8266_DeleteUDP_transmission(void);
  static void ESP8266_CreateUDP_transmission(void);
- static void ESP8266_Sends_Data_UDP_Transmission(void);
  
- ESP8266_Response_End_t *Response = &ESP8266_Config.Response;
+ char *Response;
  
  typedef struct {
 	 uint8_t bufferSize;
@@ -96,10 +95,11 @@
  */
  static void ESP8266_CreateUDP_transmission(void) {
 	/* internal command variable */
+	 ESP8266_Config_t *Config = &ESP8266_Config;
 	 ESP8266_Command_t *Cmd = &ESP8266_Command[Establishes_UDP_Transmission];
 	 ESP8266_Command_t Temp;
 
-	 Temp.Length = sprintf(Temp.Command , "%s,\"IP\",%d,%d\r\n", Cmd->Command, 456, 457);
+	 Temp.Length = sprintf(Temp.Command , "%s,\"%s\",%d,%d\r\n", Cmd->Command, Config->Destination_IP, Config->Destination_Port, Config->Local_Port);
 	 
 	 /* send command */
 	 Uart_Send_Command(Temp.Length, Temp.Command);
@@ -113,31 +113,33 @@
  * \param none
  * \return none
  */
- static void ESP8266_Sends_Data_UDP_Transmission(void) {
+ void ESP8266_Sends_Data_UDP_Transmission(ESP8266_Command_t Message) {
 	/* internal command variable */
 	 ESP8266_Command_t *Cmd = &ESP8266_Command[Sends_Data_UDP_Transmission];
-	 ESP8266_Command_t Command, Message;
-	 uint8_t len = 8;
-
-	 Message.Length = sprintf(Message.Command , "Hello STM32 Wireless Communication\r\n");
+	 ESP8266_Command_t Command;
+	 
 	 Command.Length = sprintf(Command.Command , "%s=%d\r\n", Cmd->Command, Message.Length);
 	 
 	 /* send command */
 	 Uart_Send_Command(Command.Length, Command.Command);
 	 
-	 
 	 for(volatile int i = 0; i < 20970 ; i++) ;
-	 
-	 
 	 
 	 /* send command */
 	 Uart_Send_Command(Message.Length, Message.Command);
  }	
  
 void UDP(void) {
-	//ESP8266_DeleteUDP_transmission();
-	//ESP8266_CreateUDP_transmission();
-	ESP8266_Sends_Data_UDP_Transmission();
+	volatile int i = 0;
+	ESP8266_DeleteUDP_transmission();
+	for(i = 0 ; i < 209700 ; i++) {
+		
+	}
+	ESP8266_CreateUDP_transmission();
+	for(i = 0 ; i < 209700 ; i++) {
+		
+	}
+	
 } 
  
  /**

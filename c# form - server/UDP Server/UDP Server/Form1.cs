@@ -15,7 +15,7 @@ namespace UDP_Server
 {
     public partial class Form1 : Form
     {
-        private string ESP_IP = "IP";
+        private string ESP_IP = "192.168.1.5";
         private int ESP_PORT = 457;
         private UdpClient Esp8266 = new UdpClient(456);
         IAsyncResult process = null;
@@ -40,6 +40,7 @@ namespace UDP_Server
             IPEndPoint myDevice = new IPEndPoint(IPAddress.Parse(ESP_IP), ESP_PORT);
             byte[] rxData_Byte = Esp8266.EndReceive(ar, ref myDevice);
             listBox1.Items.Add(Encoding.ASCII.GetString(rxData_Byte));
+            listBox1.SelectedIndex = listBox1.Items.Count-1;
             StartProcess();
         }
 
@@ -67,6 +68,7 @@ namespace UDP_Server
             Esp8266.Close();
 
             listBox1.Items.Add("Sending: " + Encoding.ASCII.GetString(txData));
+            listBox1.SelectedIndex = listBox1.Items.Count-1;
         }
 
         private void buttonClear_Click(object sender, EventArgs e)

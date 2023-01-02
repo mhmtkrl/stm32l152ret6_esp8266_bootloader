@@ -2,9 +2,10 @@
 #include "Sys_Timer_Api.h"
 #include "Uart_Api.h"
 #include "Esp8266_Api.h"
+#include <stdio.h>
 
-uint8_t msg[14] = "Hello World!\r\n";
-uint8_t AT[4] = "AT\r\n";
+ESP8266_Command_t Message;
+uint16_t Test_Counter = 0;
 
 int main() {
 	/* Init SysTick Timer for generating Delay */
@@ -31,6 +32,10 @@ int main() {
 	UDP();	
 	
 	while(1) {
-	
+		Message.Length = sprintf(Message.Command, "Counter = %d\r\n", Test_Counter++);
+		ESP8266_Sends_Data_UDP_Transmission(Message);
+		for(i = 0 ; i < 209700 ; i++) {
+			
+		}
 	}
 }

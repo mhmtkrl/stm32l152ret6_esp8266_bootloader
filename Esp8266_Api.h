@@ -54,7 +54,17 @@
  void ESP8266_Echo_Off(void);
 	 
  void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff);
-	 
+	
+ /**
+ * \brief Send UDP Packet
+ *
+ * \details none
+ * 
+ * \param none
+ * \return none
+ */
+ void ESP8266_Sends_Data_UDP_Transmission(ESP8266_Command_t Message);
+ 
  /**
  * \brief Manage ESP8266
  *

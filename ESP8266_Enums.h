@@ -7,18 +7,7 @@
  
  #include "stdint.h"
  
- /**
- * \enum ESP8266_Config_t
- *
- * \details Config for ESP8266
- * 
- * \param  none
- * \return none
- */
- typedef enum {
-	 ECHO_OFF,
-	 ECHO_ON
- }ECHO_MODE_t;
+
  
   /**
  * \enum ESP8266_AT_COMMANDS_t

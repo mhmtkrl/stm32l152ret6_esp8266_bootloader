@@ -8,6 +8,19 @@
 #include "stm32l1xx.h"                  // Device header
 #include "stdint.h"
  
+void Drive_Step_Motor(void);
+
+/**
+ * \brief Init step motor pins
+ *
+ * \details This function configures the clock line and IO state of related pin
+ * 
+ * \param none
+ * \param none
+ * \return none
+ */
+ void Init_Step_Motor_Pins(void);
+ 
  /**
  * \brief Init user LED (PA5)
  *
