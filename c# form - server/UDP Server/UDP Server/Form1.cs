@@ -39,8 +39,7 @@ namespace UDP_Server
         {
             IPEndPoint myDevice = new IPEndPoint(IPAddress.Parse(ESP_IP), ESP_PORT);
             byte[] rxData_Byte = Esp8266.EndReceive(ar, ref myDevice);
-            listBox1.Items.Add(Encoding.ASCII.GetString(rxData_Byte));
-            listBox1.SelectedIndex = listBox1.Items.Count-1;
+            showRxPacket(Encoding.ASCII.GetString(rxData_Byte));
             StartProcess();
         }
 
@@ -74,6 +73,22 @@ namespace UDP_Server
         private void buttonClear_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+        }
+
+        public void showRxPacket(string rx)
+        {
+            string unixTimestamp = Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
+
+            string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + "  -  " + rx;
+            listBox1.Items.Add(txt);
+            listBox1.SelectedIndex = listBox1.Items.Count-1;
+         
+        }
+        private static DateTime UnixTimestampToDateTime(double unixTime)
+        {
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            long unixTimeStampInTicks = (long)(unixTime * TimeSpan.TicksPerSecond);
+            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, System.DateTimeKind.Utc);
         }
     }
 }

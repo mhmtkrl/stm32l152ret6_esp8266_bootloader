@@ -491,6 +491,26 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>CRC</GroupName>
+          <Files>
+            <File>
+              <FileName>CRC_Calculation.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\CRC_Calculation.c</FilePath>
+            </File>
+            <File>
+              <FileName>CRC_Calculation.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CRC_Calculation.h</FilePath>
+            </File>
+            <File>
+              <FileName>CRC_Calculation_Api.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\CRC_Calculation_Api.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>

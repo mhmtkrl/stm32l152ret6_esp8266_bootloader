@@ -2,10 +2,13 @@
 #include "Sys_Timer_Api.h"
 #include "Uart_Api.h"
 #include "Esp8266_Api.h"
+#include "CRC_Calculation_Api.h"
 #include <stdio.h>
 
 ESP8266_Command_t Message;
 uint16_t Test_Counter = 0;
+
+Checksum_Compare_Result_t result = 0;
 
 int main() {
 	/* Init SysTick Timer for generating Delay */
@@ -14,7 +17,11 @@ int main() {
 	Init_Uart_For_Communication();
 	/* Init GPIO for user LED */
 	Init_User_Led();
-
+	/* Init CRC */
+	Crc_Init();
+	 uint8_t byte[8] = {1, 2, 3, 4, 5, 6, 7, 8};
+	result = Crc_Calculate(8, &byte[0], 0xc2);
+	
 	volatile int i = 0;
 	
 	ESP8266_Echo_Off();

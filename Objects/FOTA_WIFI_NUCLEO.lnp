@@ -6,6 +6,7 @@
 ".\objects\uart_comm.o"
 ".\objects\esp8266_config.o"
 ".\objects\esp8266.o"
+".\objects\crc_calculation.o"
 ".\objects\startup_stm32l152xe.o"
 ".\objects\system_stm32l1xx.o"
 --ro-base 0x08000000 --entry 0x08000000 --rw-base 0x20000000 --entry Reset_Handler --first __Vectors --strict --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
