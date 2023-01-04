@@ -12,8 +12,8 @@ namespace UDP_Server
     internal class UDP_Communication
     {
         Form1 form1;
-
-        private string ESP_IP = "192.168.1.5";
+        MyProtocol myForm;
+        private string ESP_IP = "IP";
         private int ESP_PORT = 457;
         IAsyncResult process = null;
         private UdpClient Esp8266 = new UdpClient(456);
@@ -23,6 +23,12 @@ namespace UDP_Server
         {
             form1 = newForm1;
         }
+
+        public void communication_update2(MyProtocol my)
+        {
+            myForm = my;
+        }
+
 
         public void StartProcess()
         {

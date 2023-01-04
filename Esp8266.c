@@ -12,6 +12,8 @@
  
  char *Response;
  
+ MY_PROTOCOL_T Protocol;
+ 
  typedef struct {
 	 uint8_t bufferSize;
 	 uint8_t head;
@@ -182,6 +184,14 @@ void UDP(void) {
 				Reset_User_Led();
 			}
 			else {
+				
+				Protocol.Cmd = Circular_Buffer.data[Circular_Buffer.head-1][10];
+				Protocol.Length = Circular_Buffer.data[Circular_Buffer.head-1][11];
+				Protocol.Counter = (Circular_Buffer.data[Circular_Buffer.head-1][12] << 8) | Circular_Buffer.data[Circular_Buffer.head-1][13];
+				Protocol.Frame_Type = Circular_Buffer.data[Circular_Buffer.head-1][14];
+				Protocol.Data[0] = Circular_Buffer.data[Circular_Buffer.head-1][15];
+				Protocol.Checksum = Circular_Buffer.data[Circular_Buffer.head-1][23];
+
 				Uart_Send_Debug_Message(17, "UNDEFINED PACKET!");
 			}
 			

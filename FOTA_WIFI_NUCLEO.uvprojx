@@ -511,6 +511,26 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>MY_PROTOCOL</GroupName>
+          <Files>
+            <File>
+              <FileName>My_Protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\My_Protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>My_Protocol.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\My_Protocol.h</FilePath>
+            </File>
+            <File>
+              <FileName>My_Protocol_Api.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\My_Protocol_Api.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
