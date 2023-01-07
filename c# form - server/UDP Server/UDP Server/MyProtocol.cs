@@ -28,12 +28,6 @@ namespace UDP_Server
             communication.StartProcess();
         }
 
-        public void showMsg(string pkt)
-        {
-            form1.listBox1.Items.Add(pkt);
-            form1.listBox1.SelectedIndex = form1.listBox1.Items.Count-1;
-        }
-
         private byte Crc_Calculate(byte[] data)
         {
             byte Checksum = 0x00;
@@ -99,7 +93,8 @@ namespace UDP_Server
             }
             string unixTimestamp = Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
             string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + direction + rx;
-            showMsg(txt);
+            form1.listBox1.Items.Add(txt);
+            form1.listBox1.SelectedIndex = form1.listBox1.Items.Count-1;
         }
         private static DateTime UnixTimestampToDateTime(double unixTime)
         {

@@ -28,6 +28,12 @@ namespace UDP_Server
         private void recv(IAsyncResult res)
         {
             byte[] received = Esp8266.EndReceive(res, ref myDevice);
+            var x = "";
+            for (var i = 0; i < received.Length; i++)
+            {
+                x = x + "0x" + received[i].ToString("X2") + "  ";
+            }
+            Protocol.showProtocolPacket(0, x);
             Protocol.showProtocolPacket(0, Encoding.UTF8.GetString(received));
             Esp8266.BeginReceive(new AsyncCallback(recv), null);
         }
