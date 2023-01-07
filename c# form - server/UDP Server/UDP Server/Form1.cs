@@ -16,23 +16,19 @@ namespace UDP_Server
 {
     public partial class Form1 : Form
     {
-
-
         MyProtocol protocol = new MyProtocol();
-
+        UDP_Communication ci;
         public Form1()
         {
-            InitializeComponent();
-            
+            InitializeComponent();       
         }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            protocol.Protocol_Init();
             protocol.protocol_update(this);
-            
-           
-
+            protocol.Protocol_Init();
         }
 
         private void buttonLedOn_Click(object sender, EventArgs e)
@@ -47,11 +43,7 @@ namespace UDP_Server
             protocol.Send_Frame(data);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            byte[] data = new byte[] { 0x55, 0x44, 0x50, 0x20, 0x63, 0x6f, 0x6d, 0x6d, 0x75, 0x6e, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e };
-            protocol.Send_Frame(data);
-        }
+    
         private void buttonClear_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();

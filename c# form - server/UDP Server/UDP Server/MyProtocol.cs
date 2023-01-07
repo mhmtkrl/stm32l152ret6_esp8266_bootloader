@@ -17,24 +17,21 @@ namespace UDP_Server
         Form1 form1;
         UDP_Communication communication = new UDP_Communication();
 
-        public void protocol_update(Form1 newForm1)
+        public void protocol_update(Form1 form)
         {
-            form1 = newForm1;
-            communication.communication_update2(this);
+            form1 = form;
         }
         
         public void Protocol_Init()
         {
-            
-            communication.communication_update2(this);
+            communication.UDP_Comm_Update(this);
             communication.StartProcess();
-            
         }
 
         public void showMsg(string pkt)
         {
             form1.listBox1.Items.Add(pkt);
-
+            form1.listBox1.SelectedIndex = form1.listBox1.Items.Count-1;
         }
 
         private byte Crc_Calculate(byte[] data)
@@ -85,17 +82,24 @@ namespace UDP_Server
                 x = x + "0x" + frame[i].ToString("X2") + "  ";
             }
 
-            showRxPacket(x);
+            showProtocolPacket(1, x);
         }
 
-        public void showRxPacket(string rx)
+        public void showProtocolPacket(byte TxOrRX, string rx)
         {
+            string direction = "";
+
+            if (TxOrRX == 0x00)
+            {
+                direction = " <- ";
+            }
+            if (TxOrRX == 0x01)
+            {
+                direction = " -> ";
+            }
             string unixTimestamp = Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
-
-            string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + "  ->  " + rx;
-            form1.listBox1.Items.Add(txt);
-            form1.listBox1.SelectedIndex = form1.listBox1.Items.Count-1;
-
+            string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + direction + rx;
+            showMsg(txt);
         }
         private static DateTime UnixTimestampToDateTime(double unixTime)
         {

@@ -16,7 +16,7 @@
  * \return none
  */
  ESP8266_Config_t ESP8266_Config = {
-	  "IP",
+	  "192.168.1.4",
 		456,
 	  457
  };
