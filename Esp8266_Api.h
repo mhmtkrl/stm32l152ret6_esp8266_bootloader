@@ -53,7 +53,7 @@
  */
  void ESP8266_Echo_Off(void);
 	 
- void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff);
+ void ESP8266_Process_Response(uint8_t type, char *Response, uint8_t Length, uint16_t Time_Diff);
 	
  /**
  * \brief Send UDP Packet

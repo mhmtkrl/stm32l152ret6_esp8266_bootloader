@@ -47,7 +47,7 @@ void USART3_IRQHandler(void) {
 			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'K'
 			&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
 			) {
-				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Process_Response(0, &ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
 				ESP8266_Response_Length = 0;
 			}
 			
@@ -57,7 +57,7 @@ void USART3_IRQHandler(void) {
 					 && ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'R'
 					 && ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
 			) {
-				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Process_Response(0, &ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
 				ESP8266_Response_Length = 0;
 			}
 			
@@ -75,7 +75,7 @@ void USART3_IRQHandler(void) {
 			 && ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
 			 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
 			) {
-				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Process_Response(1, &ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
 				ESP8266_Response_Length = 0;
 				received = 0;
 			}

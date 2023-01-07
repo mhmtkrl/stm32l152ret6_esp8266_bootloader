@@ -12,17 +12,17 @@
  
  char *Response;
  
-uint8_t internal = 0;
+uint8_t otp = 0;
  
  typedef struct {
 	 uint8_t bufferSize;
 	 uint8_t head;
 	 uint8_t tail;
 	 uint8_t length;
-	 char data[50][128];
+	 char data[100][128];
  }Circular_Buffer_t;
  
- Circular_Buffer_t Circular_Buffer = {50, 0, 0, 0, 0U};
+ Circular_Buffer_t Circular_Buffer = {100, 0, 0, 0, 0U};
  
  /**
  * \brief Test ESP8266 
@@ -153,12 +153,16 @@ void UDP(void) {
  * \param none
  * \return none
  */
- void ESP8266_Process_Response(char *Response, uint8_t Length, uint16_t Time_Diff) {
+ void ESP8266_Process_Response(uint8_t type, char *Response, uint8_t Length, uint16_t Time_Diff) {
 	 Circular_Buffer.length = Length;
 	 for(int i = 0 ; i < Length ; i++) {
 		Circular_Buffer.data[Circular_Buffer.head][i] = Response[i];
 	 }
+	 if(type == 1)
 	 Circular_Buffer.head++;
+	 else {
+		 otp = 1;
+	 }
  }
  
 /**
@@ -172,10 +176,10 @@ void UDP(void) {
  */
  void ESP8266_Main(void) {
 	 /* Process circular buffer */
-	 while(Circular_Buffer.head != Circular_Buffer.tail) {
-		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
-		if((Circular_Buffer.data[Circular_Buffer.head-1][2] == '+' && Circular_Buffer.data[Circular_Buffer.head-1][3] == 'I')) {
-			uint8_t indis = Circular_Buffer.head-1;
+	 if(Circular_Buffer.head != Circular_Buffer.tail) {
+		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.tail][0]);
+
+			uint8_t indis = Circular_Buffer.tail;
 			MY_PROTOCOL_T	*Request = &Protocol;
 			/* \todo: Use struct feature */
 			Request->Cmd = Circular_Buffer.data[indis][10];
@@ -189,18 +193,20 @@ void UDP(void) {
 			Request->Checksum = Circular_Buffer.data[indis][23];
 		
 			if(PERIPHERAL_CONTROL == Request->Cmd) {
-				internal = indis;
 				Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], 0U);
 			}
-			
-		}
-		Circular_Buffer.tail++;
+			Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
 			 Circular_Buffer.tail = 0;
 		 }
 		 if(Circular_Buffer.head >= Circular_Buffer.bufferSize) {
 			 Circular_Buffer.head = 0;
 		 }
+	 }
+	 
+	 if(otp) {
+		 Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head][0]);
+		 otp = 0;
 	 }
  }
  
