@@ -12,7 +12,7 @@
  
  char *Response;
  
- MY_PROTOCOL_T Protocol;
+
  
  typedef struct {
 	 uint8_t bufferSize;
@@ -171,30 +171,25 @@ void UDP(void) {
  * \return none
  */
  void ESP8266_Main(void) {
-	 /* Printf received responses */
+	 /* Process circular buffer */
 	 while(Circular_Buffer.head != Circular_Buffer.tail) {
 		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
 		if(Circular_Buffer.data[Circular_Buffer.head-1][2] == '+' && Circular_Buffer.data[Circular_Buffer.head-1][3] == 'I') {
-			if(Circular_Buffer.data[Circular_Buffer.head-1][9] == '1') {
-				Uart_Send_Debug_Message(7, "LED ON!");
-				Set_User_Led();
+			MY_PROTOCOL_T	*Request = &Protocol;
+			/* \todo: Use struct feature */
+			Request->Cmd = Circular_Buffer.data[Circular_Buffer.head-1][10];
+			Request->Length = Circular_Buffer.data[Circular_Buffer.head-1][11];
+			Request->Counter = (Circular_Buffer.data[Circular_Buffer.head-1][12] << 8) | Circular_Buffer.data[Circular_Buffer.head-1][13];
+			Request->Frame_Type = Circular_Buffer.data[Circular_Buffer.head-1][14];
+			Request->Data[0] = Circular_Buffer.data[Circular_Buffer.head-1][15];
+			Request->Data[1] = Circular_Buffer.data[Circular_Buffer.head-1][16];
+			Request->Data[2] = Circular_Buffer.data[Circular_Buffer.head-1][17];
+			Request->Data[3] = Circular_Buffer.data[Circular_Buffer.head-1][18];
+			Request->Checksum = Circular_Buffer.data[Circular_Buffer.head-1][23];
+		
+			if(PERIPHERAL_CONTROL == Request->Cmd) {
+				Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], 0U);
 			}
-			else if(Circular_Buffer.data[Circular_Buffer.head-1][9] == '0') {
-				Uart_Send_Debug_Message(8, "LED OFF!");
-				Reset_User_Led();
-			}
-			else {
-				
-				Protocol.Cmd = Circular_Buffer.data[Circular_Buffer.head-1][10];
-				Protocol.Length = Circular_Buffer.data[Circular_Buffer.head-1][11];
-				Protocol.Counter = (Circular_Buffer.data[Circular_Buffer.head-1][12] << 8) | Circular_Buffer.data[Circular_Buffer.head-1][13];
-				Protocol.Frame_Type = Circular_Buffer.data[Circular_Buffer.head-1][14];
-				Protocol.Data[0] = Circular_Buffer.data[Circular_Buffer.head-1][15];
-				Protocol.Checksum = Circular_Buffer.data[Circular_Buffer.head-1][23];
-
-				Uart_Send_Debug_Message(17, "UNDEFINED PACKET!");
-			}
-			
 		}
 		Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
@@ -204,8 +199,5 @@ void UDP(void) {
 			 Circular_Buffer.head = 0;
 		 }
 	 }
-
-	 
-
  }
  

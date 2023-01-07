@@ -10,7 +10,7 @@ namespace UDP_Server
 {
     internal class MyProtocol
     {
-        byte CMD = 0xAB;
+        byte CMD = 0x01;
         byte COUNTER = 0x00;
         byte FRAME_TYPE = 0xCD;
 
@@ -70,7 +70,7 @@ namespace UDP_Server
             frame[14] = 0x0D;
             frame[15] = 0x0A;
             communication.Send_UDP_Data(frame);
-            form1.listBox1.Items.Add("Checksum: " + frame[13].ToString("X2"));
+            form1.listBox1.Items.Add("Checksum: 0x" + frame[13].ToString("X2"));
         }
     }
     

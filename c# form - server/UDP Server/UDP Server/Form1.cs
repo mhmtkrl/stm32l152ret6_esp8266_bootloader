@@ -38,13 +38,13 @@ namespace UDP_Server
 
         private void buttonLedOn_Click(object sender, EventArgs e)
         {
-            byte[] data = new byte[1] { 0x31};
+            byte[] data = new byte[3] { 0x01, 0x00, 0x01};
             protocol.Send_Frame(data);
         }
 
         private void buttonLedOff_Click(object sender, EventArgs e)
         {
-            byte[] data = new byte[1] { 0x30 };
+            byte[] data = new byte[3] { 0x01, 0x00, 0x00};
             protocol.Send_Frame(data);
         }
 

@@ -13,7 +13,7 @@ namespace UDP_Server
     {
         Form1 form1;
         MyProtocol myForm;
-        private string ESP_IP = "IP";
+        private string ESP_IP = "192.168.1.5";
         private int ESP_PORT = 457;
         IAsyncResult process = null;
         private UdpClient Esp8266 = new UdpClient(456);
