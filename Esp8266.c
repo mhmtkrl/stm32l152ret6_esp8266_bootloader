@@ -12,17 +12,17 @@
  
  char *Response;
  
-
+uint8_t internal = 0;
  
  typedef struct {
 	 uint8_t bufferSize;
 	 uint8_t head;
 	 uint8_t tail;
 	 uint8_t length;
-	 char data[5][128];
+	 char data[50][128];
  }Circular_Buffer_t;
  
- Circular_Buffer_t Circular_Buffer = {5, 0, 0, 0, 0U};
+ Circular_Buffer_t Circular_Buffer = {50, 0, 0, 0, 0U};
  
  /**
  * \brief Test ESP8266 
@@ -174,22 +174,25 @@ void UDP(void) {
 	 /* Process circular buffer */
 	 while(Circular_Buffer.head != Circular_Buffer.tail) {
 		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
-		if(Circular_Buffer.data[Circular_Buffer.head-1][2] == '+' && Circular_Buffer.data[Circular_Buffer.head-1][3] == 'I') {
+		if((Circular_Buffer.data[Circular_Buffer.head-1][2] == '+' && Circular_Buffer.data[Circular_Buffer.head-1][3] == 'I')) {
+			uint8_t indis = Circular_Buffer.head-1;
 			MY_PROTOCOL_T	*Request = &Protocol;
 			/* \todo: Use struct feature */
-			Request->Cmd = Circular_Buffer.data[Circular_Buffer.head-1][10];
-			Request->Length = Circular_Buffer.data[Circular_Buffer.head-1][11];
-			Request->Counter = (Circular_Buffer.data[Circular_Buffer.head-1][12] << 8) | Circular_Buffer.data[Circular_Buffer.head-1][13];
-			Request->Frame_Type = Circular_Buffer.data[Circular_Buffer.head-1][14];
-			Request->Data[0] = Circular_Buffer.data[Circular_Buffer.head-1][15];
-			Request->Data[1] = Circular_Buffer.data[Circular_Buffer.head-1][16];
-			Request->Data[2] = Circular_Buffer.data[Circular_Buffer.head-1][17];
-			Request->Data[3] = Circular_Buffer.data[Circular_Buffer.head-1][18];
-			Request->Checksum = Circular_Buffer.data[Circular_Buffer.head-1][23];
+			Request->Cmd = Circular_Buffer.data[indis][10];
+			Request->Length = Circular_Buffer.data[indis][11];
+			Request->Counter = (Circular_Buffer.data[indis][12] << 8) | Circular_Buffer.data[indis][13];
+			Request->Frame_Type = Circular_Buffer.data[indis][14];
+			Request->Data[0] = Circular_Buffer.data[indis][15];
+			Request->Data[1] = Circular_Buffer.data[indis][16];
+			Request->Data[2] = Circular_Buffer.data[indis][17];
+			Request->Data[3] = Circular_Buffer.data[indis][18];
+			Request->Checksum = Circular_Buffer.data[indis][23];
 		
 			if(PERIPHERAL_CONTROL == Request->Cmd) {
+				internal = indis;
 				Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], 0U);
 			}
+			
 		}
 		Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {

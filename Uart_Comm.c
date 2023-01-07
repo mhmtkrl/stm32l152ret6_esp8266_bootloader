@@ -40,49 +40,50 @@ void USART3_IRQHandler(void) {
 		ESP8266_Response_Buffer[ESP8266_Response_Length] = Esp8266->DR;
 
 		ESP8266_Response_Length++;
-		
-		/* Check if OK received */
-		if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
-		&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
-		&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'K'
-		&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
-		) {
-			ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-			ESP8266_Response_Length = 0;
-		}
-		
-		/* Check if ERROR received */
-		else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
-				 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
-				 && ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'R'
-				 && ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
-		) {
-			ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-			ESP8266_Response_Length = 0;
-		}
-		
-		/* Check if any message transmitted from server is available */
-		else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == 'D' 
-			&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == 'P'
-			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'I' 
-		) {
-			/* Server has sent packet */
-			received = 1;
-		}
-		
-		/* Message completly received from server than transfer it to the main app for processing */
-		else if(received == 1
-		 && ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
-		 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
-		) {
-			ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
-			ESP8266_Response_Length = 0;
-			received = 0;
-		}
-		
-		else {
+		//if(ESP8266_Response_Length > 4) {
+			/* Check if OK received */
+			if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'K'
+			&& ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
+			) {
+				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Response_Length = 0;
+			}
 			
-		}
+			/* Check if ERROR received */
+			else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+					 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+					 && ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'R'
+					 && ESP8266_Response_Buffer[ESP8266_Response_Length-4] == 'O'
+			) {
+				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Response_Length = 0;
+			}
+			
+			/* Check if any message transmitted from server is available */
+			else if(ESP8266_Response_Buffer[ESP8266_Response_Length-1] == 'D' 
+				&& ESP8266_Response_Buffer[ESP8266_Response_Length-2] == 'P'
+				&& ESP8266_Response_Buffer[ESP8266_Response_Length-3] == 'I' 
+			) {
+				/* Server has sent packet */
+				received = 1;
+			}
+			
+			/* Message completly received from server than transfer it to the main app for processing */
+			else if(received == 1
+			 && ESP8266_Response_Buffer[ESP8266_Response_Length-1] == '\n' 
+			 && ESP8266_Response_Buffer[ESP8266_Response_Length-2] == '\r'
+			) {
+				ESP8266_Process_Response(&ESP8266_Response_Buffer[0], ESP8266_Response_Length, 0);
+				ESP8266_Response_Length = 0;
+				received = 0;
+			}
+			
+			else {
+				
+			}
+		
 		
 		/* Reset ISR Flag */
 		Esp8266->SR &= ~(1ul << 5);
