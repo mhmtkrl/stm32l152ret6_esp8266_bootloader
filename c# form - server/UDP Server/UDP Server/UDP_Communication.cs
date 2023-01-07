@@ -11,7 +11,7 @@ namespace UDP_Server
     
     internal class UDP_Communication
     {
-        Form1 form1;
+    
         MyProtocol myForm;
         private string ESP_IP = "192.168.1.5";
         private int ESP_PORT = 457;
@@ -19,10 +19,6 @@ namespace UDP_Server
         private UdpClient Esp8266 = new UdpClient(456);
 
 
-        public void communication_update(Form1 newForm1)
-        {
-            form1 = newForm1;
-        }
 
         public void communication_update2(MyProtocol my)
         {
@@ -33,12 +29,13 @@ namespace UDP_Server
         public void StartProcess()
         {
             process = Esp8266.BeginReceive(Receive, new object());
+            
         }
         private void Receive(IAsyncResult ar)
         {
             IPEndPoint myDevice = new IPEndPoint(IPAddress.Parse(ESP_IP), ESP_PORT);
             byte[] rxData_Byte = Esp8266.EndReceive(ar, ref myDevice);
-            form1.showRxPacket(Encoding.ASCII.GetString(rxData_Byte));
+            myForm.showMsg(Encoding.ASCII.GetString(rxData_Byte));
             StartProcess();
         }
         public void Send_UDP_Data(byte[] txData)
@@ -50,8 +47,6 @@ namespace UDP_Server
             Esp8266.Send(txData, txData.Length);
             Esp8266.Close();
 
-            form1.listBox1.Items.Add("Sending: " + Encoding.ASCII.GetString(txData));
-            form1.listBox1.SelectedIndex = form1.listBox1.Items.Count-1;
         }
     }
 }

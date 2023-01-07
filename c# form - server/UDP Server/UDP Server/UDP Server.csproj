@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cave.CRC, Version=1.0.2.0, Culture=neutral, PublicKeyToken=fa3f925e08d9ceff, processorArchitecture=MSIL">
       <HintPath>..\packages\Cave.CRC.1.0.2\lib\net47\Cave.CRC.dll</HintPath>

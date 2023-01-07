@@ -17,8 +17,7 @@ namespace UDP_Server
     public partial class Form1 : Form
     {
 
-        string message = "UDP communication";
-        //UDP_Communication communication = new UDP_Communication();
+
         MyProtocol protocol = new MyProtocol();
 
         public Form1()
@@ -31,7 +30,7 @@ namespace UDP_Server
         {
             protocol.Protocol_Init();
             protocol.protocol_update(this);
-        
+            
            
 
         }
@@ -57,20 +56,6 @@ namespace UDP_Server
         {
             listBox1.Items.Clear();
         }
-        public void showRxPacket(string rx)
-        {
-            string unixTimestamp = Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
-
-            string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + "  <-  " + rx;
-            listBox1.Items.Add(txt);
-            listBox1.SelectedIndex = listBox1.Items.Count-1;
-
-        }
-        private static DateTime UnixTimestampToDateTime(double unixTime)
-        {
-            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
-            long unixTimeStampInTicks = (long)(unixTime * TimeSpan.TicksPerSecond);
-            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, System.DateTimeKind.Utc);
-        }
+     
     }
 }

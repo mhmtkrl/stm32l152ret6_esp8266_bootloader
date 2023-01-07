@@ -31,14 +31,21 @@ ERROR_CODES_T Peripheral_Control(uint8_t Operation_Type, PERIPHERAL_UNITS_T Gpio
 	ERROR_CODES_T Error_Code = NO_ERROR;
 	
 	if(READ_OPERATION == Operation_Type) {
+		uint8_t dummyTemp = 0;
 		if(USER_LED == Gpio_Mask) {
 			/* Return LED status */
+			dummyTemp = (GPIOA->IDR & (1ul << 5));
+			Return_Value = &dummyTemp;
 		}
 		else if(USER_BUTTON == Gpio_Mask) {
 			/* Return Button status */
+			dummyTemp = 1;
+			Return_Value = &dummyTemp;
 		}
 		else if(TEMPERATURE_SENSOR == Gpio_Mask) {
 			/* Return Temperature Value */
+			dummyTemp = 25;
+			Return_Value = &dummyTemp;
 		}
 		else {
 			Error_Code = UNDEFINED_PERIPHERAL;

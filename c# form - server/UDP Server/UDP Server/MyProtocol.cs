@@ -20,12 +20,21 @@ namespace UDP_Server
         public void protocol_update(Form1 newForm1)
         {
             form1 = newForm1;
-            communication.communication_update(newForm1);
+            communication.communication_update2(this);
         }
-
+        
         public void Protocol_Init()
         {
+            
             communication.communication_update2(this);
+            communication.StartProcess();
+            
+        }
+
+        public void showMsg(string pkt)
+        {
+            form1.listBox1.Items.Add(pkt);
+
         }
 
         private byte Crc_Calculate(byte[] data)
@@ -70,7 +79,29 @@ namespace UDP_Server
             frame[14] = 0x0D;
             frame[15] = 0x0A;
             communication.Send_UDP_Data(frame);
-            form1.listBox1.Items.Add("Checksum: 0x" + frame[13].ToString("X2"));
+            var x = "";
+            for(var i = 0; i < frame.Length; i++)
+            {
+                x = x + "0x" + frame[i].ToString("X2") + "  ";
+            }
+
+            showRxPacket(x);
+        }
+
+        public void showRxPacket(string rx)
+        {
+            string unixTimestamp = Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
+
+            string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + "  ->  " + rx;
+            form1.listBox1.Items.Add(txt);
+            form1.listBox1.SelectedIndex = form1.listBox1.Items.Count-1;
+
+        }
+        private static DateTime UnixTimestampToDateTime(double unixTime)
+        {
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            long unixTimeStampInTicks = (long)(unixTime * TimeSpan.TicksPerSecond);
+            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, System.DateTimeKind.Utc);
         }
     }
     
