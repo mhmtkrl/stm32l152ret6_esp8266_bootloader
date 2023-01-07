@@ -12,7 +12,7 @@ Checksum_Compare_Result_t result = 0;
 
 int main() {
 	/* Init SysTick Timer for generating Delay */
-	Init_System_Timer(2097000000);
+	Init_System_Timer(209700000);
 	/* Init UART for debugging and communacating with esp8266 */
 	Init_Uart_For_Communication();
 	/* Init GPIO for user LED */

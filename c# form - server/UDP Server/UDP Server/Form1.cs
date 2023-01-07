@@ -19,7 +19,7 @@ namespace UDP_Server
         MyProtocol protocol = new MyProtocol();
 
         byte ledStatus = 0x00;
-        int PacketCount = 20;
+        int PacketCount = 100;
         int TxCounter = 0;
 
         public Form1()

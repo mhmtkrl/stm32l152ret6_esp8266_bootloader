@@ -14,6 +14,8 @@
  
 uint8_t internal = 0;
  
+ uint8_t HeadCounter = 0;
+  uint8_t TailCounter = 0;
 uint8_t RxCounter = 0;
 
  typedef struct {
@@ -21,10 +23,10 @@ uint8_t RxCounter = 0;
 	 uint8_t head;
 	 uint8_t tail;
 	 uint8_t length;
-	 char data[50][128];
+	 char data[100][128];
  }Circular_Buffer_t;
  
- Circular_Buffer_t Circular_Buffer = {50, 0, 0, 0, 0U};
+ Circular_Buffer_t Circular_Buffer = {100, 0, 0, 0, 0U};
  
  /**
  * \brief Test ESP8266 
@@ -160,6 +162,7 @@ void UDP(void) {
 	 for(int i = 0 ; i < Length ; i++) {
 		Circular_Buffer.data[Circular_Buffer.head][i] = Response[i];
 	 }
+	 HeadCounter++;
 	 Circular_Buffer.head++;
  }
  
@@ -175,6 +178,7 @@ void UDP(void) {
  void ESP8266_Main(void) {
 	 /* Process circular buffer */
 	 if(Circular_Buffer.head != Circular_Buffer.tail) {
+		 TailCounter++;
 		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
 	//	if((Circular_Buffer.data[Circular_Buffer.tail][2] == '+' && Circular_Buffer.data[Circular_Buffer.tail][3] == 'I')) {
 			uint8_t indis = Circular_Buffer.tail-1;

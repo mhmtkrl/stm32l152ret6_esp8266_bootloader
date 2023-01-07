@@ -38,7 +38,6 @@ void USART3_IRQHandler(void) {
 	*/
 	if(Esp8266->SR & (1ul << 5)) {
 		ESP8266_Response_Buffer[ESP8266_Response_Length] = Esp8266->DR;
-
 		ESP8266_Response_Length++;
 		//if(ESP8266_Response_Length > 4) {
 			/* Check if OK received */
