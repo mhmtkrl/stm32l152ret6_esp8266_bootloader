@@ -14,6 +14,8 @@
  
 uint8_t internal = 0;
  
+uint8_t RxCounter = 0;
+
  typedef struct {
 	 uint8_t bufferSize;
 	 uint8_t head;
@@ -172,10 +174,10 @@ void UDP(void) {
  */
  void ESP8266_Main(void) {
 	 /* Process circular buffer */
-	 while(Circular_Buffer.head != Circular_Buffer.tail) {
+	 if(Circular_Buffer.head != Circular_Buffer.tail) {
 		Uart_Send_Debug_Message(Circular_Buffer.length, &Circular_Buffer.data[Circular_Buffer.head-1][0]);
-		if((Circular_Buffer.data[Circular_Buffer.head-1][2] == '+' && Circular_Buffer.data[Circular_Buffer.head-1][3] == 'I')) {
-			uint8_t indis = Circular_Buffer.head-1;
+	//	if((Circular_Buffer.data[Circular_Buffer.tail][2] == '+' && Circular_Buffer.data[Circular_Buffer.tail][3] == 'I')) {
+			uint8_t indis = Circular_Buffer.tail-1;
 			MY_PROTOCOL_T	*Request = &Protocol;
 			/* \todo: Use struct feature */
 			Request->Cmd = Circular_Buffer.data[indis][10];
@@ -189,11 +191,12 @@ void UDP(void) {
 			Request->Checksum = Circular_Buffer.data[indis][23];
 		
 			if(PERIPHERAL_CONTROL == Request->Cmd) {
+				RxCounter++;
 				internal = indis;
 				Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], 0U);
 			}
 			
-		}
+	//	}
 		Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
 			 Circular_Buffer.tail = 0;

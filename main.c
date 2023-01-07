@@ -12,7 +12,7 @@ Checksum_Compare_Result_t result = 0;
 
 int main() {
 	/* Init SysTick Timer for generating Delay */
-	Init_System_Timer(2097000);
+	Init_System_Timer(2097000000);
 	/* Init UART for debugging and communacating with esp8266 */
 	Init_Uart_For_Communication();
 	/* Init GPIO for user LED */
@@ -40,7 +40,7 @@ int main() {
 	
 	while(1) {
 		Message.Length = sprintf(Message.Command, "Counter = %d\r\n", Test_Counter++);
-		ESP8266_Sends_Data_UDP_Transmission(Message);
+	//	ESP8266_Sends_Data_UDP_Transmission(Message);
 		for(i = 0 ; i < 209700 ; i++) {
 			
 		}

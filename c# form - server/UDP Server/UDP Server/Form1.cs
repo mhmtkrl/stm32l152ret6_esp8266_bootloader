@@ -17,7 +17,11 @@ namespace UDP_Server
     public partial class Form1 : Form
     {
         MyProtocol protocol = new MyProtocol();
-        UDP_Communication ci;
+
+        byte ledStatus = 0x00;
+        int PacketCount = 20;
+        int TxCounter = 0;
+
         public Form1()
         {
             InitializeComponent();       
@@ -27,6 +31,7 @@ namespace UDP_Server
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            timer1.Interval = 100;
             protocol.protocol_update(this);
             protocol.Protocol_Init();
         }
@@ -48,6 +53,24 @@ namespace UDP_Server
         {
             listBox1.Items.Clear();
         }
-     
+
+        private void buttonServerTest_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ledStatus++;
+            if(ledStatus > 1) ledStatus = 0;
+            byte[] data = new byte[3] { 0x01, 0x00, ledStatus };
+            protocol.Send_Frame(data);
+            TxCounter++;
+            if(TxCounter == PacketCount)
+            {
+                TxCounter = 0;
+                timer1.Stop();
+            }
+        }
     }
 }
