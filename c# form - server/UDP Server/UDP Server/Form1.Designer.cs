@@ -48,6 +48,8 @@
             this.buttonLEDget = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonDeviceInformation = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBoxRandomChecksum = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -56,6 +58,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -133,9 +136,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox6);
             this.panel3.Controls.Add(this.groupBox5);
             this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Controls.Add(this.buttonTestServer);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(716, 0);
             this.panel3.Name = "panel3";
@@ -144,7 +147,7 @@
             // 
             // buttonTestServer
             // 
-            this.buttonTestServer.Location = new System.Drawing.Point(50, 418);
+            this.buttonTestServer.Location = new System.Drawing.Point(48, 32);
             this.buttonTestServer.Name = "buttonTestServer";
             this.buttonTestServer.Size = new System.Drawing.Size(101, 44);
             this.buttonTestServer.TabIndex = 4;
@@ -250,6 +253,27 @@
             this.buttonDeviceInformation.UseVisualStyleBackColor = true;
             this.buttonDeviceInformation.Click += new System.EventHandler(this.buttonDeviceInformation_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.checkBoxRandomChecksum);
+            this.groupBox6.Controls.Add(this.buttonTestServer);
+            this.groupBox6.Location = new System.Drawing.Point(17, 426);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(199, 124);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "TRANSMISSION TEST";
+            // 
+            // checkBoxRandomChecksum
+            // 
+            this.checkBoxRandomChecksum.AutoSize = true;
+            this.checkBoxRandomChecksum.Location = new System.Drawing.Point(38, 91);
+            this.checkBoxRandomChecksum.Name = "checkBoxRandomChecksum";
+            this.checkBoxRandomChecksum.Size = new System.Drawing.Size(119, 17);
+            this.checkBoxRandomChecksum.TabIndex = 5;
+            this.checkBoxRandomChecksum.Text = "Random Checksum";
+            this.checkBoxRandomChecksum.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +294,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -294,6 +320,8 @@
         private System.Windows.Forms.Button buttonLEDget;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button buttonDeviceInformation;
+        private System.Windows.Forms.GroupBox groupBox6;
+        public System.Windows.Forms.CheckBox checkBoxRandomChecksum;
     }
 }
 

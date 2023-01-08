@@ -46,11 +46,11 @@
 	 /* Reset CRC */
 	 CRC->CR = 0x01;
 	 /* Calculate CRC */
-	 for(index = 0 ; index < 2 ; index++) {
+	 for(index = 0 ; index < 3 ; index++) {
 		 uint32_t tempData = 0;
 		 /* Make 32bit data with 8 bit input */
 		 for(indexByte = 0 ; indexByte < 4 ; indexByte++) {
-			 tempData |= (Source[index*4 + indexByte] << (indexByte * 8));
+			 tempData |= (Source[index*4 + indexByte] << ((3-indexByte) * 8));
 		 }
 		 /* Update CRC input for calculation */
 		 CRC->DR = tempData;

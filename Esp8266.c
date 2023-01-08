@@ -12,6 +12,8 @@
  
  char *Response;
  
+Checksum_Compare_Result_t Crc_Res = Checksum_Invalid;
+ 
 uint8_t otp = 0;
  
  typedef struct {
@@ -183,27 +185,38 @@ void UDP(void) {
 			MY_PROTOCOL_T	*Request = &Protocol;
 			/* \todo: Use struct feature */
 		  uint8_t Struct_Indis = 0;
-		  for(Struct_Indis = 0 ; Struct_Indis < 12 ; Struct_Indis++) {
+		 uint8_t dummy[12];
+		  for(Struct_Indis = 0 ; Struct_Indis < 13 ; Struct_Indis++) {
 				((uint8_t *)(&Request[0]))[Struct_Indis] = Circular_Buffer.data[indis][10 + Struct_Indis];
-			}
-		
-		
-			if(PERIPHERAL_CONTROL == Request->Cmd) {
-				 ERROR_CODES_T code = Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], &Request->Data[3]);
-				if(NO_ERROR == code) {
-					ESP8266_Command_t Message;
-					Message.Length = sprintf(Message.Command, "Value = %d\r\n", Request->Data[3]);
-					ESP8266_Sends_Data_UDP_Transmission(Message);
+				
+				if(Struct_Indis != 12) {
+					dummy[Struct_Indis] = Circular_Buffer.data[indis][10 + Struct_Indis];
 				}
 			}
-			if(DEVICE_INFORMATION == Request->Cmd) {
-				 char Info[13];
-				 ERROR_CODES_T code = Device_Information_Function(&Info[0]);
-				if(NO_ERROR == code) {
-					ESP8266_Command_t Message;
-					Message.Length = sprintf(Message.Command, "%s\r\n", Info);
-					ESP8266_Sends_Data_UDP_Transmission(Message);
+			
+			Crc_Res = Crc_Calculate(12, &dummy[0], Request->Checksum);
+			if(Checksum_Correct == Crc_Res) {
+				if(PERIPHERAL_CONTROL == Request->Cmd) {
+					 ERROR_CODES_T code = Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], &Request->Data[3]);
+					if(NO_ERROR == code) {
+						ESP8266_Command_t Message;
+						Message.Length = sprintf(Message.Command, "Value = %d\r\n", Request->Data[3]);
+						ESP8266_Sends_Data_UDP_Transmission(Message);
+					}
 				}
+				if(DEVICE_INFORMATION == Request->Cmd) {
+					 char Info[13];
+					 ERROR_CODES_T code = Device_Information_Function(&Info[0]);
+					if(NO_ERROR == code) {
+						ESP8266_Command_t Message;
+						Message.Length = sprintf(Message.Command, "%s\r\n", Info);
+						ESP8266_Sends_Data_UDP_Transmission(Message);
+					}
+				}
+			}else {
+				ESP8266_Command_t Message;
+				Message.Length = sprintf(Message.Command, "Invalid Checksum!\r\n");
+				ESP8266_Sends_Data_UDP_Transmission(Message);
 			}
 			Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {

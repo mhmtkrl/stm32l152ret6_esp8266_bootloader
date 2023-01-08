@@ -43,9 +43,9 @@ namespace UDP_Server
             {
                 Checksum ^= (byte)((result >> (index * 8)) & 0xFF);
             }
-
+           
             return (Checksum);
-         //   listBox1.Items.Add("CRC: 0x" + crc32a.Value.ToString("X4"));
+            
         }
         public void Send_Frame(byte cmd, byte[] data)
         {
@@ -64,10 +64,21 @@ namespace UDP_Server
             {
                 frame[i] = 0xFF;
             }
-            frame[12] = Crc_Calculate(frame); // Checksum
+            byte[] tmp = new byte[12];
+            for(int i = 0; i < 12; i++)
+            {
+                tmp[i] = (byte)frame[i];
+            }
+            byte checksum = 0xFF;
+            if(form1.checkBoxRandomChecksum.Checked == false)
+            {
+                checksum = Crc_Calculate(tmp);
+            }
+            frame[12] = checksum; // Checksum
             frame[13] = 0x0D;
             frame[14] = 0x0A;
             communication.Send_UDP_Data(frame);
+            
             var x = "";
             for(var i = 0; i < frame.Length; i++)
             {

@@ -20,9 +20,7 @@ int main() {
 	Init_User_Led();
 	/* Init CRC */
 	Crc_Init();
-	 uint8_t byte[8] = {1, 2, 3, 4, 5, 6, 7, 8};
-	result = Crc_Calculate(8, &byte[0], 0xc2);
-	
+
 	volatile int i = 0;
 	
 	ESP8266_Echo_Off();
