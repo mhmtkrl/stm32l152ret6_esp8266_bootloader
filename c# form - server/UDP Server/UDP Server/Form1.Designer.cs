@@ -46,6 +46,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.buttonTemperatureGet = new System.Windows.Forms.Button();
             this.buttonLEDget = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonDeviceInformation = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -53,6 +55,7 @@
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -130,6 +133,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox5);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.buttonTestServer);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -169,7 +173,7 @@
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Location = new System.Drawing.Point(17, 25);
+            this.groupBox2.Location = new System.Drawing.Point(17, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 250);
             this.groupBox2.TabIndex = 5;
@@ -226,6 +230,26 @@
             this.buttonLEDget.UseVisualStyleBackColor = true;
             this.buttonLEDget.Click += new System.EventHandler(this.buttonLEDget_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.buttonDeviceInformation);
+            this.groupBox5.Location = new System.Drawing.Point(17, 274);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(199, 81);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Device Information";
+            // 
+            // buttonDeviceInformation
+            // 
+            this.buttonDeviceInformation.Location = new System.Drawing.Point(60, 28);
+            this.buttonDeviceInformation.Name = "buttonDeviceInformation";
+            this.buttonDeviceInformation.Size = new System.Drawing.Size(74, 38);
+            this.buttonDeviceInformation.TabIndex = 0;
+            this.buttonDeviceInformation.Text = "GET";
+            this.buttonDeviceInformation.UseVisualStyleBackColor = true;
+            this.buttonDeviceInformation.Click += new System.EventHandler(this.buttonDeviceInformation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,6 +269,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -267,6 +292,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonButonStatus;
         private System.Windows.Forms.Button buttonLEDget;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button buttonDeviceInformation;
     }
 }
 

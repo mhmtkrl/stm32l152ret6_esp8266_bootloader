@@ -15,6 +15,32 @@ MY_PROTOCOL_T Protocol = {
 	{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
 	0U
 };
+
+/**
+ * \brief Device Information
+ *
+ * \details STM32L152REt6
+ * 
+ * \param none
+ * \return none
+ */
+ERROR_CODES_T Device_Information_Function(char *info) {
+	ERROR_CODES_T Error_Code = NO_ERROR;
+	info[0] = 'S';
+	info[1] = 'T';
+	info[2] = 'M';
+	info[3] = '3';
+	info[4] = '2';
+	info[5] = 'L';
+	info[6] = '1';
+	info[7] = '5';
+	info[8] = '2';
+	info[9] = 'R';
+	info[10] = 'E';
+	info[11] = 'T';
+	info[12] = '6';
+	return (Error_Code);
+}
 	
  /**
  * \brief Peripheral control

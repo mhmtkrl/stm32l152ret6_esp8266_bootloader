@@ -196,6 +196,15 @@ void UDP(void) {
 					ESP8266_Sends_Data_UDP_Transmission(Message);
 				}
 			}
+			if(DEVICE_INFORMATION == Request->Cmd) {
+				 char Info[13];
+				 ERROR_CODES_T code = Device_Information_Function(&Info[0]);
+				if(NO_ERROR == code) {
+					ESP8266_Command_t Message;
+					Message.Length = sprintf(Message.Command, "%s\r\n", Info);
+					ESP8266_Sends_Data_UDP_Transmission(Message);
+				}
+			}
 			Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
 			 Circular_Buffer.tail = 0;

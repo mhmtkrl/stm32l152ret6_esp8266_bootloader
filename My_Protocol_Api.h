@@ -58,6 +58,16 @@
 	 CONTROL_VALUE_NOT_IN_RANGE
  }ERROR_CODES_T;
  
+ /**
+ * \brief Device Information
+ *
+ * \details STM32L152REt6
+ * 
+ * \param none
+ * \return none
+ */
+ERROR_CODES_T Device_Information_Function(char *info);
+ 
   /**
  * \brief Peripheral control
  *

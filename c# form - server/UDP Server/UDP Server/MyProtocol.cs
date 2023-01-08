@@ -10,7 +10,6 @@ namespace UDP_Server
 {
     internal class MyProtocol
     {
-        byte CMD = 0x01;
         byte COUNTER = 0x00;
         byte FRAME_TYPE = 0xCD;
 
@@ -48,10 +47,10 @@ namespace UDP_Server
             return (Checksum);
          //   listBox1.Items.Add("CRC: 0x" + crc32a.Value.ToString("X4"));
         }
-        public void Send_Frame(byte[] data)
+        public void Send_Frame(byte cmd, byte[] data)
         {
             byte[] frame = new byte[16];
-            frame[0] = CMD;
+            frame[0] = cmd;
             frame[1] = (byte)data.Length;
             frame[2] = COUNTER;
             COUNTER++;
