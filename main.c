@@ -3,6 +3,7 @@
 #include "Uart_Api.h"
 #include "Esp8266_Api.h"
 #include "CRC_Calculation_Api.h"
+ #include "My_Protocol_Api.h"
 #include <stdio.h>
 
 ESP8266_Command_t Message;

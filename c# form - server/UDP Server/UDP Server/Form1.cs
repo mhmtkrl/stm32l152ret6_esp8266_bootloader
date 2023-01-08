@@ -77,5 +77,23 @@ namespace UDP_Server
                 timer1.Stop();
             }
         }
+
+        private void buttonButonStatus_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[3] { 0x00, 0x01, 0x00 };
+            protocol.Send_Frame(data);
+        }
+
+        private void buttonTemperatureGet_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[3] { 0x00, 0x02, 0x00 };
+            protocol.Send_Frame(data);
+        }
+
+        private void buttonLEDget_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[3] { 0x00, 0x00, 0x00 };
+            protocol.Send_Frame(data);
+        }
     }
 }

@@ -40,10 +40,19 @@
             this.buttonTestServer = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonButonStatus = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonTemperatureGet = new System.Windows.Forms.Button();
+            this.buttonLEDget = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -69,7 +78,7 @@
             // 
             // buttonLedOn
             // 
-            this.buttonLedOn.Location = new System.Drawing.Point(46, 28);
+            this.buttonLedOn.Location = new System.Drawing.Point(10, 19);
             this.buttonLedOn.Name = "buttonLedOn";
             this.buttonLedOn.Size = new System.Drawing.Size(74, 38);
             this.buttonLedOn.TabIndex = 2;
@@ -79,7 +88,7 @@
             // 
             // buttonLedOff
             // 
-            this.buttonLedOff.Location = new System.Drawing.Point(46, 28);
+            this.buttonLedOff.Location = new System.Drawing.Point(10, 19);
             this.buttonLedOff.Name = "buttonLedOff";
             this.buttonLedOff.Size = new System.Drawing.Size(74, 38);
             this.buttonLedOff.TabIndex = 2;
@@ -89,11 +98,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonLEDget);
             this.groupBox1.Controls.Add(this.buttonLedOn);
             this.groupBox1.Controls.Add(this.buttonLedOff);
-            this.groupBox1.Location = new System.Drawing.Point(31, 25);
+            this.groupBox1.Location = new System.Drawing.Point(8, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(166, 85);
+            this.groupBox1.Size = new System.Drawing.Size(186, 69);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LED Control";
@@ -120,8 +130,8 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.buttonTestServer);
-            this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(716, 0);
             this.panel3.Name = "panel3";
@@ -130,7 +140,7 @@
             // 
             // buttonTestServer
             // 
-            this.buttonTestServer.Location = new System.Drawing.Point(63, 116);
+            this.buttonTestServer.Location = new System.Drawing.Point(50, 418);
             this.buttonTestServer.Name = "buttonTestServer";
             this.buttonTestServer.Size = new System.Drawing.Size(101, 44);
             this.buttonTestServer.TabIndex = 4;
@@ -154,6 +164,68 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.groupBox4);
+            this.groupBox2.Controls.Add(this.groupBox3);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Location = new System.Drawing.Point(17, 25);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 250);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "PERIPHERAL CONTROL";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.buttonButonStatus);
+            this.groupBox3.Location = new System.Drawing.Point(8, 94);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(186, 68);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Button Status";
+            // 
+            // buttonButonStatus
+            // 
+            this.buttonButonStatus.Location = new System.Drawing.Point(57, 18);
+            this.buttonButonStatus.Name = "buttonButonStatus";
+            this.buttonButonStatus.Size = new System.Drawing.Size(74, 38);
+            this.buttonButonStatus.TabIndex = 0;
+            this.buttonButonStatus.Text = "GET";
+            this.buttonButonStatus.UseVisualStyleBackColor = true;
+            this.buttonButonStatus.Click += new System.EventHandler(this.buttonButonStatus_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.buttonTemperatureGet);
+            this.groupBox4.Location = new System.Drawing.Point(8, 167);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(186, 68);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Temperature";
+            // 
+            // buttonTemperatureGet
+            // 
+            this.buttonTemperatureGet.Location = new System.Drawing.Point(57, 18);
+            this.buttonTemperatureGet.Name = "buttonTemperatureGet";
+            this.buttonTemperatureGet.Size = new System.Drawing.Size(74, 38);
+            this.buttonTemperatureGet.TabIndex = 0;
+            this.buttonTemperatureGet.Text = "GET";
+            this.buttonTemperatureGet.UseVisualStyleBackColor = true;
+            this.buttonTemperatureGet.Click += new System.EventHandler(this.buttonTemperatureGet_Click);
+            // 
+            // buttonLEDget
+            // 
+            this.buttonLEDget.Location = new System.Drawing.Point(106, 19);
+            this.buttonLEDget.Name = "buttonLEDget";
+            this.buttonLEDget.Size = new System.Drawing.Size(74, 38);
+            this.buttonLEDget.TabIndex = 0;
+            this.buttonLEDget.Text = "GET";
+            this.buttonLEDget.UseVisualStyleBackColor = true;
+            this.buttonLEDget.Click += new System.EventHandler(this.buttonLEDget_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,6 +242,9 @@
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -186,6 +261,12 @@
         public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button buttonTestServer;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button buttonTemperatureGet;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button buttonButonStatus;
+        private System.Windows.Forms.Button buttonLEDget;
     }
 }
 

@@ -23,7 +23,7 @@ uint8_t otp = 0;
  }Circular_Buffer_t;
  
  Circular_Buffer_t Circular_Buffer = {10, 0, 0, 0, 0U};
- 
+
  /**
  * \brief Test ESP8266 
  *
@@ -189,7 +189,12 @@ void UDP(void) {
 		
 		
 			if(PERIPHERAL_CONTROL == Request->Cmd) {
-				Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], 0U);
+				 ERROR_CODES_T code = Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], &Request->Data[3]);
+				if(NO_ERROR == code) {
+					ESP8266_Command_t Message;
+					Message.Length = sprintf(Message.Command, "Value = %d\r\n", Request->Data[3]);
+					ESP8266_Sends_Data_UDP_Transmission(Message);
+				}
 			}
 			Circular_Buffer.tail++;
 		 if(Circular_Buffer.tail >= Circular_Buffer.bufferSize) {
