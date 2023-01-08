@@ -53,22 +53,21 @@ namespace UDP_Server
             byte[] frame = new byte[16];
             frame[0] = CMD;
             frame[1] = (byte)data.Length;
-            frame[2] = 0;
-            frame[3] = COUNTER;
+            frame[2] = COUNTER;
             COUNTER++;
-            frame[4] = FRAME_TYPE;
+            frame[3] = FRAME_TYPE;
 
-            for(int i = 5; i< (5+data.Length) ;i++)
+            for(int i = 4; i< (4+data.Length) ;i++)
             {
-                frame[i] = (byte)data[i-5];
+                frame[i] = (byte)data[i-4];
             }
-            for (int i = (5+data.Length); i<13 ; i++)
+            for (int i = (4+data.Length); i<12 ; i++)
             {
                 frame[i] = 0xFF;
             }
-            frame[13] = Crc_Calculate(frame); // Checksum
-            frame[14] = 0x0D;
-            frame[15] = 0x0A;
+            frame[12] = Crc_Calculate(frame); // Checksum
+            frame[13] = 0x0D;
+            frame[14] = 0x0A;
             communication.Send_UDP_Data(frame);
             var x = "";
             for(var i = 0; i < frame.Length; i++)

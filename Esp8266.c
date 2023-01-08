@@ -19,10 +19,10 @@ uint8_t otp = 0;
 	 uint8_t head;
 	 uint8_t tail;
 	 uint8_t length;
-	 char data[100][128];
+	 char data[10][128];
  }Circular_Buffer_t;
  
- Circular_Buffer_t Circular_Buffer = {100, 0, 0, 0, 0U};
+ Circular_Buffer_t Circular_Buffer = {10, 0, 0, 0, 0U};
  
  /**
  * \brief Test ESP8266 
@@ -182,15 +182,11 @@ void UDP(void) {
 			uint8_t indis = Circular_Buffer.tail;
 			MY_PROTOCOL_T	*Request = &Protocol;
 			/* \todo: Use struct feature */
-			Request->Cmd = Circular_Buffer.data[indis][10];
-			Request->Length = Circular_Buffer.data[indis][11];
-			Request->Counter = (Circular_Buffer.data[indis][12] << 8) | Circular_Buffer.data[indis][13];
-			Request->Frame_Type = Circular_Buffer.data[indis][14];
-			Request->Data[0] = Circular_Buffer.data[indis][15];
-			Request->Data[1] = Circular_Buffer.data[indis][16];
-			Request->Data[2] = Circular_Buffer.data[indis][17];
-			Request->Data[3] = Circular_Buffer.data[indis][18];
-			Request->Checksum = Circular_Buffer.data[indis][23];
+		  uint8_t Struct_Indis = 0;
+		  for(Struct_Indis = 0 ; Struct_Indis < 12 ; Struct_Indis++) {
+				((uint8_t *)(&Request[0]))[Struct_Indis] = Circular_Buffer.data[indis][10 + Struct_Indis];
+			}
+		
 		
 			if(PERIPHERAL_CONTROL == Request->Cmd) {
 				Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], 0U);

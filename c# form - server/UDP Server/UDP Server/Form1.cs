@@ -34,16 +34,21 @@ namespace UDP_Server
             timer1.Interval = 100;
             protocol.protocol_update(this);
             protocol.Protocol_Init();
+            buttonLedOff.Visible = false;
         }
 
         private void buttonLedOn_Click(object sender, EventArgs e)
         {
+            buttonLedOff.Visible = true;
+            buttonLedOn.Visible = false;
             byte[] data = new byte[3] { 0x01, 0x00, 0x01};
             protocol.Send_Frame(data);
         }
 
         private void buttonLedOff_Click(object sender, EventArgs e)
         {
+            buttonLedOff.Visible = false;
+            buttonLedOn.Visible = true;
             byte[] data = new byte[3] { 0x01, 0x00, 0x00};
             protocol.Send_Frame(data);
         }

@@ -34,7 +34,7 @@
  typedef struct {
 	 OPERATIONS_t Cmd;
 	 uint8_t Length;
-	 uint16_t Counter;
+	 uint8_t Counter;
 	 uint8_t Frame_Type;
 	 uint8_t Data[8];
 	 uint8_t Checksum;

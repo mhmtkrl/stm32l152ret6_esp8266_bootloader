@@ -69,7 +69,7 @@
             // 
             // buttonLedOn
             // 
-            this.buttonLedOn.Location = new System.Drawing.Point(6, 23);
+            this.buttonLedOn.Location = new System.Drawing.Point(46, 28);
             this.buttonLedOn.Name = "buttonLedOn";
             this.buttonLedOn.Size = new System.Drawing.Size(74, 38);
             this.buttonLedOn.TabIndex = 2;
@@ -79,7 +79,7 @@
             // 
             // buttonLedOff
             // 
-            this.buttonLedOff.Location = new System.Drawing.Point(86, 23);
+            this.buttonLedOff.Location = new System.Drawing.Point(46, 28);
             this.buttonLedOff.Name = "buttonLedOff";
             this.buttonLedOff.Size = new System.Drawing.Size(74, 38);
             this.buttonLedOff.TabIndex = 2;
@@ -93,7 +93,7 @@
             this.groupBox1.Controls.Add(this.buttonLedOff);
             this.groupBox1.Location = new System.Drawing.Point(31, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(166, 69);
+            this.groupBox1.Size = new System.Drawing.Size(166, 85);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LED Control";
