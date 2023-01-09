@@ -531,6 +531,26 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>FLASH</GroupName>
+          <Files>
+            <File>
+              <FileName>Flash_Unit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Flash_Unit.c</FilePath>
+            </File>
+            <File>
+              <FileName>Flash_Unit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Flash_Unit.h</FilePath>
+            </File>
+            <File>
+              <FileName>Flash_Unit_Api.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Flash_Unit_Api.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
