@@ -8,20 +8,21 @@
  #include "Flash_Unit.h"
  #include "Flash_Unit_Api.h"
 
+static void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length);
 static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
 static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
 static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
 
-uint16_t myData[4] = {0xFEDC, 0xBA98, 0x7654, 0x3210};
+uint16_t myData[4] = {0x1122, 0x3344, 0x5566, 0x7788};
  
  PROGRAM_MEMORY_t Program_Memory = {
 	 /* Sector 30  */
-	 0x0801E0F0
+	 0x0801E000
  };
  
  EEPROM_DATA_t Eeprom_Data = {
 	 /* Data EEPROM bank 1 */
-	 0x08080014
+	 0x08080000
  };
  
  /**
@@ -37,9 +38,31 @@ void FLASH_Init(void) {
 	FLASH_LOCK_STATUS_t Lock_Status = LOCKED;
 	Lock_Status = Flash_Unlock_Operation();
 	if(UNLOCKED == Lock_Status) {
+		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, 4);
 		FLASH_Program_Memory_Write(Program_Memory.Start_Address, 4, &myData[0]);
 	}
 	FLASH_Eeprom_Write(Eeprom_Data.Start_Address, 4, &myData[0]);
+}
+
+ /**
+ * \brief Program memory page erase
+ *
+ * \details This operation is used to erase a page in program memory (64 words)
+ * 
+ * \param none
+ * \return none
+ */
+static void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length) {
+	/* Set the ERASE bit in the FLASH_PECR register */
+	FLASH->PECR |= 1ul << 9;
+	/* Set the PROG bit in the FLASH_PECR register to choose program page */
+	FLASH->PECR |= 1ul << 3;
+	/* Write 0x0000 0000 to the first word of the program page to erase */
+	*((uint32_t*)Start_Address) = 0x00000000;
+	/* Wait for the BSY bit to be cleared */
+	while((FLASH->SR & (1ul << 0)));
+	FLASH->PECR &= ~(1ul << 9);
+	FLASH->PECR &= ~(1ul << 3);
 }
 
  /**
