@@ -7,15 +7,21 @@
  
  #include "Flash_Unit.h"
  #include "Flash_Unit_Api.h"
- 
+
+static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
 static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
 static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
 
-uint16_t myData[4] = {0x1234, 0x5678, 0xABCD, 0x6291};
+uint16_t myData[4] = {0xFEDC, 0xBA98, 0x7654, 0x3210};
  
  PROGRAM_MEMORY_t Program_Memory = {
 	 /* Sector 30  */
-	 0x0801E0d4
+	 0x0801E0F0
+ };
+ 
+ EEPROM_DATA_t Eeprom_Data = {
+	 /* Data EEPROM bank 1 */
+	 0x08080014
  };
  
  /**
@@ -32,6 +38,26 @@ void FLASH_Init(void) {
 	Lock_Status = Flash_Unlock_Operation();
 	if(UNLOCKED == Lock_Status) {
 		FLASH_Program_Memory_Write(Program_Memory.Start_Address, 4, &myData[0]);
+	}
+	FLASH_Eeprom_Write(Eeprom_Data.Start_Address, 4, &myData[0]);
+}
+
+ /**
+ * \brief Data EEPROM Word Write
+ *
+ * \details This operation is used to write a word to the data EEPROM whatever the previous value of the word to be written to
+ * 
+ * \param none
+ * \return none
+ */
+static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data) {
+	uint16_t Index = 0U;
+	uint16_t Address_Counter = 0U;
+	/* execute Word Write */
+	FLASH->PECR |= 1ul << 8;
+	for(Index = 0 ; Index < Length/2 ; Index+=1) {
+		*((uint32_t*)Start_Address + Address_Counter) = ((Data[Index * 2] << 16) | Data[Index * 2 + 1]);
+		Address_Counter++;
 	}
 }
 
