@@ -11,9 +11,11 @@
 static void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length);
 static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
 static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
+static void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destination);
 static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
 
-uint16_t myData[4] = {0x1122, 0x3344, 0x5566, 0x7788};
+uint16_t myData[4] = {0xaa22, 0x3344, 0x5566, 0x77bb};
+uint32_t readFromProgram[2];
  
  PROGRAM_MEMORY_t Program_Memory = {
 	 /* Sector 30  */
@@ -38,9 +40,12 @@ void FLASH_Init(void) {
 	FLASH_LOCK_STATUS_t Lock_Status = LOCKED;
 	Lock_Status = Flash_Unlock_Operation();
 	if(UNLOCKED == Lock_Status) {
+		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
 		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, 4);
 		FLASH_Program_Memory_Write(Program_Memory.Start_Address, 4, &myData[0]);
+		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
 	}
+	FLASH_Memory_Read(Eeprom_Data.Start_Address, 8, &readFromProgram[0]);
 	FLASH_Eeprom_Write(Eeprom_Data.Start_Address, 4, &myData[0]);
 }
 
@@ -97,6 +102,23 @@ static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, 
 	uint16_t Address_Counter = 0U;
 	for(Index = 0 ; Index < Length/2 ; Index+=1) {
 		*((uint32_t*)Start_Address + Address_Counter) = ((Data[Index * 2] << 16) | Data[Index * 2 + 1]);
+		Address_Counter++;
+	}
+}
+
+ /**
+ * \brief Program memory read
+ *
+ * \details This operation is used to read from program memory,
+ * 
+ * \param none
+ * \return none
+ */
+static void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destination) {
+	uint16_t Index = 0U;
+	uint16_t Address_Counter = 0U;
+	for(Index = 0 ; Index < Length/4 ; Index+=1) {
+		Destination[Address_Counter] = *((uint32_t*)Start_Address + Address_Counter);
 		Address_Counter++;
 	}
 }
