@@ -8,8 +8,15 @@
  #include "Flash_Unit.h"
  #include "Flash_Unit_Api.h"
  
- static void FLASH_Write(void);
- static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
+static void FLASH_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
+static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
+
+uint16_t myData[4] = {0x1234, 0x5678, 0xABCD, 0x6291};
+ 
+ PROGRAM_MEMORY_t Program_Memory = {
+	 /* Sector 30  */
+	 0x0801E0d4
+ };
  
  /**
  * \brief Flash init function
@@ -24,7 +31,7 @@ void FLASH_Init(void) {
 	FLASH_LOCK_STATUS_t Lock_Status = LOCKED;
 	Lock_Status = Flash_Unlock_Operation();
 	if(UNLOCKED == Lock_Status) {
-		FLASH_Write();
+		FLASH_Write(Program_Memory.Start_Address, 4, &myData[0]);
 	}
 }
 
@@ -36,8 +43,13 @@ void FLASH_Init(void) {
  * \param none
  * \return none
  */
-static void FLASH_Write(void) {
-	
+static void FLASH_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data) {
+	uint16_t Index = 0U;
+	uint16_t Address_Counter = 0U;
+	for(Index = 0 ; Index < Length/2 ; Index+=1) {
+		*((uint32_t*)Start_Address + Address_Counter) = ((Data[Index * 2] << 16) | Data[Index * 2 + 1]);
+		Address_Counter++;
+	}
 }
 
  /**

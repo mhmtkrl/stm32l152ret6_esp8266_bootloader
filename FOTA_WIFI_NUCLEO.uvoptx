@@ -152,9 +152,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>50</LineNumber>
+          <LineNumber>78</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220130</Address>
+          <Address>134220204</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -163,7 +163,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\Flash_Unit.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\FOTA_WIFI_NUCLEO\Flash_Unit.c\50</Expression>
+          <Expression>\\FOTA_WIFI_NUCLEO\Flash_Unit.c\78</Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
@@ -180,22 +180,6 @@
           <Filename>.\CRC_Calculation.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\FOTA_WIFI_NUCLEO\CRC_Calculation.c\65</Expression>
-        </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>66</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>.\Flash_Unit.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -296,7 +280,7 @@
         <Mm>
           <WinNumber>1</WinNumber>
           <SubType>1</SubType>
-          <ItemText>0x08000544</ItemText>
+          <ItemText>0x0801E080</ItemText>
           <AccSizeX>0</AccSizeX>
         </Mm>
       </MemoryWindow1>
