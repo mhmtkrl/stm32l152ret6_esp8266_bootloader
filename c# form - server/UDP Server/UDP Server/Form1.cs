@@ -17,6 +17,7 @@ namespace UDP_Server
     public partial class Form1 : Form
     {
         MyProtocol protocol = new MyProtocol();
+        PrepareFile prepareFile = new PrepareFile();
 
         byte ledStatus = 0x00;
         int PacketCount = 100;
@@ -35,6 +36,8 @@ namespace UDP_Server
             protocol.protocol_update(this);
             protocol.Protocol_Init();
             buttonLedOff.Visible = false;
+            listBox1.Items.Add("File Size: " + prepareFile.ReadFileGetSize());
+            listBox1.Items.Add(prepareFile.SplitFile());
         }
 
         private void buttonLedOn_Click(object sender, EventArgs e)
