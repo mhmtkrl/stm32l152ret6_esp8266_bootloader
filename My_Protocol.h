@@ -8,10 +8,23 @@
  #include <stdint.h>
  #include "Gpio.h"
  
- /**
- * \enum MY_PROTOCOL_T
+/**
+ * \enum FLASH_OPERATION_t
  *
- * \details protocol units
+ * \details Read or write flash
+ * 
+ * \param  none
+ * \return none
+ */
+ typedef enum {
+	 ERASE,
+	 WRITE
+ }FLASH_OPERATION_t;
+ 
+/**
+ * \enum OPERATION_TYPE_t
+ *
+ * \details Read or write gpio
  * 
  * \param  none
  * \return none

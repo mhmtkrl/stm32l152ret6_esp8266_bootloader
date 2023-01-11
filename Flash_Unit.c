@@ -8,10 +8,6 @@
  #include "Flash_Unit.h"
  #include "Flash_Unit_Api.h"
 
-static void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length);
-static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
-static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data);
-static void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destination);
 static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
 
 uint16_t myData[4] = {0xaa22, 0x3344, 0x5566, 0x77bb};
@@ -39,6 +35,7 @@ void FLASH_Init(void) {
 	/* Enable clock source of the memory */
 	FLASH_LOCK_STATUS_t Lock_Status = LOCKED;
 	Lock_Status = Flash_Unlock_Operation();
+	
 	if(UNLOCKED == Lock_Status) {
 		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
 		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, 4);
@@ -57,7 +54,7 @@ void FLASH_Init(void) {
  * \param none
  * \return none
  */
-static void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length) {
+void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length) {
 	/* Set the ERASE bit in the FLASH_PECR register */
 	FLASH->PECR |= 1ul << 9;
 	/* Set the PROG bit in the FLASH_PECR register to choose program page */
@@ -78,7 +75,7 @@ static void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Len
  * \param none
  * \return none
  */
-static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data) {
+void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data) {
 	uint16_t Index = 0U;
 	uint16_t Address_Counter = 0U;
 	/* execute Word Write */
@@ -97,7 +94,7 @@ static void FLASH_Eeprom_Write(uint32_t Start_Address, uint16_t Length, uint16_t
  * \param none
  * \return none
  */
-static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data) {
+void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, uint16_t *Data) {
 	uint16_t Index = 0U;
 	uint16_t Address_Counter = 0U;
 	for(Index = 0 ; Index < Length/2 ; Index+=1) {
@@ -114,7 +111,7 @@ static void FLASH_Program_Memory_Write(uint32_t Start_Address, uint16_t Length, 
  * \param none
  * \return none
  */
-static void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destination) {
+void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destination) {
 	uint16_t Index = 0U;
 	uint16_t Address_Counter = 0U;
 	for(Index = 0 ; Index < Length/4 ; Index+=1) {

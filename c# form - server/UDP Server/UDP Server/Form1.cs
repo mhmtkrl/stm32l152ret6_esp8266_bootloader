@@ -37,7 +37,6 @@ namespace UDP_Server
             protocol.Protocol_Init();
             buttonLedOff.Visible = false;
             listBox1.Items.Add("File Size: " + prepareFile.ReadFileGetSize());
-            listBox1.Items.Add(prepareFile.SplitFile());
         }
 
         private void buttonLedOn_Click(object sender, EventArgs e)
@@ -103,6 +102,13 @@ namespace UDP_Server
         {
             byte[] data = new byte[3] { 0x00, 0x00, 0x00 };
             protocol.Send_Frame(0x02, data);
+        }
+
+        private void buttonSendByteArray_Click(object sender, EventArgs e)
+        {
+            byte[] data = prepareFile.SplitFile();
+
+            protocol.Send_Frame(0x03, data);
         }
     }
 }

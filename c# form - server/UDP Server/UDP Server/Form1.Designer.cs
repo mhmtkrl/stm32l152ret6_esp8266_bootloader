@@ -34,31 +34,34 @@
             this.buttonLedOn = new System.Windows.Forms.Button();
             this.buttonLedOff = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonLEDget = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonTestServer = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonButonStatus = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.buttonTemperatureGet = new System.Windows.Forms.Button();
-            this.buttonLEDget = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.buttonDeviceInformation = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.checkBoxRandomChecksum = new System.Windows.Forms.CheckBox();
+            this.buttonTestServer = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonDeviceInformation = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonTemperatureGet = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonButonStatus = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.buttonSendByteArray = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -114,6 +117,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LED Control";
             // 
+            // buttonLEDget
+            // 
+            this.buttonLEDget.Location = new System.Drawing.Point(106, 19);
+            this.buttonLEDget.Name = "buttonLEDget";
+            this.buttonLEDget.Size = new System.Drawing.Size(74, 38);
+            this.buttonLEDget.TabIndex = 0;
+            this.buttonLEDget.Text = "GET";
+            this.buttonLEDget.UseVisualStyleBackColor = true;
+            this.buttonLEDget.Click += new System.EventHandler(this.buttonLEDget_Click);
+            // 
             // buttonClear
             // 
             this.buttonClear.Location = new System.Drawing.Point(296, 596);
@@ -137,6 +150,7 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.groupBox6);
+            this.panel3.Controls.Add(this.groupBox7);
             this.panel3.Controls.Add(this.groupBox5);
             this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
@@ -144,6 +158,27 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(229, 641);
             this.panel3.TabIndex = 6;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.checkBoxRandomChecksum);
+            this.groupBox6.Controls.Add(this.buttonTestServer);
+            this.groupBox6.Location = new System.Drawing.Point(17, 514);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(199, 124);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "TRANSMISSION TEST";
+            // 
+            // checkBoxRandomChecksum
+            // 
+            this.checkBoxRandomChecksum.AutoSize = true;
+            this.checkBoxRandomChecksum.Location = new System.Drawing.Point(38, 91);
+            this.checkBoxRandomChecksum.Name = "checkBoxRandomChecksum";
+            this.checkBoxRandomChecksum.Size = new System.Drawing.Size(119, 17);
+            this.checkBoxRandomChecksum.TabIndex = 5;
+            this.checkBoxRandomChecksum.Text = "Random Checksum";
+            this.checkBoxRandomChecksum.UseVisualStyleBackColor = true;
             // 
             // buttonTestServer
             // 
@@ -155,21 +190,25 @@
             this.buttonTestServer.UseVisualStyleBackColor = true;
             this.buttonTestServer.Click += new System.EventHandler(this.buttonTestServer_Click);
             // 
-            // panel2
+            // groupBox5
             // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.listBox1);
-            this.panel2.Controls.Add(this.buttonClear);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(713, 641);
-            this.panel2.TabIndex = 5;
+            this.groupBox5.Controls.Add(this.buttonDeviceInformation);
+            this.groupBox5.Location = new System.Drawing.Point(17, 265);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(199, 81);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "DEVICE INFORMATION";
             // 
-            // timer1
+            // buttonDeviceInformation
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.buttonDeviceInformation.Location = new System.Drawing.Point(60, 28);
+            this.buttonDeviceInformation.Name = "buttonDeviceInformation";
+            this.buttonDeviceInformation.Size = new System.Drawing.Size(74, 38);
+            this.buttonDeviceInformation.TabIndex = 0;
+            this.buttonDeviceInformation.Text = "GET";
+            this.buttonDeviceInformation.UseVisualStyleBackColor = true;
+            this.buttonDeviceInformation.Click += new System.EventHandler(this.buttonDeviceInformation_Click);
             // 
             // groupBox2
             // 
@@ -182,26 +221,6 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "PERIPHERAL CONTROL";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.buttonButonStatus);
-            this.groupBox3.Location = new System.Drawing.Point(8, 94);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(186, 68);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Button Status";
-            // 
-            // buttonButonStatus
-            // 
-            this.buttonButonStatus.Location = new System.Drawing.Point(57, 18);
-            this.buttonButonStatus.Name = "buttonButonStatus";
-            this.buttonButonStatus.Size = new System.Drawing.Size(74, 38);
-            this.buttonButonStatus.TabIndex = 0;
-            this.buttonButonStatus.Text = "GET";
-            this.buttonButonStatus.UseVisualStyleBackColor = true;
-            this.buttonButonStatus.Click += new System.EventHandler(this.buttonButonStatus_Click);
             // 
             // groupBox4
             // 
@@ -223,56 +242,61 @@
             this.buttonTemperatureGet.UseVisualStyleBackColor = true;
             this.buttonTemperatureGet.Click += new System.EventHandler(this.buttonTemperatureGet_Click);
             // 
-            // buttonLEDget
+            // groupBox3
             // 
-            this.buttonLEDget.Location = new System.Drawing.Point(106, 19);
-            this.buttonLEDget.Name = "buttonLEDget";
-            this.buttonLEDget.Size = new System.Drawing.Size(74, 38);
-            this.buttonLEDget.TabIndex = 0;
-            this.buttonLEDget.Text = "GET";
-            this.buttonLEDget.UseVisualStyleBackColor = true;
-            this.buttonLEDget.Click += new System.EventHandler(this.buttonLEDget_Click);
+            this.groupBox3.Controls.Add(this.buttonButonStatus);
+            this.groupBox3.Location = new System.Drawing.Point(8, 94);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(186, 68);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Button Status";
             // 
-            // groupBox5
+            // buttonButonStatus
             // 
-            this.groupBox5.Controls.Add(this.buttonDeviceInformation);
-            this.groupBox5.Location = new System.Drawing.Point(17, 274);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(199, 81);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Device Information";
+            this.buttonButonStatus.Location = new System.Drawing.Point(57, 18);
+            this.buttonButonStatus.Name = "buttonButonStatus";
+            this.buttonButonStatus.Size = new System.Drawing.Size(74, 38);
+            this.buttonButonStatus.TabIndex = 0;
+            this.buttonButonStatus.Text = "GET";
+            this.buttonButonStatus.UseVisualStyleBackColor = true;
+            this.buttonButonStatus.Click += new System.EventHandler(this.buttonButonStatus_Click);
             // 
-            // buttonDeviceInformation
+            // panel2
             // 
-            this.buttonDeviceInformation.Location = new System.Drawing.Point(60, 28);
-            this.buttonDeviceInformation.Name = "buttonDeviceInformation";
-            this.buttonDeviceInformation.Size = new System.Drawing.Size(74, 38);
-            this.buttonDeviceInformation.TabIndex = 0;
-            this.buttonDeviceInformation.Text = "GET";
-            this.buttonDeviceInformation.UseVisualStyleBackColor = true;
-            this.buttonDeviceInformation.Click += new System.EventHandler(this.buttonDeviceInformation_Click);
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.listBox1);
+            this.panel2.Controls.Add(this.buttonClear);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(713, 641);
+            this.panel2.TabIndex = 5;
             // 
-            // groupBox6
+            // timer1
             // 
-            this.groupBox6.Controls.Add(this.checkBoxRandomChecksum);
-            this.groupBox6.Controls.Add(this.buttonTestServer);
-            this.groupBox6.Location = new System.Drawing.Point(17, 426);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(199, 124);
-            this.groupBox6.TabIndex = 7;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "TRANSMISSION TEST";
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // checkBoxRandomChecksum
+            // groupBox7
             // 
-            this.checkBoxRandomChecksum.AutoSize = true;
-            this.checkBoxRandomChecksum.Location = new System.Drawing.Point(38, 91);
-            this.checkBoxRandomChecksum.Name = "checkBoxRandomChecksum";
-            this.checkBoxRandomChecksum.Size = new System.Drawing.Size(119, 17);
-            this.checkBoxRandomChecksum.TabIndex = 5;
-            this.checkBoxRandomChecksum.Text = "Random Checksum";
-            this.checkBoxRandomChecksum.UseVisualStyleBackColor = true;
+            this.groupBox7.Controls.Add(this.buttonSendByteArray);
+            this.groupBox7.Location = new System.Drawing.Point(17, 352);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(199, 124);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "FIRMWARE UPDATE";
+            // 
+            // buttonSendByteArray
+            // 
+            this.buttonSendByteArray.Location = new System.Drawing.Point(18, 19);
+            this.buttonSendByteArray.Name = "buttonSendByteArray";
+            this.buttonSendByteArray.Size = new System.Drawing.Size(154, 38);
+            this.buttonSendByteArray.TabIndex = 0;
+            this.buttonSendByteArray.Text = "SEND BYTE ARRAY";
+            this.buttonSendByteArray.UseVisualStyleBackColor = true;
+            this.buttonSendByteArray.Click += new System.EventHandler(this.buttonSendByteArray_Click);
             // 
             // Form1
             // 
@@ -288,14 +312,15 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -322,6 +347,8 @@
         private System.Windows.Forms.Button buttonDeviceInformation;
         private System.Windows.Forms.GroupBox groupBox6;
         public System.Windows.Forms.CheckBox checkBoxRandomChecksum;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button buttonSendByteArray;
     }
 }
 

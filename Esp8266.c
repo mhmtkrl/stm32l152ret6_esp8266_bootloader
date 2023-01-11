@@ -136,7 +136,7 @@ uint8_t otp = 0;
 void UDP(void) {
 	volatile int i = 0;
 	ESP8266_DeleteUDP_transmission();
-	for(i = 0 ; i < 209700 ; i++) {
+	for(i = 0 ; i < 209701 ; i++) {
 		
 	}
 	ESP8266_CreateUDP_transmission();
@@ -197,6 +197,7 @@ void UDP(void) {
 			Crc_Res = Crc_Calculate(12, &dummy[0], Request->Checksum);
 			if(Checksum_Correct == Crc_Res) {
 				if(PERIPHERAL_CONTROL == Request->Cmd) {
+					/* \todo: Inputs depend only Request->Data optimize function arguments */
 					 ERROR_CODES_T code = Peripheral_Control(Request->Data[0], Request->Data[1], Request->Data[2], &Request->Data[3]);
 					if(NO_ERROR == code) {
 						ESP8266_Command_t Message;
@@ -212,6 +213,14 @@ void UDP(void) {
 						Message.Length = sprintf(Message.Command, "%s\r\n", Info);
 						ESP8266_Sends_Data_UDP_Transmission(Message);
 					}
+				}
+				if(FIRMWARE_UPDATE == Request->Cmd) {
+					ERROR_CODES_T code = Firmware_Update_Function(Request->Frame_Type, Request->Length, &Request->Data[0]);
+					if(NO_ERROR == code) {
+						ESP8266_Command_t Message;
+						Message.Length = sprintf(Message.Command, "Firmware Update response okay\r\n");
+						ESP8266_Sends_Data_UDP_Transmission(Message);
+					}					
 				}
 			}else {
 				ESP8266_Command_t Message;

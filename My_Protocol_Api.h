@@ -66,6 +66,16 @@
  * \param none
  * \return none
  */
+ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Length, uint8_t *Data);
+ 
+ /**
+ * \brief Device Information
+ *
+ * \details STM32L152REt6
+ * 
+ * \param none
+ * \return none
+ */
 ERROR_CODES_T Device_Information_Function(char *info);
  
   /**

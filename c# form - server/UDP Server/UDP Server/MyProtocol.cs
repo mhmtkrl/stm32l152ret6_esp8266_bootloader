@@ -54,7 +54,7 @@ namespace UDP_Server
             frame[1] = (byte)data.Length;
             frame[2] = COUNTER;
             COUNTER++;
-            frame[3] = FRAME_TYPE;
+            frame[3] = 0x01;
 
             for(int i = 4; i< (4+data.Length) ;i++)
             {

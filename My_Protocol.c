@@ -5,7 +5,8 @@
  * @brief Function to handle uart communication
  */
  
- #include "My_Protocol_Api.h"
+#include "My_Protocol_Api.h"
+#include "Flash_Unit_Api.h"
  
 MY_PROTOCOL_T Protocol = {
 	NOT_REQUSTED_YET,
@@ -15,6 +16,36 @@ MY_PROTOCOL_T Protocol = {
 	{0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF},
 	0U
 };
+
+/**
+ * \brief Device Information
+ *
+ * \details STM32L152REt6
+ * 
+ * \param none
+ * \return none
+ */
+ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Length, uint8_t *Data) {
+	ERROR_CODES_T Error_Code = NO_ERROR;
+	uint16_t Byte[4];
+	uint16_t Len = 4;
+	
+	switch(Operation) {
+		case ERASE:
+			Error_Code = NO_ERROR;
+		break;
+		case WRITE:
+			for(uint8_t i = 0 ; i < Len ; i++) {
+				Byte[i] = (Data[i*2] << 8) | Data[i*2+1];
+			}
+			FLASH_Eeprom_Write(Eeprom_Data.Start_Address, Len, &Byte[0]);
+			Error_Code = NO_ERROR;
+		break;
+		default:
+			Error_Code = NO_ERROR;
+	}
+	return (Error_Code);
+}
 
 /**
  * \brief Device Information
