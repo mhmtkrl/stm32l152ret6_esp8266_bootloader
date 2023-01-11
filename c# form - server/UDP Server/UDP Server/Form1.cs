@@ -44,7 +44,7 @@ namespace UDP_Server
             buttonLedOff.Visible = true;
             buttonLedOn.Visible = false;
             byte[] data = new byte[3] { 0x01, 0x00, 0x01};
-            protocol.Send_Frame(0x01, data);
+            protocol.Send_Frame(0x01, 0x00, data);
         }
 
         private void buttonLedOff_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace UDP_Server
             buttonLedOff.Visible = false;
             buttonLedOn.Visible = true;
             byte[] data = new byte[3] { 0x01, 0x00, 0x00};
-            protocol.Send_Frame(0x01, data);
+            protocol.Send_Frame(0x01, 0x00, data);
         }
 
     
@@ -71,7 +71,7 @@ namespace UDP_Server
             ledStatus++;
             if (ledStatus > 1) ledStatus = 0;
             byte[] data = new byte[3] { 0x01, 0x00, ledStatus };
-            protocol.Send_Frame(0x01, data);
+            protocol.Send_Frame(0x01, 0x00, data);
             TxCounter++;
             if (TxCounter == PacketCount)
             {
@@ -83,32 +83,43 @@ namespace UDP_Server
         private void buttonButonStatus_Click(object sender, EventArgs e)
         {
             byte[] data = new byte[3] { 0x00, 0x01, 0x00 };
-            protocol.Send_Frame(0x01, data);
+            protocol.Send_Frame(0x01, 0x00, data);
         }
 
         private void buttonTemperatureGet_Click(object sender, EventArgs e)
         {
             byte[] data = new byte[3] { 0x00, 0x02, 0x00 };
-            protocol.Send_Frame(0x01, data);
+            protocol.Send_Frame(0x01, 0x00, data);
         }
 
         private void buttonLEDget_Click(object sender, EventArgs e)
         {
             byte[] data = new byte[3] { 0x00, 0x00, 0x00 };
-            protocol.Send_Frame(0x01, data);
+            protocol.Send_Frame(0x01, 0x00, data);
         }
 
         private void buttonDeviceInformation_Click(object sender, EventArgs e)
         {
             byte[] data = new byte[3] { 0x00, 0x00, 0x00 };
-            protocol.Send_Frame(0x02, data);
+            protocol.Send_Frame(0x02, 0x00, data);
+        }
+
+        private void buttonErase_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[1] { 0xFF };
+            protocol.Send_Frame(0x03, 0x00, data);
         }
 
         private void buttonSendByteArray_Click(object sender, EventArgs e)
         {
             byte[] data = prepareFile.SplitFile();
+            protocol.Send_Frame(0x03, 0x01, data);
+        }
 
-            protocol.Send_Frame(0x03, data);
+        private void buttonReadByteArray_Click(object sender, EventArgs e)
+        {
+            byte[] data = new byte[1] { 0xFF };
+            protocol.Send_Frame(0x03, 0x02, data);
         }
     }
 }

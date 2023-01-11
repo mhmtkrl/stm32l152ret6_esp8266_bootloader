@@ -18,7 +18,8 @@
  */
  typedef enum {
 	 ERASE,
-	 WRITE
+	 WRITE,
+	 READ
  }FLASH_OPERATION_t;
  
 /**

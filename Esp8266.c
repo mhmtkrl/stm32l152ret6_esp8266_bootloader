@@ -215,7 +215,8 @@ void UDP(void) {
 					}
 				}
 				if(FIRMWARE_UPDATE == Request->Cmd) {
-					ERROR_CODES_T code = Firmware_Update_Function(Request->Frame_Type, Request->Length, &Request->Data[0]);
+					uint32_t ReadData[2];
+					ERROR_CODES_T code = Firmware_Update_Function(Request->Frame_Type, Request->Length, &Request->Data[0], &ReadData[0]);
 					if(NO_ERROR == code) {
 						ESP8266_Command_t Message;
 						Message.Length = sprintf(Message.Command, "Firmware Update response okay\r\n");

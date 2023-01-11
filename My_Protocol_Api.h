@@ -66,7 +66,7 @@
  * \param none
  * \return none
  */
-ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Length, uint8_t *Data);
+ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Length, uint8_t *Data, uint32_t *ReadData);
  
  /**
  * \brief Device Information

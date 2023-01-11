@@ -25,7 +25,7 @@ MY_PROTOCOL_T Protocol = {
  * \param none
  * \return none
  */
-ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Length, uint8_t *Data) {
+ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Length, uint8_t *Data, uint32_t *ReadData) {
 	ERROR_CODES_T Error_Code = NO_ERROR;
 	uint16_t Byte[4];
 	uint16_t Len = 4;
@@ -33,13 +33,17 @@ ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Leng
 	switch(Operation) {
 		case ERASE:
 			Error_Code = NO_ERROR;
+		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, Length);
 		break;
 		case WRITE:
 			for(uint8_t i = 0 ; i < Len ; i++) {
 				Byte[i] = (Data[i*2] << 8) | Data[i*2+1];
 			}
-			FLASH_Eeprom_Write(Eeprom_Data.Start_Address, Len, &Byte[0]);
+			FLASH_Program_Memory_Write(Program_Memory.Start_Address, Len, &Byte[0]);
 			Error_Code = NO_ERROR;
+		break;
+		case READ:
+			FLASH_Memory_Read(Program_Memory.Start_Address,Length, &ReadData[0]);
 		break;
 		default:
 			Error_Code = NO_ERROR;

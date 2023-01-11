@@ -47,14 +47,14 @@ namespace UDP_Server
             return (Checksum);
             
         }
-        public void Send_Frame(byte cmd, byte[] data)
+        public void Send_Frame(byte cmd, byte subCMD, byte[] data)
         {
             byte[] frame = new byte[16];
             frame[0] = cmd;
             frame[1] = (byte)data.Length;
             frame[2] = COUNTER;
             COUNTER++;
-            frame[3] = 0x01;
+            frame[3] = subCMD;
 
             for(int i = 4; i< (4+data.Length) ;i++)
             {
