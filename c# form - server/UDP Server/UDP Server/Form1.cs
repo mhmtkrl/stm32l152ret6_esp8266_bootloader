@@ -118,7 +118,7 @@ namespace UDP_Server
 
         private void buttonReadByteArray_Click(object sender, EventArgs e)
         {
-            byte[] data = new byte[1] { 0xFF };
+            byte[] data = new byte[8] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
             protocol.Send_Frame(0x03, 0x02, data);
         }
     }

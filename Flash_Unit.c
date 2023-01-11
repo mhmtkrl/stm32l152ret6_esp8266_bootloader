@@ -9,9 +9,6 @@
  #include "Flash_Unit_Api.h"
 
 static FLASH_LOCK_STATUS_t Flash_Unlock_Operation(void);
-
-uint16_t myData[4] = {0xaa22, 0x3344, 0x5566, 0x77bb};
-uint32_t readFromProgram[2];
  
  PROGRAM_MEMORY_t Program_Memory = {
 	 /* Sector 30  */
@@ -34,16 +31,8 @@ uint32_t readFromProgram[2];
 void FLASH_Init(void) {
 	/* Enable clock source of the memory */
 	FLASH_LOCK_STATUS_t Lock_Status = LOCKED;
+	/* \todo: Return this error code and use it before performing flash operation */
 	Lock_Status = Flash_Unlock_Operation();
-	
-	if(UNLOCKED == Lock_Status) {
-		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
-		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, 4);
-		FLASH_Program_Memory_Write(Program_Memory.Start_Address, 4, &myData[0]);
-		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
-	}
-	FLASH_Memory_Read(Eeprom_Data.Start_Address, 8, &readFromProgram[0]);
-	FLASH_Eeprom_Write(Eeprom_Data.Start_Address, 4, &myData[0]);
 }
 
  /**
@@ -149,6 +138,31 @@ void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destin
 	 return (Lock_Status);
  }
  
- 
+  /**
+ * \brief Test function for both Eeprom and program data
+ *
+ * \details none
+ * 
+ * \param none
+ * \return none
+ */
+ void FLASH_TEST(void) {
+	/* Enable clock source of the memory */
+	FLASH_LOCK_STATUS_t Lock_Status = LOCKED;
+	/* \todo: Return this error code and use it before performing flash operation */
+	Lock_Status = Flash_Unlock_Operation();
+	 
+	uint16_t myData[4] = {0xaa22, 0x3344, 0x5566, 0x77bb};
+	uint32_t readFromProgram[2];
+	if(UNLOCKED == Lock_Status) {
+		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
+		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, 4);
+		FLASH_Program_Memory_Write(Program_Memory.Start_Address, 4, &myData[0]);
+		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
+	}
+	FLASH_Memory_Read(Eeprom_Data.Start_Address, 8, &readFromProgram[0]);
+	FLASH_Eeprom_Write(Eeprom_Data.Start_Address, 4, &myData[0]);
+	
+ }
  
  

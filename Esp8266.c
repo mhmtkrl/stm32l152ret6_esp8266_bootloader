@@ -219,7 +219,12 @@ void UDP(void) {
 					ERROR_CODES_T code = Firmware_Update_Function(Request->Frame_Type, Request->Length, &Request->Data[0], &ReadData[0]);
 					if(NO_ERROR == code) {
 						ESP8266_Command_t Message;
-						Message.Length = sprintf(Message.Command, "Firmware Update response okay\r\n");
+						if(Request->Frame_Type == 0x00)
+						Message.Length = sprintf(Message.Command, "ERASE SUCCESSFUL!\r\n");
+						if(Request->Frame_Type == 0x01)
+						Message.Length = sprintf(Message.Command, "WRITE SUCCESSFUL!\r\n");
+						if(Request->Frame_Type == 0x02)
+							Message.Length = sprintf(Message.Command, "READ: 0x%4X  0x%4X\r\n", ReadData[0], ReadData[1]);
 						ESP8266_Sends_Data_UDP_Transmission(Message);
 					}					
 				}

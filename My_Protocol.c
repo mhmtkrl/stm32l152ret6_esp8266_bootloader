@@ -7,6 +7,8 @@
  
 #include "My_Protocol_Api.h"
 #include "Flash_Unit_Api.h"
+
+uint32_t Read[2];
  
 MY_PROTOCOL_T Protocol = {
 	NOT_REQUSTED_YET,
@@ -43,7 +45,7 @@ ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Leng
 			Error_Code = NO_ERROR;
 		break;
 		case READ:
-			FLASH_Memory_Read(Program_Memory.Start_Address,Length, &ReadData[0]);
+			FLASH_Memory_Read(Program_Memory.Start_Address, Length, &ReadData[0]);
 		break;
 		default:
 			Error_Code = NO_ERROR;

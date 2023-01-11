@@ -94,11 +94,11 @@ namespace UDP_Server
 
             if (TxOrRX == 0x00)
             {
-                direction = " <- ";
+                direction = " <-- ";
             }
             if (TxOrRX == 0x01)
             {
-                direction = " -> ";
+                direction = " --> ";
             }
             string unixTimestamp = Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
             string txt = UnixTimestampToDateTime(Double.Parse(unixTimestamp)).ToString() + direction + rx;

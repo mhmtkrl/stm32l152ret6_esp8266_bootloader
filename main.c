@@ -29,19 +29,16 @@ int main() {
 	for(i = 0 ; i < 209700 ; i++) {
 		
 	}
-	ESP8266_Test();
-	for(i = 0 ; i < 209700 ; i++) {
-		
-	}
-	ESP8266_Version();
-	for(i = 0 ; i < 209700 ; i++) {
-		
-	}
 	UDP();	
 	
+	Message.Length = sprintf(Message.Command, "CLIENT ONLINE!\r\n");
+	ESP8266_Sends_Data_UDP_Transmission(Message);
+	
 	while(1) {
+		/*
 		Message.Length = sprintf(Message.Command, "Counter = %d\r\n", Test_Counter++);
 		ESP8266_Sends_Data_UDP_Transmission(Message);
+		*/
 		for(i = 0 ; i < 209700 ; i++) {
 			
 		}
