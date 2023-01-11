@@ -95,6 +95,9 @@ void SysTick_Handler(void) {
 	/* @todo do something */
 	Internal_Counter++;
 	/* ESP8266 Main function */
-	ESP8266_Main();
+	if(Internal_Counter > 10) {
+		ESP8266_Main();
+		Internal_Counter = 0;
+	}
 }
 
