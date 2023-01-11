@@ -9,7 +9,7 @@ namespace UDP_Server
 {
     internal class PrepareFile
     {
-        private string FilePath = "c:\\Users\\mehme\\Embedded Systems\\FOTA\\stm32l152ret6_esp8266_bootloader\\c# form - server\\BinaryFile.bin";
+        private string FilePath =  "c:\\Users\\mehme\\Embedded Systems\\FOTA\\stm32l152ret6_esp8266_bootloader\\Code.bin";
         private byte[] FileData = new byte[2130702268];
 
         public int ReadFileGetSize()
