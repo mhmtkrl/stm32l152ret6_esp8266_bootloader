@@ -18,6 +18,7 @@ namespace UDP_Server
     {
 
         List<byte[]> Program = new List<byte[]>();
+        int row = 0;
 
         MyProtocol protocol = new MyProtocol();
         PrepareFile prepareFile = new PrepareFile();
@@ -35,6 +36,7 @@ namespace UDP_Server
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            timerTransfer.Interval = 250;
             timer1.Interval = 100;
             protocol.protocol_update(this);
             protocol.Protocol_Init();
@@ -127,14 +129,40 @@ namespace UDP_Server
 
         private void buttonSendByteArray_Click(object sender, EventArgs e)
         {
-            byte[] data = prepareFile.SplitFile();
-            protocol.Send_Frame(0x03, 0x01, data);
+            /* byte[] data = prepareFile.SplitFile();
+             * 
+             protocol.Send_Frame(0x03, 0x01, data);
+            */
+            timerTransfer.Start();
+
         }
 
         private void buttonReadByteArray_Click(object sender, EventArgs e)
         {
             byte[] data = new byte[8] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
             protocol.Send_Frame(0x03, 0x02, data);
+        }
+
+        private void timerTransfer_Tick(object sender, EventArgs e)
+        {
+         
+            var x = "";
+            byte[] data = new byte[8];
+
+            for (int j = 0; j<8; j++)
+            {
+                data[j] = Program[row][j];
+                x = x + "0x" + Program[row][j].ToString("X2") + " ";
+            }
+            listBox1.Items.Add(x);
+            protocol.Send_Frame(0x03, 0x01, data);
+            row++;
+
+            if(row >= 50)
+            {
+                row = 0;
+                timerTransfer.Stop();
+            }
         }
     }
 }

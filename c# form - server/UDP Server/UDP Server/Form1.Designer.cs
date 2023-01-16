@@ -41,6 +41,10 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.checkBoxRandomChecksum = new System.Windows.Forms.CheckBox();
             this.buttonTestServer = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.buttonErase = new System.Windows.Forms.Button();
+            this.buttonReadByteArray = new System.Windows.Forms.Button();
+            this.buttonSendByteArray = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.buttonDeviceInformation = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -50,20 +54,17 @@
             this.buttonButonStatus = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.buttonSendByteArray = new System.Windows.Forms.Button();
-            this.buttonErase = new System.Windows.Forms.Button();
-            this.buttonReadByteArray = new System.Windows.Forms.Button();
+            this.timerTransfer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBox1
@@ -192,6 +193,48 @@
             this.buttonTestServer.UseVisualStyleBackColor = true;
             this.buttonTestServer.Click += new System.EventHandler(this.buttonTestServer_Click);
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.buttonErase);
+            this.groupBox7.Controls.Add(this.buttonReadByteArray);
+            this.groupBox7.Controls.Add(this.buttonSendByteArray);
+            this.groupBox7.Location = new System.Drawing.Point(17, 352);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(199, 156);
+            this.groupBox7.TabIndex = 6;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "FIRMWARE UPDATE";
+            // 
+            // buttonErase
+            // 
+            this.buttonErase.Location = new System.Drawing.Point(22, 19);
+            this.buttonErase.Name = "buttonErase";
+            this.buttonErase.Size = new System.Drawing.Size(154, 38);
+            this.buttonErase.TabIndex = 0;
+            this.buttonErase.Text = "ERASE";
+            this.buttonErase.UseVisualStyleBackColor = true;
+            this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
+            // 
+            // buttonReadByteArray
+            // 
+            this.buttonReadByteArray.Location = new System.Drawing.Point(22, 106);
+            this.buttonReadByteArray.Name = "buttonReadByteArray";
+            this.buttonReadByteArray.Size = new System.Drawing.Size(154, 38);
+            this.buttonReadByteArray.TabIndex = 0;
+            this.buttonReadByteArray.Text = "READ BYTE ARRAY";
+            this.buttonReadByteArray.UseVisualStyleBackColor = true;
+            this.buttonReadByteArray.Click += new System.EventHandler(this.buttonReadByteArray_Click);
+            // 
+            // buttonSendByteArray
+            // 
+            this.buttonSendByteArray.Location = new System.Drawing.Point(22, 62);
+            this.buttonSendByteArray.Name = "buttonSendByteArray";
+            this.buttonSendByteArray.Size = new System.Drawing.Size(154, 38);
+            this.buttonSendByteArray.TabIndex = 0;
+            this.buttonSendByteArray.Text = "SEND BYTE ARRAY";
+            this.buttonSendByteArray.UseVisualStyleBackColor = true;
+            this.buttonSendByteArray.Click += new System.EventHandler(this.buttonSendByteArray_Click);
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.buttonDeviceInformation);
@@ -280,47 +323,9 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox7
+            // timerTransfer
             // 
-            this.groupBox7.Controls.Add(this.buttonErase);
-            this.groupBox7.Controls.Add(this.buttonReadByteArray);
-            this.groupBox7.Controls.Add(this.buttonSendByteArray);
-            this.groupBox7.Location = new System.Drawing.Point(17, 352);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(199, 156);
-            this.groupBox7.TabIndex = 6;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "FIRMWARE UPDATE";
-            // 
-            // buttonSendByteArray
-            // 
-            this.buttonSendByteArray.Location = new System.Drawing.Point(22, 62);
-            this.buttonSendByteArray.Name = "buttonSendByteArray";
-            this.buttonSendByteArray.Size = new System.Drawing.Size(154, 38);
-            this.buttonSendByteArray.TabIndex = 0;
-            this.buttonSendByteArray.Text = "SEND BYTE ARRAY";
-            this.buttonSendByteArray.UseVisualStyleBackColor = true;
-            this.buttonSendByteArray.Click += new System.EventHandler(this.buttonSendByteArray_Click);
-            // 
-            // buttonErase
-            // 
-            this.buttonErase.Location = new System.Drawing.Point(22, 19);
-            this.buttonErase.Name = "buttonErase";
-            this.buttonErase.Size = new System.Drawing.Size(154, 38);
-            this.buttonErase.TabIndex = 0;
-            this.buttonErase.Text = "ERASE";
-            this.buttonErase.UseVisualStyleBackColor = true;
-            this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
-            // 
-            // buttonReadByteArray
-            // 
-            this.buttonReadByteArray.Location = new System.Drawing.Point(22, 106);
-            this.buttonReadByteArray.Name = "buttonReadByteArray";
-            this.buttonReadByteArray.Size = new System.Drawing.Size(154, 38);
-            this.buttonReadByteArray.TabIndex = 0;
-            this.buttonReadByteArray.Text = "READ BYTE ARRAY";
-            this.buttonReadByteArray.UseVisualStyleBackColor = true;
-            this.buttonReadByteArray.Click += new System.EventHandler(this.buttonReadByteArray_Click);
+            this.timerTransfer.Tick += new System.EventHandler(this.timerTransfer_Tick);
             // 
             // Form1
             // 
@@ -338,13 +343,13 @@
             this.panel3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,6 +380,7 @@
         private System.Windows.Forms.Button buttonSendByteArray;
         private System.Windows.Forms.Button buttonErase;
         private System.Windows.Forms.Button buttonReadByteArray;
+        private System.Windows.Forms.Timer timerTransfer;
     }
 }
 

@@ -47,18 +47,5 @@ namespace UDP_Server
 
             return listRange;
         }
-
-
-        public byte[] SplitFile()
-        {
-            string txt = "";
-            byte[] data = new byte[8];
-            for(int i = 0; i < 8; i++)
-            {
-                txt = txt + FileData[i].ToString("X2") + " ";
-                data[i] = FileData[i];
-            }
-            return data;
-        }
     }
 }
