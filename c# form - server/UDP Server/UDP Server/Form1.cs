@@ -16,6 +16,9 @@ namespace UDP_Server
 {
     public partial class Form1 : Form
     {
+
+        List<byte[]> Program = new List<byte[]>();
+
         MyProtocol protocol = new MyProtocol();
         PrepareFile prepareFile = new PrepareFile();
 
@@ -37,6 +40,18 @@ namespace UDP_Server
             protocol.Protocol_Init();
             buttonLedOff.Visible = false;
             listBox1.Items.Add("File Size: " + prepareFile.ReadFileGetSize());
+            Program = prepareFile.ParseData();
+
+            for(int i = 0; i < Program.Count; i++)
+            {
+                var x = "";
+
+                for (int j = 0; j<8; j++)
+                {
+                    x = x + "0x" + Program[i][j].ToString("X2") + " ";
+                }
+                listBox1.Items.Add(x);
+            }
         }
 
         private void buttonLedOn_Click(object sender, EventArgs e)
