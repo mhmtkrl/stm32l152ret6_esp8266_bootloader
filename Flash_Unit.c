@@ -43,7 +43,7 @@ void FLASH_Init(void) {
  * \param none
  * \return none
  */
-void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length) {
+void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address) {
 	/* Set the ERASE bit in the FLASH_PECR register */
 	FLASH->PECR |= 1ul << 9;
 	/* Set the PROG bit in the FLASH_PECR register to choose program page */
@@ -156,7 +156,7 @@ void FLASH_Memory_Read(uint32_t Start_Address, uint16_t Length, uint32_t *Destin
 	uint32_t readFromProgram[2];
 	if(UNLOCKED == Lock_Status) {
 		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
-		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address, 4);
+		FLASH_Program_Memory_Page_Erase(Program_Memory.Start_Address);
 		FLASH_Program_Memory_Write(Program_Memory.Start_Address, 4, &myData[0]);
 		FLASH_Memory_Read(Program_Memory.Start_Address, 8, &readFromProgram[0]);
 	}

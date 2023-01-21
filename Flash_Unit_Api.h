@@ -51,7 +51,7 @@ void FLASH_Init(void);
  * \param none
  * \return none
  */
-void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address, uint16_t Length);
+void FLASH_Program_Memory_Page_Erase(uint32_t Start_Address);
 
  /**
  * \brief Flash Fast Word Write

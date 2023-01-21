@@ -36,7 +36,7 @@ ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Leng
 	switch(Operation) {
 		case ERASE:
 			Error_Code = NO_ERROR;
-			FLASH_Program_Memory_Page_Erase(0x0801E000, Length);
+			FLASH_Program_Memory_Page_Erase(0x0801E000);
 			Base_Address = Program_Memory.Start_Address;
 		break;
 		case WRITE:
