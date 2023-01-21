@@ -36,6 +36,29 @@ void FLASH_Init(void) {
 }
 
  /**
+ * \brief Program memory multiple pages erase
+ *
+ * \details This operation is used to erase a pages in program memory 
+ * 
+ * \param uint32_t Start_Address
+ * \param uint16_t length
+ * \return none
+ */
+void FLASH_Program_Memory_Erase(uint32_t Start_Address, uint16_t length) {
+	/* Calculate how many page must be erased */
+	uint16_t Page_Size;
+	Page_Size = (length / 256) + 1;
+	/* Page index */
+	uint16_t Page_Index = 0;
+	
+	/* Erase pages */
+	for(Page_Index = 0 ; Page_Index < Page_Size ; Page_Index++) {
+		FLASH_Program_Memory_Page_Erase(Start_Address);
+		Start_Address += 256;
+	}
+}
+
+ /**
  * \brief Program memory page erase
  *
  * \details This operation is used to erase a page in program memory (64 words)

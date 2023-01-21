@@ -158,7 +158,7 @@ namespace UDP_Server
             protocol.Send_Frame(0x03, 0x01, data);
             row++;
 
-            if(row >= 50)
+            if(row >= 100)
             {
                 row = 0;
                 timerTransfer.Stop();

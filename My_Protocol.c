@@ -31,25 +31,26 @@ ERROR_CODES_T Firmware_Update_Function(FLASH_OPERATION_t Operation, uint8_t Leng
 	ERROR_CODES_T Error_Code = NO_ERROR;
 	uint16_t Byte[4];
 	uint16_t Len = 4;
-	static uint32_t Base_Address;
+	static uint32_t Temp_Address = 0; 
+	uint32_t Base_Address = Program_Memory.Start_Address;
 	
 	switch(Operation) {
 		case ERASE:
 			Error_Code = NO_ERROR;
-			FLASH_Program_Memory_Page_Erase(0x0801E000);
-			Base_Address = Program_Memory.Start_Address;
+			FLASH_Program_Memory_Erase(Base_Address, 768);
+			Temp_Address = 0;
 		break;
 		case WRITE:
 			for(uint8_t i = 0 ; i < Len ; i++) {
 				Byte[i] = (Data[i*2] << 8) | Data[i*2+1];
 			}
+			Base_Address += Temp_Address;
 			FLASH_Program_Memory_Write(Base_Address, Len, &Byte[0]);
-			Program_Memory.Start_Address += 8;
-			Base_Address = Program_Memory.Start_Address;
+			Temp_Address += 8;
 			Error_Code = NO_ERROR;
 		break;
 		case READ:
-			FLASH_Memory_Read(Program_Memory.Start_Address, Length, &ReadData[0]);
+			FLASH_Memory_Read(Base_Address, Length, &ReadData[0]);
 		break;
 		default:
 			Error_Code = NO_ERROR;
