@@ -1,0 +1,564 @@
+Component: ARM Compiler 6.16 Tool: armlink [5dfeaa00]
+
+==============================================================================
+
+Section Cross References
+
+    main.o(.text.main) refers to sys_timer.o(.text.Init_System_Timer) for Init_System_Timer
+    main.o(.text.main) refers to uart.o(.text.Init_Uart_For_Communication) for Init_Uart_For_Communication
+    main.o(.text.main) refers to gpio.o(.text.Init_User_Led) for Init_User_Led
+    main.o(.text.main) refers to crc_calculation.o(.text.Crc_Init) for Crc_Init
+    main.o(.text.main) refers to flash_unit.o(.text.FLASH_Init) for FLASH_Init
+    main.o(.text.main) refers to esp8266.o(.text.ESP8266_Echo_Off) for ESP8266_Echo_Off
+    main.o(.text.main) refers to esp8266.o(.text.UDP) for UDP
+    main.o(.text.main) refers to main.o(.rodata.str1.4) for .L.str
+    main.o(.text.main) refers to main.o(.bss.Message) for Message
+    main.o(.text.main) refers to esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) for ESP8266_Sends_Data_UDP_Transmission
+    main.o(.text.main) refers to gpio.o(.text.Set_User_Led) for Set_User_Led
+    main.o(.text.main) refers to gpio.o(.text.Reset_User_Led) for Reset_User_Led
+    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.Init_User_Led) refers to gpio.o(.text.Init_User_Led) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.Set_User_Led) refers to gpio.o(.text.Set_User_Led) for [Anonymous Symbol]
+    gpio.o(.ARM.exidx.text.Reset_User_Led) refers to gpio.o(.text.Reset_User_Led) for [Anonymous Symbol]
+    sys_timer.o(.text.Elapsed_Time_In_Miliseconds) refers to sys_timer.o(.bss.Internal_Counter) for Internal_Counter
+    sys_timer.o(.text.Elapsed_Time_In_Miliseconds) refers to sys_timer.o(.text.Disable_Timeout_Counter) for Disable_Timeout_Counter
+    sys_timer.o(.ARM.exidx.text.Elapsed_Time_In_Miliseconds) refers to sys_timer.o(.text.Elapsed_Time_In_Miliseconds) for [Anonymous Symbol]
+    sys_timer.o(.ARM.exidx.text.Disable_Timeout_Counter) refers to sys_timer.o(.text.Disable_Timeout_Counter) for [Anonymous Symbol]
+    sys_timer.o(.ARM.exidx.text.Enable_Timeout_Counter) refers to sys_timer.o(.text.Enable_Timeout_Counter) for [Anonymous Symbol]
+    sys_timer.o(.text.Init_System_Timer) refers to sys_timer.o(.text.Enable_Timeout_Counter) for Enable_Timeout_Counter
+    sys_timer.o(.ARM.exidx.text.Init_System_Timer) refers to sys_timer.o(.text.Init_System_Timer) for [Anonymous Symbol]
+    sys_timer.o(.text.SysTick_Handler) refers to sys_timer.o(.bss.Internal_Counter) for Internal_Counter
+    sys_timer.o(.text.SysTick_Handler) refers to esp8266.o(.text.ESP8266_Main) for ESP8266_Main
+    sys_timer.o(.ARM.exidx.text.SysTick_Handler) refers to sys_timer.o(.text.SysTick_Handler) for [Anonymous Symbol]
+    uart.o(.text.Init_Uart_For_Communication) refers to uart.o(.text.Init_Uart_For_Esp8266) for Init_Uart_For_Esp8266
+    uart.o(.text.Init_Uart_For_Communication) refers to uart.o(.text.Init_Uart_For_Debug) for Init_Uart_For_Debug
+    uart.o(.ARM.exidx.text.Init_Uart_For_Communication) refers to uart.o(.text.Init_Uart_For_Communication) for [Anonymous Symbol]
+    uart.o(.text.Init_Uart_For_Esp8266) refers to uart.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    uart.o(.ARM.exidx.text.Init_Uart_For_Esp8266) refers to uart.o(.text.Init_Uart_For_Esp8266) for [Anonymous Symbol]
+    uart.o(.text.Init_Uart_For_Debug) refers to uart.o(.text.__NVIC_EnableIRQ) for __NVIC_EnableIRQ
+    uart.o(.ARM.exidx.text.Init_Uart_For_Debug) refers to uart.o(.text.Init_Uart_For_Debug) for [Anonymous Symbol]
+    uart.o(.ARM.exidx.text.__NVIC_EnableIRQ) refers to uart.o(.text.__NVIC_EnableIRQ) for [Anonymous Symbol]
+    uart_comm.o(.text.USART3_IRQHandler) refers to uart_comm.o(.bss.ESP8266_Response_Length) for ESP8266_Response_Length
+    uart_comm.o(.text.USART3_IRQHandler) refers to uart_comm.o(.bss.ESP8266_Response_Buffer) for ESP8266_Response_Buffer
+    uart_comm.o(.text.USART3_IRQHandler) refers to esp8266.o(.text.ESP8266_Process_Response) for ESP8266_Process_Response
+    uart_comm.o(.text.USART3_IRQHandler) refers to uart_comm.o(.bss.received) for received
+    uart_comm.o(.ARM.exidx.text.USART3_IRQHandler) refers to uart_comm.o(.text.USART3_IRQHandler) for [Anonymous Symbol]
+    uart_comm.o(.text.USART2_IRQHandler) refers to uart_comm.o(.bss.Debug_Response_Length) for Debug_Response_Length
+    uart_comm.o(.text.USART2_IRQHandler) refers to uart_comm.o(.bss.Debug_Response_Buffer) for Debug_Response_Buffer
+    uart_comm.o(.text.USART2_IRQHandler) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    uart_comm.o(.ARM.exidx.text.USART2_IRQHandler) refers to uart_comm.o(.text.USART2_IRQHandler) for [Anonymous Symbol]
+    uart_comm.o(.text.Uart_Send_Command) refers to uart_comm.o(.text.Uart_Send_Char) for Uart_Send_Char
+    uart_comm.o(.ARM.exidx.text.Uart_Send_Command) refers to uart_comm.o(.text.Uart_Send_Command) for [Anonymous Symbol]
+    uart_comm.o(.text.Uart_Send_Debug_Message) refers to uart_comm.o(.text.Uart_Send_Char) for Uart_Send_Char
+    uart_comm.o(.ARM.exidx.text.Uart_Send_Debug_Message) refers to uart_comm.o(.text.Uart_Send_Debug_Message) for [Anonymous Symbol]
+    uart_comm.o(.ARM.exidx.text.Uart_Send_Char) refers to uart_comm.o(.text.Uart_Send_Char) for [Anonymous Symbol]
+    esp8266_config.o(.data.ESP8266_Config) refers to esp8266_config.o(.rodata.str1.1) for [Anonymous Symbol]
+    esp8266_config.o(.data.ESP8266_Command) refers to esp8266_config.o(.rodata.str1.1) for [Anonymous Symbol]
+    esp8266.o(.text) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_Test) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Test) refers to esp8266_config.o(.data.ESP8266_Command) for ESP8266_Command
+    esp8266.o(.text.ESP8266_Test) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_Test) refers to esp8266.o(.text.ESP8266_Test) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_Version) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Version) refers to esp8266_config.o(.data.ESP8266_Command) for ESP8266_Command
+    esp8266.o(.text.ESP8266_Version) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_Version) refers to esp8266.o(.text.ESP8266_Version) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_Echo_Off) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Echo_Off) refers to esp8266_config.o(.data.ESP8266_Command) for ESP8266_Command
+    esp8266.o(.text.ESP8266_Echo_Off) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off) refers to esp8266.o(.text.ESP8266_Echo_Off) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers to esp8266_config.o(.data.ESP8266_Command) for ESP8266_Command
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers to __2sprintf.o(.text) for __2sprintf
+    esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission) refers to esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) for [Anonymous Symbol]
+    esp8266.o(.text.UDP) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.UDP) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.UDP) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.UDP) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.UDP) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.UDP) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.UDP) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.UDP) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.UDP) refers to esp8266.o(.text.ESP8266_DeleteUDP_transmission) for ESP8266_DeleteUDP_transmission
+    esp8266.o(.text.UDP) refers to esp8266.o(.text.ESP8266_CreateUDP_transmission) for ESP8266_CreateUDP_transmission
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.UDP) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.UDP) refers to esp8266.o(.text.UDP) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers to esp8266_config.o(.data.ESP8266_Command) for ESP8266_Command
+    esp8266.o(.text.ESP8266_DeleteUDP_transmission) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission) refers to esp8266.o(.text.ESP8266_DeleteUDP_transmission) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers to esp8266_config.o(.data.ESP8266_Config) for ESP8266_Config
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers to esp8266_config.o(.data.ESP8266_Command) for ESP8266_Command
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers to __2sprintf.o(.text) for __2sprintf
+    esp8266.o(.text.ESP8266_CreateUDP_transmission) refers to uart_comm.o(.text.Uart_Send_Command) for Uart_Send_Command
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission) refers to esp8266.o(.text.ESP8266_CreateUDP_transmission) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_Process_Response) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Process_Response) refers to esp8266.o(.data.Circular_Buffer) for Circular_Buffer
+    esp8266.o(.text.ESP8266_Process_Response) refers to esp8266.o(.bss.otp) for otp
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_Process_Response) refers to esp8266.o(.text.ESP8266_Process_Response) for [Anonymous Symbol]
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.text.ESP8266_Main) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.text.ESP8266_Main) refers to esp8266.o(.data.Circular_Buffer) for Circular_Buffer
+    esp8266.o(.text.ESP8266_Main) refers to uart_comm.o(.text.Uart_Send_Debug_Message) for Uart_Send_Debug_Message
+    esp8266.o(.text.ESP8266_Main) refers to my_protocol.o(.data.Protocol) for Protocol
+    esp8266.o(.text.ESP8266_Main) refers to crc_calculation.o(.text.Crc_Calculate) for Crc_Calculate
+    esp8266.o(.text.ESP8266_Main) refers to esp8266.o(.data.Crc_Res) for Crc_Res
+    esp8266.o(.text.ESP8266_Main) refers to esp8266.o(.text.ESP8266_Sends_Data_UDP_Transmission) for ESP8266_Sends_Data_UDP_Transmission
+    esp8266.o(.text.ESP8266_Main) refers to my_protocol.o(.text.Peripheral_Control) for Peripheral_Control
+    esp8266.o(.text.ESP8266_Main) refers to __2sprintf.o(.text) for __2sprintf
+    esp8266.o(.text.ESP8266_Main) refers to my_protocol.o(.text.Device_Information_Function) for Device_Information_Function
+    esp8266.o(.text.ESP8266_Main) refers to my_protocol.o(.text.Firmware_Update_Function) for Firmware_Update_Function
+    esp8266.o(.text.ESP8266_Main) refers to esp8266.o(.bss.otp) for otp
+    esp8266.o(.text.ESP8266_Main) refers to esp8266.o(.rodata.str1.4) for .L.str.3
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.ARM.exidx.text.ESP8266_Main) refers to esp8266.o(.text.ESP8266_Main) for [Anonymous Symbol]
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.data.Crc_Res) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.bss.otp) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.bss.otp) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.bss.otp) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.bss.otp) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.bss.otp) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.bss.otp) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.bss.otp) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.bss.otp) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.data.Circular_Buffer) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.rodata.str1.4) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    esp8266.o(.bss.Response) refers (Special) to _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) for _printf_d
+    esp8266.o(.bss.Response) refers (Special) to _printf_dec.o(.text) for _printf_int_dec
+    esp8266.o(.bss.Response) refers (Special) to _printf_hex_int.o(.text) for _printf_longlong_hex
+    esp8266.o(.bss.Response) refers (Special) to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    esp8266.o(.bss.Response) refers (Special) to _printf_pad.o(.text) for _printf_pre_padding
+    esp8266.o(.bss.Response) refers (Special) to _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) for _printf_s
+    esp8266.o(.bss.Response) refers (Special) to _printf_str.o(.text) for _printf_str
+    esp8266.o(.bss.Response) refers (Special) to _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) for _printf_x
+    crc_calculation.o(.ARM.exidx.text.Crc_Init) refers to crc_calculation.o(.text.Crc_Init) for [Anonymous Symbol]
+    crc_calculation.o(.ARM.exidx.text.Crc_Calculate) refers to crc_calculation.o(.text.Crc_Calculate) for [Anonymous Symbol]
+    my_protocol.o(.text.Firmware_Update_Function) refers to flash_unit.o(.data.Program_Memory) for Program_Memory
+    my_protocol.o(.text.Firmware_Update_Function) refers to my_protocol.o(.bss.Firmware_Update_Function.Temp_Address) for Firmware_Update_Function.Temp_Address
+    my_protocol.o(.text.Firmware_Update_Function) refers to flash_unit.o(.text.FLASH_Program_Memory_Write) for FLASH_Program_Memory_Write
+    my_protocol.o(.text.Firmware_Update_Function) refers to flash_unit.o(.ARM.__at_0x20000) for FLASH_Program_Memory_Erase
+    my_protocol.o(.text.Firmware_Update_Function) refers to flash_unit.o(.text.FLASH_Memory_Read) for FLASH_Memory_Read
+    my_protocol.o(.ARM.exidx.text.Firmware_Update_Function) refers to my_protocol.o(.text.Firmware_Update_Function) for [Anonymous Symbol]
+    my_protocol.o(.ARM.exidx.text.Device_Information_Function) refers to my_protocol.o(.text.Device_Information_Function) for [Anonymous Symbol]
+    my_protocol.o(.text.Peripheral_Control) refers to gpio.o(.text.Reset_User_Led) for Reset_User_Led
+    my_protocol.o(.text.Peripheral_Control) refers to gpio.o(.text.Set_User_Led) for Set_User_Led
+    my_protocol.o(.ARM.exidx.text.Peripheral_Control) refers to my_protocol.o(.text.Peripheral_Control) for [Anonymous Symbol]
+    flash_unit.o(.text.FLASH_Init) refers to flash_unit.o(.text.Flash_Unlock_Operation) for Flash_Unlock_Operation
+    flash_unit.o(.ARM.exidx.text.FLASH_Init) refers to flash_unit.o(.text.FLASH_Init) for [Anonymous Symbol]
+    flash_unit.o(.ARM.exidx.text.Flash_Unlock_Operation) refers to flash_unit.o(.text.Flash_Unlock_Operation) for [Anonymous Symbol]
+    flash_unit.o(.ARM.__at_0x20000) refers to flash_unit.o(.text.FLASH_Program_Memory_Page_Erase) for FLASH_Program_Memory_Page_Erase
+    flash_unit.o(.ARM.exidx.ARM.__at_0x20000) refers to flash_unit.o(.ARM.__at_0x20000) for [Anonymous Symbol]
+    flash_unit.o(.ARM.exidx.text.FLASH_Program_Memory_Page_Erase) refers to flash_unit.o(.text.FLASH_Program_Memory_Page_Erase) for [Anonymous Symbol]
+    flash_unit.o(.ARM.exidx.text.FLASH_Eeprom_Write) refers to flash_unit.o(.text.FLASH_Eeprom_Write) for [Anonymous Symbol]
+    flash_unit.o(.ARM.exidx.text.FLASH_Program_Memory_Write) refers to flash_unit.o(.text.FLASH_Program_Memory_Write) for [Anonymous Symbol]
+    flash_unit.o(.ARM.exidx.text.FLASH_Memory_Read) refers to flash_unit.o(.text.FLASH_Memory_Read) for [Anonymous Symbol]
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.text.Flash_Unlock_Operation) for Flash_Unlock_Operation
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.data.Program_Memory) for Program_Memory
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.text.FLASH_Memory_Read) for FLASH_Memory_Read
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.text.FLASH_Program_Memory_Page_Erase) for FLASH_Program_Memory_Page_Erase
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.text.FLASH_Program_Memory_Write) for FLASH_Program_Memory_Write
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.data.Eeprom_Data) for Eeprom_Data
+    flash_unit.o(.text.FLASH_TEST) refers to flash_unit.o(.text.FLASH_Eeprom_Write) for FLASH_Eeprom_Write
+    flash_unit.o(.ARM.exidx.text.FLASH_TEST) refers to flash_unit.o(.text.FLASH_TEST) for [Anonymous Symbol]
+    startup_stm32l152xe.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32l152xe.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32l152xe.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32l152xe.o(RESET) refers to startup_stm32l152xe.o(STACK) for __initial_sp
+    startup_stm32l152xe.o(RESET) refers to startup_stm32l152xe.o(.text) for Reset_Handler
+    startup_stm32l152xe.o(RESET) refers to sys_timer.o(.text.SysTick_Handler) for SysTick_Handler
+    startup_stm32l152xe.o(RESET) refers to uart_comm.o(.text.USART2_IRQHandler) for USART2_IRQHandler
+    startup_stm32l152xe.o(RESET) refers to uart_comm.o(.text.USART3_IRQHandler) for USART3_IRQHandler
+    startup_stm32l152xe.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
+    startup_stm32l152xe.o(.text) refers to system_stm32l1xx.o(.text.SystemInit) for SystemInit
+    startup_stm32l152xe.o(.text) refers to __main.o(!!!main) for __main
+    startup_stm32l152xe.o(.text) refers to startup_stm32l152xe.o(HEAP) for Heap_Mem
+    startup_stm32l152xe.o(.text) refers to startup_stm32l152xe.o(STACK) for Stack_Mem
+    system_stm32l1xx.o(.ARM.exidx.text.SystemInit) refers to system_stm32l1xx.o(.text.SystemInit) for [Anonymous Symbol]
+    system_stm32l1xx.o(.text.SystemCoreClockUpdate) refers to system_stm32l1xx.o(.rodata.PLLMulTable) for PLLMulTable
+    system_stm32l1xx.o(.text.SystemCoreClockUpdate) refers to system_stm32l1xx.o(.data.SystemCoreClock) for SystemCoreClock
+    system_stm32l1xx.o(.text.SystemCoreClockUpdate) refers to system_stm32l1xx.o(.rodata.AHBPrescTable) for AHBPrescTable
+    system_stm32l1xx.o(.ARM.exidx.text.SystemCoreClockUpdate) refers to system_stm32l1xx.o(.text.SystemCoreClockUpdate) for [Anonymous Symbol]
+    __2sprintf.o(.text) refers to _printf_char_common.o(.text) for _printf_char_common
+    __2sprintf.o(.text) refers to _sputc.o(.text) for _sputc
+    noretval__2sprintf.o(.text) refers to _printf_char_common.o(.text) for _printf_char_common
+    noretval__2sprintf.o(.text) refers to _sputc.o(.text) for _sputc
+    __printf.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    _printf_str.o(.text) refers (Special) to _printf_char.o(.text) for _printf_cs_common
+    _printf_str.o(.text) refers (Weak) to _printf_pad.o(.text) for _printf_pre_padding
+    _printf_str.o(.text) refers (Weak) to _printf_pad.o(.text) for _printf_post_padding
+    _printf_dec.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_ll.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_ll.o(.text) refers to _printf_hex_ll.o(.constdata) for .constdata
+    _printf_hex_int.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_int.o(.text) refers to _printf_hex_int.o(.constdata) for .constdata
+    _printf_hex_int_ll.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_int_ll.o(.text) refers to _printf_hex_int_ll.o(.constdata) for .constdata
+    _printf_hex_ptr.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_ptr.o(.text) refers to _printf_hex_ptr.o(.constdata) for .constdata
+    _printf_hex_int_ptr.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_int_ptr.o(.text) refers to _printf_hex_int_ptr.o(.constdata) for .constdata
+    _printf_hex_ll_ptr.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_ll_ptr.o(.text) refers to _printf_hex_ll_ptr.o(.constdata) for .constdata
+    _printf_hex_int_ll_ptr.o(.text) refers to _printf_intcommon.o(.text) for _printf_int_common
+    _printf_hex_int_ll_ptr.o(.text) refers to _printf_hex_int_ll_ptr.o(.constdata) for .constdata
+    __printf_flags.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags.o(.text) refers to __printf_flags.o(.constdata) for .constdata
+    __printf_ss.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags_ss.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags_ss.o(.text) refers to __printf_flags_ss.o(.constdata) for .constdata
+    __printf_wp.o(.text) refers to __printf_wp.o(i._is_digit) for _is_digit
+    __printf_wp.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags_wp.o(.text) refers to __printf_wp.o(i._is_digit) for _is_digit
+    __printf_flags_wp.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags_wp.o(.text) refers to __printf_flags_wp.o(.constdata) for .constdata
+    __printf_ss_wp.o(.text) refers to __printf_wp.o(i._is_digit) for _is_digit
+    __printf_ss_wp.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags_ss_wp.o(.text) refers to __printf_wp.o(i._is_digit) for _is_digit
+    __printf_flags_ss_wp.o(.text) refers to _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) for _printf_percent
+    __printf_flags_ss_wp.o(.text) refers to __printf_flags_ss_wp.o(.constdata) for .constdata
+    _printf_s.o(.ARM.Collect$$_printf_percent$$00000014) refers (Weak) to _printf_char.o(.text) for _printf_string
+    _printf_x.o(.ARM.Collect$$_printf_percent$$0000000C) refers (Weak) to _printf_hex_int.o(.text) for _printf_int_hex
+    _printf_d.o(.ARM.Collect$$_printf_percent$$00000009) refers (Weak) to _printf_dec.o(.text) for _printf_int_dec
+    _printf_percent.o(.ARM.Collect$$_printf_percent$$00000000) refers (Special) to _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017) for _printf_percent_end
+    __main.o(!!!main) refers to __rtentry.o(.ARM.Collect$$rtentry$$00000000) for __rt_entry
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for __rt_entry_li
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for __rt_entry_main
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$0000000C) for __rt_entry_postli_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000009) for __rt_entry_postsh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry2.o(.ARM.Collect$$rtentry$$00000002) for __rt_entry_presh_1
+    __rtentry.o(.ARM.Collect$$rtentry$$00000000) refers (Special) to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for __rt_entry_sh
+    _printf_intcommon.o(.text) refers (Weak) to _printf_pad.o(.text) for _printf_pre_padding
+    _printf_intcommon.o(.text) refers (Weak) to _printf_pad.o(.text) for _printf_pre_padding
+    _printf_intcommon.o(.text) refers (Weak) to _printf_pad.o(.text) for _printf_post_padding
+    _printf_char_common.o(.text) refers to __printf_wp.o(.text) for __printf
+    _printf_char.o(.text) refers (Weak) to _printf_str.o(.text) for _printf_str
+    __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(.text.main) for main
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) for .ARM.Collect$$rtentry$$0000000A
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) for .ARM.Collect$$rtentry$$0000000B
+    __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) for .ARM.Collect$$rtentry$$0000000D
+    __rtentry4.o(.ARM.Collect$$rtentry$$00000004) refers to sys_stackheap_outer.o(.text) for __user_setup_stackheap
+    __rtentry4.o(.ARM.exidx) refers to __rtentry4.o(.ARM.Collect$$rtentry$$00000004) for .ARM.Collect$$rtentry$$00000004
+    sys_stackheap_outer.o(.text) refers to libspace.o(.text) for __user_perproc_libspace
+    sys_stackheap_outer.o(.text) refers to startup_stm32l152xe.o(.text) for __user_initial_stackheap
+    exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_alloca_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002C) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001B) for __rt_lib_init_atexit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000021) for __rt_lib_init_clock_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000032) for __rt_lib_init_cpp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_exceptions_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000002) for __rt_lib_init_fp_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001F) for __rt_lib_init_fp_trap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_getenv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000A) for __rt_lib_init_heap_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000011) for __rt_lib_init_lc_collate_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000013) for __rt_lib_init_lc_ctype_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000015) for __rt_lib_init_lc_monetary_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000017) for __rt_lib_init_lc_numeric_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000019) for __rt_lib_init_lc_time_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000004) for __rt_lib_init_preinit_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000E) for __rt_lib_init_rand_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000033) for __rt_lib_init_return
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_signal_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000025) for __rt_lib_init_stdio_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000000C) for __rt_lib_init_user_alloc_1
+    libspace.o(.text) refers to libspace.o(.bss) for __libspace_start
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.Collect$$rtexit$$00000000) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for __rt_exit_exit
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for __rt_exit_ls
+    rtexit.o(.ARM.exidx) refers (Special) to rtexit2.o(.ARM.Collect$$rtexit$$00000002) for __rt_exit_prels_1
+    rtexit.o(.ARM.exidx) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for .ARM.Collect$$rtexit$$00000000
+    libinit2.o(.ARM.Collect$$libinit$$00000010) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000012) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000014) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000016) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000018) refers to libinit2.o(.ARM.Collect$$libinit$$0000000F) for .ARM.Collect$$libinit$$0000000F
+    libinit2.o(.ARM.Collect$$libinit$$00000026) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    libinit2.o(.ARM.Collect$$libinit$$00000027) refers to argv_veneer.o(.emb_text) for __ARM_argv_veneer
+    rtexit2.o(.ARM.Collect$$rtexit$$00000003) refers to libshutdown.o(.ARM.Collect$$libshutdown$$00000000) for __rt_lib_shutdown
+    rtexit2.o(.ARM.Collect$$rtexit$$00000004) refers to sys_exit.o(.text) for _sys_exit
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
+    rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
+    sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_exit_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_exit_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    _get_argv_nomalloc.o(.text) refers (Special) to hrguard.o(.text) for __heap_region$guard
+    _get_argv_nomalloc.o(.text) refers to defsig_rtmem_outer.o(.text) for __rt_SIGRTMEM
+    _get_argv_nomalloc.o(.text) refers to sys_command.o(.text) for _sys_command_string
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000002) for __rt_lib_shutdown_cpp_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000007) for __rt_lib_shutdown_fp_trap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F) for __rt_lib_shutdown_heap_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000010) for __rt_lib_shutdown_return
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A) for __rt_lib_shutdown_signal_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$00000004) for __rt_lib_shutdown_stdio_1
+    libshutdown.o(.ARM.Collect$$libshutdown$$00000000) refers (Special) to libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C) for __rt_lib_shutdown_user_alloc_1
+    sys_command.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_command_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_command_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig_rtmem_outer.o(.text) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_rtmem_outer.o(.text) refers to defsig_exit.o(.text) for __sig_exit
+    defsig_rtmem_formal.o(.text) refers to rt_raise.o(.text) for __rt_raise
+    rt_raise.o(.text) refers to __raise.o(.text) for __raise
+    rt_raise.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_exit.o(.text) refers to sys_exit.o(.text) for _sys_exit
+    defsig_rtmem_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    __raise.o(.text) refers to defsig.o(CL$$defsig) for __default_signal_handler
+    defsig_general.o(.text) refers to sys_wrch.o(.text) for _ttywrch
+    sys_wrch.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    sys_wrch_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
+    sys_wrch_hlt.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
+    defsig.o(CL$$defsig) refers to defsig_rtmem_inner.o(.text) for __rt_SIGRTMEM_inner
+    defsig_abrt_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_fpe_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_rtred_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_stak_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_pvfn_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_cppl_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_segv_inner.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+    defsig_other.o(.text) refers to defsig_general.o(.text) for __default_signal_display
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.bss.Test_Counter), (2 bytes).
+    Removing main.o(.bss.result), (1 bytes).
+    Removing main.o(.ARM.use_no_argv), (4 bytes).
+    Removing gpio.o(.text), (0 bytes).
+    Removing gpio.o(.ARM.exidx.text.Init_User_Led), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.Set_User_Led), (8 bytes).
+    Removing gpio.o(.ARM.exidx.text.Reset_User_Led), (8 bytes).
+    Removing sys_timer.o(.text), (0 bytes).
+    Removing sys_timer.o(.text.Elapsed_Time_In_Miliseconds), (24 bytes).
+    Removing sys_timer.o(.ARM.exidx.text.Elapsed_Time_In_Miliseconds), (8 bytes).
+    Removing sys_timer.o(.text.Disable_Timeout_Counter), (18 bytes).
+    Removing sys_timer.o(.ARM.exidx.text.Disable_Timeout_Counter), (8 bytes).
+    Removing sys_timer.o(.ARM.exidx.text.Enable_Timeout_Counter), (8 bytes).
+    Removing sys_timer.o(.ARM.exidx.text.Init_System_Timer), (8 bytes).
+    Removing sys_timer.o(.ARM.exidx.text.SysTick_Handler), (8 bytes).
+    Removing uart.o(.text), (0 bytes).
+    Removing uart.o(.ARM.exidx.text.Init_Uart_For_Communication), (8 bytes).
+    Removing uart.o(.ARM.exidx.text.Init_Uart_For_Esp8266), (8 bytes).
+    Removing uart.o(.ARM.exidx.text.Init_Uart_For_Debug), (8 bytes).
+    Removing uart.o(.ARM.exidx.text.__NVIC_EnableIRQ), (8 bytes).
+    Removing uart_comm.o(.text), (0 bytes).
+    Removing uart_comm.o(.ARM.exidx.text.USART3_IRQHandler), (8 bytes).
+    Removing uart_comm.o(.ARM.exidx.text.USART2_IRQHandler), (8 bytes).
+    Removing uart_comm.o(.ARM.exidx.text.Uart_Send_Command), (8 bytes).
+    Removing uart_comm.o(.ARM.exidx.text.Uart_Send_Debug_Message), (8 bytes).
+    Removing uart_comm.o(.ARM.exidx.text.Uart_Send_Char), (8 bytes).
+    Removing esp8266_config.o(.text), (0 bytes).
+    Removing esp8266.o(.text), (0 bytes).
+    Removing esp8266.o(.text.ESP8266_Test), (20 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_Test), (8 bytes).
+    Removing esp8266.o(.text.ESP8266_Version), (22 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_Version), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_Echo_Off), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_Sends_Data_UDP_Transmission), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.UDP), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_DeleteUDP_transmission), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_CreateUDP_transmission), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_Process_Response), (8 bytes).
+    Removing esp8266.o(.ARM.exidx.text.ESP8266_Main), (8 bytes).
+    Removing esp8266.o(.bss.Response), (4 bytes).
+    Removing crc_calculation.o(.text), (0 bytes).
+    Removing crc_calculation.o(.ARM.exidx.text.Crc_Init), (8 bytes).
+    Removing crc_calculation.o(.ARM.exidx.text.Crc_Calculate), (8 bytes).
+    Removing my_protocol.o(.text), (0 bytes).
+    Removing my_protocol.o(.ARM.exidx.text.Firmware_Update_Function), (8 bytes).
+    Removing my_protocol.o(.ARM.exidx.text.Device_Information_Function), (8 bytes).
+    Removing my_protocol.o(.ARM.exidx.text.Peripheral_Control), (8 bytes).
+    Removing my_protocol.o(.bss.Read), (8 bytes).
+    Removing flash_unit.o(.text), (0 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.FLASH_Init), (8 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.Flash_Unlock_Operation), (8 bytes).
+    Removing flash_unit.o(.ARM.exidx.ARM.__at_0x20000), (8 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.FLASH_Program_Memory_Page_Erase), (8 bytes).
+    Removing flash_unit.o(.text.FLASH_Eeprom_Write), (78 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.FLASH_Eeprom_Write), (8 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.FLASH_Program_Memory_Write), (8 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.FLASH_Memory_Read), (8 bytes).
+    Removing flash_unit.o(.text.FLASH_TEST), (108 bytes).
+    Removing flash_unit.o(.ARM.exidx.text.FLASH_TEST), (8 bytes).
+    Removing flash_unit.o(.data.Eeprom_Data), (4 bytes).
+    Removing system_stm32l1xx.o(.text), (0 bytes).
+    Removing system_stm32l1xx.o(.ARM.exidx.text.SystemInit), (8 bytes).
+    Removing system_stm32l1xx.o(.text.SystemCoreClockUpdate), (126 bytes).
+    Removing system_stm32l1xx.o(.ARM.exidx.text.SystemCoreClockUpdate), (8 bytes).
+    Removing system_stm32l1xx.o(.data.SystemCoreClock), (4 bytes).
+    Removing system_stm32l1xx.o(.rodata.PLLMulTable), (9 bytes).
+    Removing system_stm32l1xx.o(.rodata.AHBPrescTable), (16 bytes).
+    Removing system_stm32l1xx.o(.rodata.APBPrescTable), (8 bytes).
+
+70 unused section(s) (total 792 bytes) removed from the image.

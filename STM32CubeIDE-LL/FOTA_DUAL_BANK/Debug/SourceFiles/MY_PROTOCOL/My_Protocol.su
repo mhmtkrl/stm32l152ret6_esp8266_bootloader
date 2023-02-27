@@ -1,0 +1,3 @@
+../SourceFiles/MY_PROTOCOL/My_Protocol.c:30:15:Firmware_Update_Function	40	static
+../SourceFiles/MY_PROTOCOL/My_Protocol.c:69:15:Device_Information_Function	24	static
+../SourceFiles/MY_PROTOCOL/My_Protocol.c:98:15:Peripheral_Control	24	static

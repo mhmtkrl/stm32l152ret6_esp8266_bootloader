@@ -1,0 +1,4 @@
+C:/Users/mehme/Embedded Systems/FOTA/stm32l152ret6_esp8266_bootloader/STM32CubeIDE-LL/FOTA_DUAL_BANK/Inc/CMSIS/core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
+../SourceFiles/UART/Uart.c:20:6:Init_Uart_For_Communication	8	static
+../SourceFiles/UART/Uart.c:38:13:Init_Uart_For_Esp8266	8	static
+../SourceFiles/UART/Uart.c:93:13:Init_Uart_For_Debug	8	static

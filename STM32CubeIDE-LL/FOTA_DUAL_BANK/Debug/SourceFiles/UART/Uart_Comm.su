@@ -1,0 +1,5 @@
+../SourceFiles/UART/Uart_Comm.c:34:6:USART3_IRQHandler	8	static
+../SourceFiles/UART/Uart_Comm.c:101:6:USART2_IRQHandler	8	static
+../SourceFiles/UART/Uart_Comm.c:128:7:Uart_Send_Debug_Message	24	static
+../SourceFiles/UART/Uart_Comm.c:144:7:Uart_Send_Command	24	static
+../SourceFiles/UART/Uart_Comm.c:160:7:Uart_Send_Char	16	static

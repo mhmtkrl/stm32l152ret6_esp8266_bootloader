@@ -1,0 +1,18 @@
+!SESSION 2023-02-27 23:22:19.645 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=tr_TR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2023-02-27 23:22:37.614
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-02-27 23:22:37.671
+!MESSAGE Log4j initialized with config file C:\Users\mehme\Embedded Systems\FOTA\stm32l152ret6_esp8266_bootloader\STM32CubeIDE-LL\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-02-27 23:22:40.515
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-02-27 23:23:17.254
+!MESSAGE Indexed 'FOTA_DUAL_BANK' (12 sources, 99 headers) in 1,82 sec: 5.881 declarations; 11.589 references; 7 unresolved inclusions; 253 syntax errors; 725 unresolved names (%4)

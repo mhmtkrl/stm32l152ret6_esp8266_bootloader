@@ -1,0 +1,2 @@
+../SourceFiles/CRC/CRC_Calculation.c:19:7:Crc_Init	4	static
+../SourceFiles/CRC/CRC_Calculation.c:40:28:Crc_Calculate	32	static

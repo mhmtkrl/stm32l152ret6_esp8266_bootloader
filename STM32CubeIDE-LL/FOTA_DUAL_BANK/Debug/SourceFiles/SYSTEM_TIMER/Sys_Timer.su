@@ -1,0 +1,5 @@
+../SourceFiles/SYSTEM_TIMER/Sys_Timer.c:27:10:Elapsed_Time_In_Miliseconds	16	static
+../SourceFiles/SYSTEM_TIMER/Sys_Timer.c:47:6:Enable_Timeout_Counter	4	static
+../SourceFiles/SYSTEM_TIMER/Sys_Timer.c:60:6:Disable_Timeout_Counter	4	static
+../SourceFiles/SYSTEM_TIMER/Sys_Timer.c:74:7:Init_System_Timer	16	static
+../SourceFiles/SYSTEM_TIMER/Sys_Timer.c:94:6:SysTick_Handler	8	static

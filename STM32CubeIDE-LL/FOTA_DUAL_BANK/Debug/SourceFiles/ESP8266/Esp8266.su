@@ -1,0 +1,9 @@
+../SourceFiles/ESP8266/Esp8266.c:38:7:ESP8266_Test	16	static
+../SourceFiles/ESP8266/Esp8266.c:54:7:ESP8266_Version	16	static
+../SourceFiles/ESP8266/Esp8266.c:70:7:ESP8266_Echo_Off	16	static
+../SourceFiles/ESP8266/Esp8266.c:85:14:ESP8266_DeleteUDP_transmission	16	static
+../SourceFiles/ESP8266/Esp8266.c:100:14:ESP8266_CreateUDP_transmission	88	static
+../SourceFiles/ESP8266/Esp8266.c:120:7:ESP8266_Sends_Data_UDP_Transmission	72	static
+../SourceFiles/ESP8266/Esp8266.c:136:6:UDP	16	static
+../SourceFiles/ESP8266/Esp8266.c:158:7:ESP8266_Process_Response	24	static
+../SourceFiles/ESP8266/Esp8266.c:179:7:ESP8266_Main	160	static

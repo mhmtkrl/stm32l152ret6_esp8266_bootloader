@@ -1,0 +1,3 @@
+../SourceFiles/GPIO/Gpio.c:19:7:Init_User_Led	4	static
+../SourceFiles/GPIO/Gpio.c:36:6:Set_User_Led	4	static
+../SourceFiles/GPIO/Gpio.c:52:6:Reset_User_Led	4	static

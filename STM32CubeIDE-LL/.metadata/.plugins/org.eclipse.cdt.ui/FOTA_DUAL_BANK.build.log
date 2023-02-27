@@ -1,0 +1,10 @@
+23:24:55 **** Incremental Build of configuration Debug for project FOTA_DUAL_BANK ****
+make -j16 all 
+arm-none-eabi-size   FOTA_DUAL_BANK.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7270	   1832	   2176	  11278	   2c0e	FOTA_DUAL_BANK.elf
+Finished building: default.size.stdout
+ 
+
+23:24:55 Build Finished. 0 errors, 0 warnings. (took 292ms)
+
